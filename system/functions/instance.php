@@ -2,14 +2,30 @@
     function makepokemon($pokemon_name, $level){
 
         switch($pokemon_name){
-            case 'fusigidane':
-                $pokemon = new pokemon('fusigidane', 'フシギダネ', 'fusigidane');
+            case 'fushigidane':
+                $pokemon = new pokemon('fushigidane', 'フシギダネ', 'fushigidane');
                 $pokemon->set_power(45 + $level * 3);
                 $pokemon->set_offensive(49);
                 $pokemon->set_defense(49);
                 $pokemon->set_speed(45);
                 $pokemon->set_attribute1('weed');
                 $pokemon->set_attribute2('poison');
+                break;
+            case 'hitokage':
+                $pokemon = new pokemon('hitokage', 'ヒトカゲ', 'hitokage');
+                $pokemon->set_power(35 + $level * 3);
+                $pokemon->set_offensive(55);
+                $pokemon->set_defense(30);
+                $pokemon->set_speed(90);
+                $pokemon->set_attribute1('fire');
+                break;
+            case 'zenigame':
+                $pokemon = new pokemon('zenigame', 'ゼニガメ', 'zenigame');
+                $pokemon->set_power(30 + $level * 3);
+                $pokemon->set_offensive(56);
+                $pokemon->set_defense(35);
+                $pokemon->set_speed(72);
+                $pokemon->set_attribute1('water');
                 break;
             case 'pikachu':
                 $pokemon = new pokemon('pikachu', 'ピカチュウ', 'pikachu');
@@ -235,11 +251,23 @@
     function acquire_pokemon($pokemon_name, $level){
 
         switch($pokemon_name){
-            case 'fusigidane':
+            case 'fushigidane':
                 $assass1 = new Assassinate('whipping', 'つるのむち', 29, 0);
                 $assass2 = new Assassinate('whistle', 'なきごえ', 2, 8);
                 $assass3 = new Assassinate('tackle', 'たいあたり', 16, 0);
                 $assass4 = new Assassinate('mistletoe', 'やどりぎ', 9, 6); 
+                break;
+            case 'hitokage':
+                $assass1 = new Assassinate('fire', 'ひのこ', 26, 0);
+                $assass2 = new Assassinate('whistle', 'なきごえ', 2, 8);
+                $assass3 = new Assassinate('waves', 'でんじは', 8, 6);
+                $assass4 = new Assassinate('lightning', 'でんこうせっか', 15, 3);    
+                break;
+            case 'zenigame':
+                $assass1 = new Assassinate('watergun', 'みずでっぽう', 26, 0);
+                $assass2 = new Assassinate('wagging', 'しっぽをふる', 0, 8);
+                $assass3 = new Assassinate('lightning', 'でんこうせっか', 15, 3);
+                $assass4 = new Assassinate('teeth', 'ひっさつまえば', 31, 0);    
                 break;
             case 'pikachu':
                 $assass1 = new Assassinate('electric', 'でんきショック', 26, 0);

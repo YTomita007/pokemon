@@ -13,6 +13,12 @@
 
     function initial_pokemon(){
 
+        $fushigidane = makepokemon('fushigidane', 1);
+
+        $hitokage = makepokemon('hitokage', 1);
+
+        $zenigame = makepokemon('zenigame', 1);
+
         $pikachu = makepokemon('pikachu', 1);
 
         $koratta = makepokemon('koratta', 1);
@@ -25,7 +31,7 @@
 
         $kacy = makepokemon('kacy', 1);
 
-        $inipoke = [$pikachu, $koratta, $colon, $nyoromo, $tamatama, $kacy];
+        $inipoke = [$fushigidane, $hitokage, $zenigame, $pikachu, $koratta, $colon, $nyoromo, $tamatama, $kacy];
 
         return $inipoke;
     }
