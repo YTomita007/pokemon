@@ -13,7 +13,7 @@
         $_mypokemon = $_GET['mypokemon'];
 	}
 	
-	list($mypokemon) = my_instance($_mypokemon);
+	$mypokemon = my_instance($_mypokemon);
 
 	$inipoke = initial_pokemon();
 
@@ -77,6 +77,25 @@
 						<input type="radio" title="oppokemon" name="oppokemon" value="<?php echo $inipoke[5]->identify; ?>" id="<?php echo $inipoke[5]->identify; ?>">
 						<label for="<?php echo $inipoke[5]->identify; ?>">
 							<img alt="いけー！<?php echo $inipoke[5]->name; ?>！" src="../images/pokemons/<?php echo $inipoke[5]->picture; ?>.png">
+						</label>
+					</div>
+					<br><br>
+					<div class="alternative">
+						<input type="radio" title="mypokemon" name="mypokemon" value="<?php echo $inipoke[6]->identify; ?>" id="<?php echo $inipoke[6]->identify; ?>">
+						<label for="<?php echo $inipoke[6]->identify; ?>">
+							<img alt="いけー！<?php echo $inipoke[6]->name; ?>！" src="../images/pokemons/<?php echo $inipoke[6]->picture; ?>.png">
+						</label>
+					</div>
+					<div class="alternative">
+						<input type="radio" title="mypokemon" name="mypokemon" value="<?php echo $inipoke[7]->identify; ?>" id="<?php echo $inipoke[7]->identify; ?>">
+						<label for="<?php echo $inipoke[7]->identify; ?>">
+							<img alt="いけー！<?php echo $inipoke[7]->name; ?>！" src="../images/pokemons/<?php echo $inipoke[7]->picture; ?>.png">
+						</label>
+					</div>
+					<div class="alternative">
+						<input type="radio" title="mypokemon" name="mypokemon" value="<?php echo $inipoke[8]->identify; ?>" id="<?php echo $inipoke[8]->identify; ?>">
+						<label for="<?php echo $inipoke[8]->identify; ?>">
+							<img alt="いけー！<?php echo $inipoke[8]->name; ?>！" src="../images/pokemons/<?php echo $inipoke[8]->picture; ?>.png">
 						</label>
 					</div>
 					<br><br>
