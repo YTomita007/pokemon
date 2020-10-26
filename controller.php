@@ -11,12 +11,14 @@
         $_mypokemon = $_GET['mypokemon'];
         $_oppokemon = $_GET['oppokemon'];
         $selectleader = $_GET['gymleader'];
+        $badge = $_GET['badge'];
     } else {
         $process = $_POST['process'];
         $orders = $_POST['orders'];
         $_mypokemon = $_POST['mypokemon'];
         $_oppokemon = $_POST['oppokemon'];
         $selectleader = $_POST['gymleader'];
+        $badge = $_POST['badge'];
     }
 
     if(isset($_GET['level']) || isset($_POST['level'])){
@@ -91,6 +93,13 @@
                 'gymleader' => $selectleader,
             ];
             header('Location: ./contents/story/lose.php?'.http_build_query($params, '', '&'), true, 307);
+            break;
+        case 213:
+            $params = [
+                'mypokemon' => $mypokemon->identify,
+                'badge' => $badge,
+            ];
+            header('Location: ./contents/story/growup.php?'.http_build_query($params, '', '&'), true, 307);
             break;
         case 901:
             if($dataclear == 'yes'){

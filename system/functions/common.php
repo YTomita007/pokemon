@@ -136,7 +136,8 @@
             $level2 = 37;
             $gymleader = appear_leaders('kyo');
             $pokemon1 = makepokemon('betbeton', $level1);
-            $pokemon2 = makepokemon('matadogas', $level2);
+            $pokemon2 = makepokemon('golbat', $level2);
+            $pokemon3 = makepokemon('matadogas', $level3);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'natsume'){
             $level1 = 39;

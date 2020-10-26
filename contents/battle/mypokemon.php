@@ -19,7 +19,7 @@
 			<h1>ポケモン選択画面！</h1>
 			<div class="form-box">
 				<div class="commandline">
-					<P>	★自分のポケモンを選択してください</p>
+					<P>	★じぶんの ポケモンを せんたくしてください</p>
 				</div>
 				<form action="oppokemon.php" method="post">
 					<div class="alternative">

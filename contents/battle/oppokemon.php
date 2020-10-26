@@ -32,13 +32,13 @@
 		<div align="center">
 			<h1>ポケモン選択画面！</h1>
 			<div class="leftside">
-				<P>	★自分の選んだポケモンは<b><?php echo $mypokemon->name; ?></b>です</p>
+				<P>	★じぶんの えらんだポケモンは<b><?php echo $mypokemon->name; ?></b>です</p>
 				<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
 			</div>
 			<br>
 			<div class="form-box">
 				<div class="commandline">
-					<P>	★相手のポケモンを選択してください</p>
+					<P>	★あいての ポケモンを せんたくしてください</p>
 				</div>
 				<form action="onmarks.php" method="post">
 					<input type="hidden" name="mypokemon" value="<?php echo $mypokemon->identify; ?>">

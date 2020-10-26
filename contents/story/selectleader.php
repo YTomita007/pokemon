@@ -24,7 +24,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>たたかえ！ジムリーダー編</title>
+		<title>たたかえ！ジムリーダー！</title>
 		<link rel="stylesheet" href="../../system/css/style.css">
 	</head>
     <body>
@@ -32,14 +32,14 @@
 			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
 		</div>
 		<div align="center">
-			<h1>たたかえ！ジムリーダー編</h1>
+			<h1>たたかえ！ジムリーダー！</h1>
 			<div class="leftside">
-				<P>	★自分の選んだポケモンは<b><?php echo $mypokemon->name; ?></b>です</p>
+				<P>	★じぶんの えらんだポケモンは<b><?php echo $mypokemon->name; ?></b>です</p>
 				<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
 			</div>
 			<div class="form-box">
 				<div class="commandline">
-					<P>	★対戦するジムリーダーを選択してください</p>
+					<P>	★たいせんする ジムリーダーを せんたくしてください</p>
 				</div>
 				<form action="../../controller.php" method="post">
 					<input type="hidden" name="process" value="102">
