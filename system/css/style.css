@@ -1,0 +1,251 @@
+body {
+    background-color: linen;
+}
+
+h1 {
+    color: maroon;
+}
+
+h2 {
+    font-size: 50px;
+    color: darkslateblue;
+}
+
+img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.battle {
+    display: inline-flex;
+}
+
+.leftside {
+    text-align: left;
+    max-width: 80%;
+    margin-right: 150px;
+    }
+    .leftside h3 {
+        text-align: center;
+    }
+    .leftside img {
+        margin-left: 50px;
+    }
+
+
+.rightside {
+    text-align: right;
+    max-width: 80%;
+    margin-left: 150px;
+    }
+    .rightside h3 {
+        text-align: center;
+    }
+
+.form-box {
+    border: solid;
+    margin: auto 0;
+    max-width: 80%;
+    text-align: center;
+    padding-top: 20PX;
+}
+
+.form-box-non {
+    margin: auto 0;
+    max-width: 80%;
+    text-align: center;
+    padding-top: 20PX;
+}
+
+.badge {
+    position: absolute;
+    padding: 0 0 0 100PX;
+}
+
+.badge img {
+    max-width: 100px;
+}
+
+.commandbox {
+    width: 100%;
+    margin: 0 0 20px 0;
+}
+
+.selectcommand {
+    display: inline-block;
+    padding: 0 50px;
+}
+
+.myposition {
+    width: 20%;
+    padding-right: 60px;
+    display: inline-block;
+}
+
+.dialoguebox {
+    width: 70%;
+    border: solid;
+    text-align: left;
+    height: 250px;
+    display: inline-block;
+}
+
+.situation {
+    text-align: left;
+    margin-left: 30px;
+    font-size: large;
+    height: 130px;
+    display: inline-flex;
+}
+
+.description {
+    padding: 0 60px;
+}
+
+.scroll {
+    font-weight: bold;
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.commandline {
+    text-align: left;
+    margin-left: 30px;
+    font-size: 24px;
+}
+
+.battlecommand {
+    padding: 20px;
+    height: 70px;
+    display: inline-block;
+}
+
+.alternative {
+    padding: 20px;
+    height: 200px;
+    max-width: 28%;
+    display: inline-block;
+}
+
+.alternative img {
+    max-height: 200px;
+}
+
+.ready {
+    display: inline-flex;
+}
+
+.winner {
+        margin: auto;
+    }
+    .winner img {
+        max-width: 600px;
+        max-height: 600px;
+    }
+
+.btn-square1 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+  }
+  .btn-square:active {
+    /*ボタンを押したとき*/
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}
+
+.btn-square2 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #00ff0c;/*ボタン色*/
+    color: rgb(0, 0, 0);
+    border-bottom: solid 4px #2c352f;
+    border-radius: 3px;
+  }
+  .btn-square2:active {
+    /*ボタンを押したとき*/
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}
+
+input[type=radio] {
+    display: none; /* ラジオボタンを非表示にする */
+}
+input[type="radio"]:checked + label {
+    background: #31A9EE;/* マウス選択時の背景色を指定する */
+    color: #ffffff; /* マウス選択時のフォント色を指定する */
+}
+.label:hover {
+    background-color: #E2EDF9; /* マウスオーバー時の背景色を指定する */
+}
+
+label {
+    display: block; /* ブロックレベル要素化する */
+    float: left; /* 要素の左寄せ・回り込を指定する */
+    margin: 5px; /* ボックス外側の余白を指定する */
+    padding-left: 5px; /* ボックス内左側の余白を指定する */
+    padding-right: 5px; /* ボックス内御右側の余白を指定する */
+    color: #b20000; /* フォントの色を指定 */
+    text-align: center; /* テキストのセンタリングを指定する */
+    line-height: 45px; /* 行の高さを指定する */
+    cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+    border: 2px solid #006DD9;/* ボックスの境界線を実線で指定する */
+    border-radius: 5px; /* 角丸を指定する */
+}
+
+.togglelabel {
+    display: block;
+    position: relative;
+    margin: 20px;
+    padding: 15px 30px 15px 62px;
+    border: 3px solid #fff;
+    border-radius: 100px;
+    color: #fff;
+    background-color: #6a8494;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color .2s, box-shadow .2s;
+  }
+  
+  .togglelabel::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    width: 32px;
+    border: 3px solid #fff;
+    border-radius: 100px;
+    transition: background-color .2s;
+  }
+  
+  .togglelabel:first-of-type {
+    transform: translateX(-40px);
+  }
+  
+  .togglelabel:last-of-type {
+    transform: translateX(40px);
+  }
+  
+  .togglelabel:hover, input:focus + .togglelabel {
+    box-shadow: 0 0 20px rgba(0, 0, 0, .6);
+  }
+  
+  input:checked + .togglelabel {
+    background-color: #ab576c;
+  }
+  
+  input:checked + .togglelabel::before {
+    background-color: #fff;
+  }
