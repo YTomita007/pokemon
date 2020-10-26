@@ -23,12 +23,12 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
 		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>リーダー<?php echo $gymleader->name; ?>に勝利！</title>
+		<title>リーダー<?php echo $gymleader->name; ?>に しょうり！</title>
 		<link rel="stylesheet" href="../../system/css/style.css">
 	</head>
     <body>
 		<div align="center">
-			<h1>リーダー<?php echo $gymleader->name; ?>に勝利！</h1>
+			<h1>リーダー<?php echo $gymleader->name; ?>に しょうり！</h1>
 			<div class="alternative">
 			</div>
 			<div class="alternative">
@@ -51,7 +51,11 @@
 					</div>
 				</div>
 				<form action="../../controller.php" method="post">
-					<button type="button" class="btn-square1" onclick="location.href='selectleader.php' "value="えらびなおし!">せんたくがめんにもどる</button>
+					<input type="hidden" name="process" value="213">
+					<input type="hidden" name="badge" value="<?php echo $badge; ?>">
+					<input type="hidden" name="mypokemon" value="<?php echo $mypokemon->identify; ?>">
+					<button type="submit" class="btn-square1">せんたくがめんにもどる</button>
+					<!-- <button type="button" class="btn-square1" onclick="location.href='selectleader.php' "value="せんたくがめんにもどる">せんたくがめんにもどる</button> -->
 				</form>
 			</div>
 		</div>

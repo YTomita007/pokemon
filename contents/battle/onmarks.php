@@ -45,12 +45,12 @@
 					<input type="hidden" name="oppower" value="<?php echo $oppokemon->power; ?>">
 					<div class="ready">
 						<div class="leftside">
-							<h3>自分の選んだポケモンは<?php echo $mypokemon->name; ?>です</h3>
+							<h3>じぶんの えらんだポケモンは<?php echo $mypokemon->name; ?>です</h3>
 							<h3>HP：<?php echo $mypokemon->power; ?>です</h3>
 							<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
 						</div>
 						<div class="rightside">
-							<h3>相手の選んだポケモンは<?php echo $oppokemon->name; ?>です</h3>
+							<h3>あいての えらんだポケモンは<?php echo $oppokemon->name; ?>です</h3>
 							<h3>HP：<?php echo $oppokemon->power; ?>です</h3>
 							<img alt="いけー！<?php echo $oppokemon->name; ?>！" src="../images/pokemons/<?php echo $oppokemon->picture; ?>.png">
 						</div>

@@ -12,7 +12,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>たたかえ！ジムリーダー編</title>
+		<title>たたかえ！ジムリーダー！</title>
 		<link rel="stylesheet" href="../../system/css/style.css">
 	</head>
     <body>
@@ -20,10 +20,10 @@
 			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
 		</div>
 		<div align="center">
-			<h1>たたかえ！ジムリーダー編</h1>
+			<h1>たたかえ！ジムリーダー！</h1>
 			<div class="form-box">
 				<div class="commandline">
-					<P>	★自分のポケモンを選択してください</p>
+					<P>	★じぶんの ポケモンを せんたくしてください</p>
 				</div>
 				<form action="selectleader.php" method="post">
 					<div class="alternative">

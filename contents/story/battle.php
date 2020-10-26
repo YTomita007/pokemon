@@ -74,7 +74,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>ポケモンバトル</title>
+		<title>リーダー<?php echo $gymleader->name; ?>と しょうぶ！</title>
 		<link rel="stylesheet" href="../../system/css/style.css">
 	</head>
     <body>
@@ -82,7 +82,7 @@
 			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
 		</div>
 		<div align="center">
-			<h1>ポケモンバトル！</h1>
+			<h1>リーダー<?php echo $gymleader->name; ?>と しょうぶ！</h1>
 			<br><br>
 			<div class="battle">
                 <div class="leftside">
