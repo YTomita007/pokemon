@@ -17,6 +17,8 @@
 
 	$inipoke = initial_pokemon();
 
+	unset($_SESSION['oppokemon']);
+
 	$_SESSION['mypokemon'] = $mypokemon->identify;;
 ?>
 <html>
@@ -81,19 +83,19 @@
 					</div>
 					<br><br>
 					<div class="alternative">
-						<input type="radio" title="mypokemon" name="mypokemon" value="<?php echo $inipoke[6]->identify; ?>" id="<?php echo $inipoke[6]->identify; ?>">
+						<input type="radio" title="oppokemon" name="oppokemon" value="<?php echo $inipoke[6]->identify; ?>" id="<?php echo $inipoke[6]->identify; ?>">
 						<label for="<?php echo $inipoke[6]->identify; ?>">
 							<img alt="いけー！<?php echo $inipoke[6]->name; ?>！" src="../images/pokemons/<?php echo $inipoke[6]->picture; ?>.png">
 						</label>
 					</div>
 					<div class="alternative">
-						<input type="radio" title="mypokemon" name="mypokemon" value="<?php echo $inipoke[7]->identify; ?>" id="<?php echo $inipoke[7]->identify; ?>">
+						<input type="radio" title="oppokemon" name="oppokemon" value="<?php echo $inipoke[7]->identify; ?>" id="<?php echo $inipoke[7]->identify; ?>">
 						<label for="<?php echo $inipoke[7]->identify; ?>">
 							<img alt="いけー！<?php echo $inipoke[7]->name; ?>！" src="../images/pokemons/<?php echo $inipoke[7]->picture; ?>.png">
 						</label>
 					</div>
 					<div class="alternative">
-						<input type="radio" title="mypokemon" name="mypokemon" value="<?php echo $inipoke[8]->identify; ?>" id="<?php echo $inipoke[8]->identify; ?>">
+						<input type="radio" title="oppokemon" name="oppokemon" value="<?php echo $inipoke[8]->identify; ?>" id="<?php echo $inipoke[8]->identify; ?>">
 						<label for="<?php echo $inipoke[8]->identify; ?>">
 							<img alt="いけー！<?php echo $inipoke[8]->name; ?>！" src="../images/pokemons/<?php echo $inipoke[8]->picture; ?>.png">
 						</label>

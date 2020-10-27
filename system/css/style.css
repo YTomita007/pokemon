@@ -132,6 +132,11 @@ img {
     max-height: 200px;
 }
 
+.evolution {
+    padding: 20px;
+    display: inline-block;
+}
+
 .ready {
     display: inline-flex;
 }

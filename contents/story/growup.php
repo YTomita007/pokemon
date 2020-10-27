@@ -17,7 +17,9 @@
 	if(isset($_GET['badge']) || isset($_POST['badge'])){
         $badge = $_GET['badge'];
         $badge = $_POST['badge'];
-    }
+	}
+	
+	$level = $_SESSION['level'];
 ?>
 
 <html>
@@ -38,13 +40,43 @@
 				<img alt="<?php echo $badge; ?>を てにいれた" src="../images/items/<?php echo $badge; ?>.png">
 			</div>
 			<br><br>
-			<div class="commandbox">
-				<div class="dialoguebox">
-					<div class="description">
-						<h3>レベルが５あがった！</h3>
+			<?php
+				if(30 < $level){
+			?>
+				<div class="form-box">
+					<div class="commandline">
+						<h3>おや、<?php echo $mypokemon->name; ?>のようすが・・・？
+						<form action="../../controller.php" method="post">
+							<div class="evolution">
+								<h3>しんか する</h3>
+								<input type="radio" title="process" name="process" value="222" id="evolution" checked>
+								<label for="evolution">
+									<img alt="しんか する" src="../images/items/monsterball.png">
+								</label>
+							</div>
+							<button type="submit" class="btn-square1">けってい！</button>
+						</div>
 					</div>
 				</div>
-			</div>
+			<?php
+				} else {
+			?>
+				<div class="commandbox">
+					<div class="dialoguebox">
+						<div class="description">
+								<h3>
+									<?php echo $mypokemon->name; ?>のレベルが<?php echo $level; ?>になった！<br><br>
+									たいりょくが <?php echo $mypokemon->power; ?>に なった！<br>
+									こうげきが <?php echo $mypokemon->offensive; ?>に なった！<br>
+									ぼうぎょが <?php echo $mypokemon->defense; ?>に なった！<br>
+									すばやさが <?php echo $mypokemon->speed; ?>に なった！<br>
+								</h3>
+						</div>
+					</div>
+				</div>
+			<?php
+				}
+			?>
 			<button type="button" class="btn-square1" onclick="location.href='selectleader.php' "value="リーダーのせんたくがめんにもどる">せんたくがめんにもどる</button>
 		</div>
     </body>

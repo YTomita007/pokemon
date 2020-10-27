@@ -24,7 +24,8 @@
 					<input type="hidden" name="process" value="901">
 					<div class="selectcommand">
 						<div class="commandline">
-							<P>	しゅとくしたバッジをクリアしますか？</p>
+							<P>	しゅとくしたバッジや<br>
+								ポケモンのレベルをクリアしますか？</p>
 						</div>
 					</div>
 					<div class="selectcommand">
