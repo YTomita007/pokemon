@@ -3,20 +3,49 @@
 
         switch($pokemon_name){
             case 'fushigidane':
-                $pokemon = new pokemon('fushigidane', 'フシギダネ', 'fushigidane');
-                $pokemon->set_power(45 + $level * 3);
-                $pokemon->set_offensive(49);
-                $pokemon->set_defense(49);
-                $pokemon->set_speed(45);
-                $pokemon->set_attribute1('weed');
-                $pokemon->set_attribute2('poison');
+                if($level > 30){
+                    $pokemon = new pokemon('fushigisou', 'フシギソウ', 'fushigisou');
+                    $pokemon->set_power(60 + $level * 4);
+                    $pokemon->set_offensive(62 + $level * 2);
+                    $pokemon->set_defense(63 + $level * 3);
+                    $pokemon->set_speed(60 + $level * 1);
+                    $pokemon->set_attribute1('weed');
+                    $pokemon->set_attribute2('poison');
+                } else {
+                    $pokemon = new pokemon('fushigidane', 'フシギダネ', 'fushigidane');
+                    $pokemon->set_power(45 + $level * 3);
+                    $pokemon->set_offensive(49 + $level * 2);
+                    $pokemon->set_defense(49 + $level * 3);
+                    $pokemon->set_speed(45 + $level * 1);
+                    $pokemon->set_attribute1('weed');
+                    $pokemon->set_attribute2('poison');
+                }
+                break;
+            case 'fushigisou':
+                if($level > 50){
+                    $pokemon = new pokemon('fushigibana', 'フシギバナ', 'fushigibana');
+                    $pokemon->set_power(80 + $level * 5);
+                    $pokemon->set_offensive(82 + $level * 2);
+                    $pokemon->set_defense(83 + $level * 3);
+                    $pokemon->set_speed(80 + $level * 1);
+                    $pokemon->set_attribute1('weed');
+                    $pokemon->set_attribute2('poison');
+                } else {
+                    $pokemon = new pokemon('fushigisou', 'フシギソウ', 'fushigisou');
+                    $pokemon->set_power(60 + $level * 4);
+                    $pokemon->set_offensive(62 + $level * 2);
+                    $pokemon->set_defense(63 + $level * 3);
+                    $pokemon->set_speed(60 + $level * 1);
+                    $pokemon->set_attribute1('weed');
+                    $pokemon->set_attribute2('poison');
+                }
                 break;
             case 'hitokage':
                 $pokemon = new pokemon('hitokage', 'ヒトカゲ', 'hitokage');
                 $pokemon->set_power(35 + $level * 3);
-                $pokemon->set_offensive(55);
-                $pokemon->set_defense(30);
-                $pokemon->set_speed(90);
+                $pokemon->set_offensive(49 + $level * 2);
+                $pokemon->set_defense(49 + $level * 3);
+                $pokemon->set_speed(90 + $level * 1);
                 $pokemon->set_attribute1('fire');
                 break;
             case 'zenigame':

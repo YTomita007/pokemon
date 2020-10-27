@@ -51,11 +51,10 @@
 					</div>
 				</div>
 				<form action="../../controller.php" method="post">
-					<input type="hidden" name="process" value="213">
+					<input type="hidden" name="process" value="221">
 					<input type="hidden" name="badge" value="<?php echo $badge; ?>">
 					<input type="hidden" name="mypokemon" value="<?php echo $mypokemon->identify; ?>">
 					<button type="submit" class="btn-square1">せんたくがめんにもどる</button>
-					<!-- <button type="button" class="btn-square1" onclick="location.href='selectleader.php' "value="せんたくがめんにもどる">せんたくがめんにもどる</button> -->
 				</form>
 			</div>
 		</div>

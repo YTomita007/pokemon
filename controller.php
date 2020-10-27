@@ -31,7 +31,11 @@
     $degrees = $_POST['degrees'];
 
     if(isset($_mypokemon)){
-        $mypokemon = my_instance($_mypokemon);
+        if($process == 223){
+
+        } else {
+            $mypokemon = my_instance($_mypokemon);
+        }
         $_SESSION['mypokemon'] = $mypokemon->identify;
     }
 
@@ -94,40 +98,33 @@
             ];
             header('Location: ./contents/story/lose.php?'.http_build_query($params, '', '&'), true, 307);
             break;
-        case 213:
+        case 221:
             $params = [
                 'mypokemon' => $mypokemon->identify,
                 'badge' => $badge,
             ];
             header('Location: ./contents/story/growup.php?'.http_build_query($params, '', '&'), true, 307);
             break;
+        case 222:
+            $params = [
+                'mypokemon' => $mypokemon->identify,
+                'process' => $process,
+            ];
+            header('Location: ./contents/story/result.php?'.http_build_query($params, '', '&'), true, 307);
+            break;
+        case 223:
+            $params = [
+                'mypokemon' => $mypokemon->identify,
+                'process' => $process,
+            ];
+            header('Location: ./contents/story/result.php?'.http_build_query($params, '', '&'), true, 307);
+            break;
+    
         case 901:
             if($dataclear == 'yes'){
-              unset($_SESSION['graybadge']);
-              unset($_SESSION['bluebadge']);
-              unset($_SESSION['orangebadge']);
-              unset($_SESSION['rainbowbadge']);
-              unset($_SESSION['pinkbadge']);
-              unset($_SESSION['goldbadge']);
-              unset($_SESSION['crimsonbadge']);
-              unset($_SESSION['greenbadge']);
-              $message = "バッジデータをクリアしました<br>";
-            }
-            if(isset($degrees)){
-                switch($degrees){
-                    case 'easy':
-                        $_SESSION['degrees'] = 'easy';
-                        $message = $message."ゲームのレベルを「かんたん」に せっていしました";
-                        break;
-                    case 'moderate':
-                        $_SESSION['degrees'] = 'moderate';
-                        $message = $message."ゲームのレベルを「それなり」に せっていしました";
-                        break;
-                    case 'hard':
-                        $_SESSION['degrees'] = 'hard';
-                        $message = $message."ゲームのレベルを「むずいよ」に せっていしました";
-                        break;
-                }
+                $message = trancate_alldata($dataclear, $degrees);
+            } else {
+                $message = trancate_alldata($dataclear, $degrees);
             }
             header('Location: ./contents/setting/index.php?message='.$message, true, 307);
             break;

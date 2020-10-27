@@ -1,9 +1,13 @@
 <?php
+	session_start();
+
 	require '../../system/class/Pokemon.class.php';
 	require '../../system/class/Assassinate.class.php';
 	require '../../system/functions/common.php';
 
 	$inipoke = initial_pokemon();
+
+	unset($_SESSION['mypokemon']);
 ?>
 <html>
 	<head>

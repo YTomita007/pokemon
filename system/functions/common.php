@@ -38,24 +38,43 @@
 
     function my_instance($_mypokemon){
 
+        $firstlevel = 17;
+        $_SESSION['level'] = $firstlevel;
+
         if (($_SESSION['greenbadge'] == true)) {
-            $mypokemon = makepokemon($_mypokemon, 63);
+            $greenbadgelevel = 63;
+            $mypokemon = makepokemon($_mypokemon, $greenbadgelevel);
+            $_SESSION['level'] = $greenbadgelevel;
         } elseif ($_SESSION['crimsonbadge'] == true) {
-            $mypokemon = makepokemon($_mypokemon, 56);
+            $crimsonbadgelevel = 57;
+            $mypokemon = makepokemon($_mypokemon, $crimsonbadgelevel);
+            $_SESSION['level'] = $crimsonbadgelevel;
         } elseif (($_SESSION['goldbadge'] == true)) {
-            $mypokemon = makepokemon($_mypokemon, 51);
+            $goldbadgelevel = 51;
+            $mypokemon = makepokemon($_mypokemon, $goldbadgelevel);
+            $_SESSION['level'] = $goldbadgelevel;
         } elseif (($_SESSION['pinkbadge'] == true)) {
-            $mypokemon = makepokemon($_mypokemon, 45);
+            $pinkbadgelevel = 45;
+            $mypokemon = makepokemon($_mypokemon, $pinkbadgelevel);
+            $_SESSION['level'] = $pinkbadgelevel;
         } elseif ($_SESSION['rainbowbadge'] == true) {
-            $mypokemon = makepokemon($_mypokemon, 39);
+            $rainbowbadgelevel = 39;
+            $mypokemon = makepokemon($_mypokemon, $rainbowbadgelevel);
+            $_SESSION['level'] = $rainbowbadgelevel;
         } elseif (($_SESSION['orangebadge'] == true)) {
-            $mypokemon = makepokemon($_mypokemon, 33);
+            $orangebadgelevel = 33;
+            $mypokemon = makepokemon($_mypokemon, $orangebadgelevel);
+            $_SESSION['level'] = $orangebadgelevel;
         } elseif ($_SESSION['bluebadge'] == true) {
-            $mypokemon = makepokemon($_mypokemon, 27);
+            $bluebadgelevel = 27;
+            $mypokemon = makepokemon($_mypokemon, $bluebadgelevel);
+            $_SESSION['level'] = $bluebadgelevel;
         } elseif ($_SESSION['graybadge'] == true) {
-            $mypokemon = makepokemon($_mypokemon, 22);
+            $graybadgelevel = 22;
+            $mypokemon = makepokemon($_mypokemon, $graybadgelevel);
+            $_SESSION['level'] = $graybadgelevel;
         } else {
-        $mypokemon = makepokemon($_mypokemon, 17);
+        $mypokemon = makepokemon($_mypokemon, $firstlevel);
         }        
 
         return $mypokemon;
@@ -323,5 +342,40 @@
         }
 
         return $badge;
+    }
+
+    function trancate_alldata($_dataclear, $_degrees){
+
+        if($_dataclear == 'yes'){
+            unset($_SESSION['graybadge']);
+            unset($_SESSION['bluebadge']);
+            unset($_SESSION['orangebadge']);
+            unset($_SESSION['rainbowbadge']);
+            unset($_SESSION['pinkbadge']);
+            unset($_SESSION['goldbadge']);
+            unset($_SESSION['crimsonbadge']);
+            unset($_SESSION['greenbadge']);
+            unset($_SESSION['level']);
+            $message = "バッジデータをクリアしました<br>";
+        }
+
+        if(isset($_degrees)){
+            switch($_degrees){
+                case 'easy':
+                    $_SESSION['degrees'] = 'easy';
+                    $message = $message."ゲームのレベルを「かんたん」に せっていしました";
+                    break;
+                case 'moderate':
+                    $_SESSION['degrees'] = 'moderate';
+                    $message = $message."ゲームのレベルを「それなり」に せっていしました";
+                    break;
+                case 'hard':
+                    $_SESSION['degrees'] = 'hard';
+                    $message = $message."ゲームのレベルを「むずいよ」に せっていしました";
+                    break;
+            }
+        }
+    
+        return $message;
     }
 ?>
