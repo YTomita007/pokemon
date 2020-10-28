@@ -57,7 +57,7 @@
 					</div>
 					<br><br>
 					<div class="parallel">
-						<button type="button" class="btn-square2" onclick="location.href='oppokemon.php' "value="えらびなおし!">えらびなおし!</button>
+						<button type="button" class="btn-square2" onclick="location.href='oppokemon.php' "value="えらびなおし">えらびなおし</button>
 						<button type="submit" class="btn-square1">けってい！</button>
 					</div>
 				</form>

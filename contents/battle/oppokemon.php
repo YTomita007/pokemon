@@ -101,7 +101,7 @@
 						</label>
 					</div>
 					<br><br>
-					<button type="button" class="btn-square2" onclick="location.href='mypokemon.php' "value="えらびなおし!">えらびなおし!</button>
+					<button type="button" class="btn-square2" onclick="location.href='mypokemon.php' "value="えらびなおし">えらびなおし</button>
 					<button type="submit" class="btn-square1">けってい！</button>
 				</form>
 			</div>
