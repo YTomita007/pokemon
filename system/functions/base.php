@@ -21,7 +21,7 @@
 
         $pikachu = makepokemon('pikachu', 1);
 
-        $koratta = makepokemon('koratta', 1);
+        $kacy = makepokemon('kacy', 1);
 
         $colon = makepokemon('colon', 1);
 
@@ -29,9 +29,9 @@
 
         $tamatama = makepokemon('tamatama', 1);
 
-        $kacy = makepokemon('kacy', 1);
+        $koratta = makepokemon('koratta', 1);
 
-        $inipoke = [$fushigidane, $hitokage, $zenigame, $pikachu, $koratta, $colon, $nyoromo, $tamatama, $kacy];
+        $inipoke = [$fushigidane, $hitokage, $zenigame, $pikachu, $kacy, $colon, $nyoromo, $tamatama, $koratta];
 
         return $inipoke;
     }
@@ -157,18 +157,18 @@
             $pokemon2 = makepokemon('rafflesia', $level2);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'kyo'){
-            $level1 = 35;
-            $level2 = 37;
-            $level3 = 40;
+            $level1 = 32;
+            $level2 = 35;
+            $level3 = 39;
             $gymleader = appear_leaders('kyo');
             $pokemon1 = makepokemon('betbeton', $level1);
             $pokemon2 = makepokemon('golbat', $level2);
             $pokemon3 = makepokemon('matadogas', $level3);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'natsume'){
-            $level1 = 39;
-            $level2 = 38;
-            $level3 = 44;
+            $level1 = 46;
+            $level2 = 43;
+            $level3 = 49;
             $gymleader = appear_leaders('natsume');
             $pokemon1 = makepokemon('yungerer', $level1);
             $pokemon2 = makepokemon('barrierd', $level2);
@@ -371,15 +371,7 @@
     function trancate_alldata($_dataclear, $_degrees){
 
         if($_dataclear == 'yes'){
-            unset($_SESSION['graybadge']);
-            unset($_SESSION['bluebadge']);
-            unset($_SESSION['orangebadge']);
-            unset($_SESSION['rainbowbadge']);
-            unset($_SESSION['pinkbadge']);
-            unset($_SESSION['goldbadge']);
-            unset($_SESSION['crimsonbadge']);
-            unset($_SESSION['greenbadge']);
-            unset($_SESSION['level']);
+            session_destroy();
             $_SESSION['evolution_status'] = 0;
             $message = "バッジやポケモンデータをクリアしました<br>";
         }

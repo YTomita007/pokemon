@@ -26,11 +26,13 @@
 			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
 		</div>
 		<div align="center">
-			<div class="alternative">
-				<P>	★じぶんの えらんだポケモンは<b><?php echo $mypokemon->name; ?></b>です</p>
-				<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
+			<div class="profile">
+				<h3><?php echo $mypokemon->name; ?></h3>
+				<div class="winner">
+					<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
+				</div>
 			</div>
-			<div class="alternative">
+			<div class="profile">
 				<table>
 					<tr>
 						<th>こうもく</th>

@@ -63,9 +63,9 @@
             case 'fushigibana':
                 $pokemon = new pokemon('fushigibana', 'フシギバナ', 'fushigibana');
                 $pokemon->set_power(80 + $level * 5);
-                $pokemon->set_offensive(82 + $level * 2);
+                $pokemon->set_offensive(82 + $level * 3);
                 $pokemon->set_defense(83 + $level * 3);
-                $pokemon->set_speed(80 + $level * 1);
+                $pokemon->set_speed(80 + $level * 3);
                 $pokemon->set_attribute1('weed');
                 $pokemon->set_attribute2('poison');
                 $pokemon->set_evolution(2);
@@ -77,15 +77,73 @@
                 $pokemon->set_prename2('フシギソウ');
                 break;
             case 'hitokage':
-                $pokemon = new pokemon('hitokage', 'ヒトカゲ', 'hitokage');
-                $pokemon->set_power(35 + $level * 3);
-                $pokemon->set_offensive(49 + $level * 2);
-                $pokemon->set_defense(49 + $level * 3);
-                $pokemon->set_speed(90 + $level * 1);
+                if($level > 30){
+                    $pokemon = new pokemon('rezard', 'リザード', 'rezard');
+                    $pokemon->set_power(58 + $level * 4);
+                    $pokemon->set_offensive(64 + $level * 3);
+                    $pokemon->set_defense(58 + $level * 2);
+                    $pokemon->set_speed(80 + $level * 4);
+                    $pokemon->set_attribute1('fire');
+                    $pokemon->set_evolution(1);
+                    $pokemon->set_formlevel1(30);
+                    $pokemon->set_formlevel2(50);
+                    $pokemon->set_preform1('hitokage');
+                    $pokemon->set_prename1('ヒトカゲ');
+                } else {
+                    $pokemon = new pokemon('hitokage', 'ヒトカゲ', 'hitokage');
+                    $pokemon->set_power(35 + $level * 3);
+                    $pokemon->set_offensive(49 + $level * 2);
+                    $pokemon->set_defense(49 + $level * 3);
+                    $pokemon->set_speed(90 + $level * 1);
+                    $pokemon->set_attribute1('fire');
+                    $pokemon->set_evolution(0);
+                    $pokemon->set_formlevel1(30);
+                    $pokemon->set_formlevel2(50);
+                }
+                break;
+            case 'rezard':
+                if($level > 50){
+                    $pokemon = new pokemon('rezardon', 'リザードン', 'rezardon');
+                    $pokemon->set_power(78 + $level * 5);
+                    $pokemon->set_offensive(84 + $level * 3);
+                    $pokemon->set_defense(78 + $level * 3);
+                    $pokemon->set_speed(100 + $level * 3);
+                    $pokemon->set_attribute1('fire');
+                    $pokemon->set_evolution(2);
+                    $pokemon->set_formlevel1(30);
+                    $pokemon->set_formlevel2(50);
+                    $pokemon->set_preform1('hitokage');
+                    $pokemon->set_prename1('ヒトカゲ');
+                    $pokemon->set_preform2('rezard');
+                    $pokemon->set_prename2('リザード');
+                } else {
+                    $pokemon = new pokemon('rezard', 'リザード', 'rezard');
+                    $pokemon->set_power(58 + $level * 4);
+                    $pokemon->set_offensive(64 + $level * 3);
+                    $pokemon->set_defense(58 + $level * 2);
+                    $pokemon->set_speed(80 + $level * 4);
+                    $pokemon->set_attribute1('fire');
+                    $pokemon->set_evolution(1);
+                    $pokemon->set_formlevel1(30);
+                    $pokemon->set_formlevel2(50);
+                    $pokemon->set_preform1('hitokage');
+                    $pokemon->set_prename1('ヒトカゲ');
+                }
+                break;
+            case 'rezardon':
+                $pokemon = new pokemon('rezardon', 'リザードン', 'rezardon');
+                $pokemon->set_power(78 + $level * 5);
+                $pokemon->set_offensive(84 + $level * 3);
+                $pokemon->set_defense(78 + $level * 3);
+                $pokemon->set_speed(100 + $level * 3);
                 $pokemon->set_attribute1('fire');
-                $pokemon->set_evolution(0);
+                $pokemon->set_evolution(2);
                 $pokemon->set_formlevel1(30);
                 $pokemon->set_formlevel2(50);
+                $pokemon->set_preform1('hitokage');
+                $pokemon->set_prename1('ヒトカゲ');
+                $pokemon->set_preform2('rezard');
+                $pokemon->set_prename2('リザード');
                 break;
             case 'zenigame':
                 $pokemon = new pokemon('zenigame', 'ゼニガメ', 'zenigame');
@@ -111,14 +169,6 @@
                 $pokemon->set_speed(72);
                 $pokemon->set_attribute1('normal');
                 break;
-            case 'colon':
-                $pokemon = new pokemon('colon', 'コロン', 'colon');
-                $pokemon->set_power(38 + $level * 3);
-                $pokemon->set_offensive(41);
-                $pokemon->set_defense(40);
-                $pokemon->set_speed(65);
-                $pokemon->set_attribute1('fire');
-                break;
             case 'nyoromo':
                 $pokemon = new pokemon('nyoromo', 'ニョロモ', 'nyoromo');
                 $pokemon->set_power(40 + $level * 4);
@@ -126,14 +176,6 @@
                 $pokemon->set_defense(40);
                 $pokemon->set_speed(90);
                 $pokemon->set_attribute1('water');
-                break;
-            case 'kacy':
-                $pokemon = new pokemon('kacy', 'ケーシィ', 'kacy');
-                $pokemon->set_power(25 + $level * 2);
-                $pokemon->set_offensive(20);
-                $pokemon->set_defense(15);
-                $pokemon->set_speed(90);
-                $pokemon->set_attribute1('esper');
                 break;
             case 'tamatama':
                 $pokemon = new pokemon('tamatama', 'タマタマ', 'tamatama');
@@ -236,37 +278,119 @@
                 $pokemon->set_speed(60);
                 $pokemon->set_attribute1('poison');
                 break;
-            case 'yungerer':
-                $pokemon = new pokemon('yungerer', 'ユンゲラー', 'yungerer');
-                $pokemon->set_power(40 + $level * 3);
-                $pokemon->set_offensive(35);
-                $pokemon->set_defense(30);
-                $pokemon->set_speed(105);
-                $pokemon->set_attribute1('esper');
+            case 'kacy':
+                if($level > 21){
+                    $pokemon = new pokemon('yungerer', 'ユンゲラー', 'yungerer');
+                    $pokemon->set_power(40 + $level * 3);
+                    $pokemon->set_offensive(35 + $level * 4);
+                    $pokemon->set_defense(30 + $level * 1);
+                    $pokemon->set_speed(105 + $level * 6);
+                    $pokemon->set_attribute1('esper');
+                    $pokemon->set_evolution(1);
+                    $pokemon->set_formlevel1(21);
+                    $pokemon->set_formlevel2(36);
+                    $pokemon->set_preform1('kacy');
+                    $pokemon->set_prename1('ケーシィ');
+                } else {
+                    $pokemon = new pokemon('kacy', 'ケーシィ', 'kacy');
+                    $pokemon->set_power(25 + $level * 2);
+                    $pokemon->set_offensive(20 + $level * 3);
+                    $pokemon->set_defense(15 + $level * 1);
+                    $pokemon->set_speed(90 + $level * 2);
+                    $pokemon->set_attribute1('esper');
+                    $pokemon->set_evolution(0);
+                    $pokemon->set_formlevel1(30);
+                    $pokemon->set_formlevel2(50);
+                }
                 break;
-            case 'barrierd':
-                $pokemon = new pokemon('barrierd', 'バリヤード', 'barrierd');
-                $pokemon->set_power(40 + $level * 3);
-                $pokemon->set_offensive(45);
-                $pokemon->set_defense(65);
-                $pokemon->set_speed(90);
-                $pokemon->set_attribute1('esper');
+            case 'yungerer':
+                if($level > 36){
+                    $pokemon = new pokemon('fudin', 'フーディン', 'fudin');
+                    $pokemon->set_power(55 + $level * 4);
+                    $pokemon->set_offensive(50 + $level * 6);
+                    $pokemon->set_defense(45 + $level * 1);
+                    $pokemon->set_speed(120 + $level * 7);
+                    $pokemon->set_attribute1('esper');
+                    $pokemon->set_evolution(2);
+                    $pokemon->set_formlevel1(21);
+                    $pokemon->set_formlevel2(36);
+                    $pokemon->set_preform1('kacy');
+                    $pokemon->set_prename1('ケーシィ');
+                    $pokemon->set_preform2('yungerer');
+                    $pokemon->set_prename2('ユンゲラー');
+                } else {
+                    $pokemon = new pokemon('yungerer', 'ユンゲラー', 'yungerer');
+                    $pokemon->set_power(40 + $level * 3);
+                    $pokemon->set_offensive(35 + $level * 4);
+                    $pokemon->set_defense(30 + $level * 1);
+                    $pokemon->set_speed(105 + $level * 6);
+                    $pokemon->set_attribute1('esper');
+                    $pokemon->set_evolution(1);
+                    $pokemon->set_formlevel1(21);
+                    $pokemon->set_formlevel2(36);
+                    $pokemon->set_preform1('kacy');
+                    $pokemon->set_prename1('ケーシィ');
+                }
                 break;
             case 'fudin':
                 $pokemon = new pokemon('fudin', 'フーディン', 'fudin');
                 $pokemon->set_power(55 + $level * 4);
-                $pokemon->set_offensive(50);
-                $pokemon->set_defense(45);
-                $pokemon->set_speed(120);
+                $pokemon->set_offensive(50 + $level * 6);
+                $pokemon->set_defense(45 + $level * 1);
+                $pokemon->set_speed(120 + $level * 7);
                 $pokemon->set_attribute1('esper');
+                $pokemon->set_evolution(2);
+                $pokemon->set_formlevel1(21);
+                $pokemon->set_formlevel2(36);
+                $pokemon->set_preform1('kacy');
+                $pokemon->set_prename1('ケーシィ');
+                $pokemon->set_preform2('yungerer');
+                $pokemon->set_prename2('ユンゲラー');
+                break;
+            case 'barrierd':
+                $pokemon = new pokemon('barrierd', 'バリヤード', 'barrierd');
+                $pokemon->set_power(40 + $level * 3);
+                $pokemon->set_offensive(45 + $level * 3);
+                $pokemon->set_defense(65 + $level * 3);
+                $pokemon->set_speed(90 + $level * 5);
+                $pokemon->set_attribute1('esper');
+                break;
+            case 'colon':
+                if($level > 32){
+                    $pokemon = new pokemon('firefox', 'キュウコン', 'firefox');
+                    $pokemon->set_power(73 + $level * 5);
+                    $pokemon->set_offensive(76 + $level * 4);
+                    $pokemon->set_defense(75 + $level * 2);
+                    $pokemon->set_speed(100 + $level * 4);
+                    $pokemon->set_attribute1('fire');
+                    $pokemon->set_evolution(1);
+                    $pokemon->set_formlevel1(32);
+                    $pokemon->set_formlevel2(999);
+                    $pokemon->set_preform1('colon');
+                    $pokemon->set_prename1('コロン');
+                } else {
+                    $pokemon = new pokemon('colon', 'コロン', 'colon');
+                    $pokemon->set_power(38 + $level * 3);
+                    $pokemon->set_offensive(41 + $level * 1);
+                    $pokemon->set_defense(40 + $level * 1);
+                    $pokemon->set_speed(65 + $level * 1.5);
+                    $pokemon->set_attribute1('fire');
+                    $pokemon->set_evolution(0);
+                    $pokemon->set_formlevel1(32);
+                }
                 break;
             case 'firefox':
                 $pokemon = new pokemon('firefox', 'キュウコン', 'firefox');
                 $pokemon->set_power(73 + $level * 5);
-                $pokemon->set_offensive(76);
-                $pokemon->set_defense(75);
-                $pokemon->set_speed(100);
+                $pokemon->set_offensive(76 + $level * 4);
+                $pokemon->set_defense(75 + $level * 2);
+                $pokemon->set_speed(100 + $level * 4);
                 $pokemon->set_attribute1('fire');
+                $pokemon->set_evolution(1);
+                $pokemon->set_formlevel1(32);
+                $pokemon->set_formlevel2(999);
+                $pokemon->set_preform1('colon');
+                $pokemon->set_prename1('コロン');
                 break;
             case 'gallop':
                 $pokemon = new pokemon('gallop', 'ギャロップ', 'gallop');
@@ -340,8 +464,20 @@
             case 'hitokage':
                 $assass1 = new Assassinate('fire', 'ひのこ', 26, 0);
                 $assass2 = new Assassinate('whistle', 'なきごえ', 2, 8);
-                $assass3 = new Assassinate('waves', 'でんじは', 8, 6);
-                $assass4 = new Assassinate('lightning', 'でんこうせっか', 15, 3);    
+                $assass3 = new Assassinate('claw', 'ひっかく', 13, 0);
+                $assass4 = new Assassinate('gaze', 'にらみつける', 9, 9);    
+                break;
+            case 'rezard':
+                $assass1 = new Assassinate('gaze', 'きりさく', 49, 0);    
+                $assass2 = new Assassinate('whistle', 'いかり', 39, 0);
+                $assass3 = new Assassinate('claw', 'ひっかく', 13, 0);
+                $assass4 = new Assassinate('fire', 'ひのこ', 26, 0);
+                break;
+            case 'rezardon':
+                $assass1 = new Assassinate('firebreath', 'かえんほうしゃ', 65, 0);
+                $assass2 = new Assassinate('firetornado', 'ほのおのうず', 51, 20);
+                $assass3 = new Assassinate('gaze', 'きりさく', 49, 0);    
+                $assass4 = new Assassinate('whistle', 'いかり', 39, 0);
                 break;
             case 'zenigame':
                 $assass1 = new Assassinate('watergun', 'みずでっぽう', 26, 0);
@@ -361,23 +497,11 @@
                 $assass3 = new Assassinate('lightning', 'でんこうせっか', 15, 3);
                 $assass4 = new Assassinate('teeth', 'ひっさつまえば', 31, 0);    
                 break;
-            case 'colon':
-                $assass1 = new Assassinate('fire', 'ひのこ', 26, 0);
-                $assass2 = new Assassinate('wagging', 'しっぽをふる', 0, 8);
-                $assass3 = new Assassinate('lightning', 'でんこうせっか', 15, 3);
-                $assass4 = new Assassinate('paralysis', 'あやしいひかり', 9, 6);    
-                break;
             case 'nyoromo':
                 $assass1 = new Assassinate('watergun', 'みずでっぽう', 26, 0);
                 $assass2 = new Assassinate('hypnosis', 'さいみんじゅつ', 5, 9);
                 $assass3 = new Assassinate('hit', 'はたく', 9, 3);
                 $assass4 = new Assassinate('madshot', 'どろかけ', 8, 8);    
-                break;
-            case 'kacy':
-                $assass1 = new Assassinate('teleport', 'テレポート', 5, 5);
-                $assass2 = new Assassinate('psychokinesis', 'サイコキネシス', 39, 0);
-                $assass3 = new Assassinate('paralysis', 'あやしいひかり', 9, 6);
-                $assass4 = new Assassinate('Spoon', 'スプーンまげ', 25, 1);    
                 break;
             case 'tamatama':
                 $assass1 = new Assassinate('hypnosis', 'さいみんじゅつ', 5, 9);
@@ -436,74 +560,86 @@
             case 'betbeton':
                 $assass1 = new Assassinate('poisonspear', 'どくづき', 49, 0);
                 $assass2 = new Assassinate('dissolution', 'ようかいえき', 36, 8);
-                $assass3 = new Assassinate('licking', 'したでなめる', 25, 18);
+                $assass3 = new Assassinate('licking', 'したでなめる', 25, 9);
                 $assass4 = new Assassinate('sludge', 'ヘドロこうげき', 37, 8);
                 break;
             case 'golbat':
                 $assass1 = new Assassinate('poisonspear', 'どくづき', 49, 0);
                 $assass2 = new Assassinate('noise', 'いやなおと', 8, 8);
-                $assass3 = new Assassinate('licking', 'したでなめる', 25, 18);
+                $assass3 = new Assassinate('licking', 'したでなめる', 25, 9);
                 $assass4 = new Assassinate('wingattack', 'つばさでうつ', 48, 0);
                 break;
             case 'matadogas':
                 $assass1 = new Assassinate('smork', 'どくがす', 13, 25);
                 $assass2 = new Assassinate('dissolution', 'ようかいえき', 36, 8);
                 $assass3 = new Assassinate('explosion', 'じばく', 100, -150);
-                $assass4 = new Assassinate('sludge', 'ヘドロこうげき', 37, 8);
+                $assass4 = new Assassinate('sludge', 'ヘドロこうげき', 42, 8);
+                break;
+            case 'kacy':
+                $assass1 = new Assassinate('teleport', 'テレポート', 5, 5);
+                $assass2 = new Assassinate('psychokinesis', 'サイコキネシス', 39, 0);
+                $assass3 = new Assassinate('paralysis', 'あやしいひかり', 9, 6);
+                $assass4 = new Assassinate('Spoon', 'スプーンまげ', 25, 1);    
                 break;
             case 'yungerer':
                 $assass1 = new Assassinate('psychokinesis', 'サイコキネシス', 39, 0);
                 $assass2 = new Assassinate('paralysis', 'あやしいひかり', 9, 6);
-                $assass3 = new Assassinate('spoon', 'スプーンまげ', 25, 1);
-                $assass4 = new Assassinate('psycholaser', 'サイケこうせん', 32, 9);
-                break;
-            case 'barrierd':
-                $assass1 = new Assassinate('tackle', 'たいあたり', 13, 0);
-                $assass2 = new Assassinate('noise', 'いやなおと', 8, 8);
-                $assass3 = new Assassinate('chorke', 'しめつける', 15, 3);
-                $assass4 = new Assassinate('rockattact', 'いわおとし', 36, 0);
+                $assass3 = new Assassinate('superkinesis', 'スーパーキネシス', 66, 0);
+                $assass4 = new Assassinate('psycholaser', 'サイケこうせん', 51, 21);
                 break;
             case 'fudin':
-                $assass1 = new Assassinate('psychokinesis', 'サイコキネシス', 63, 0);
-                $assass2 = new Assassinate('paralysis', 'あやしいひかり', 9, 6);
-                $assass3 = new Assassinate('spoon', 'スプーンまげ', 32, 1);
-                $assass4 = new Assassinate('psycholaser', 'サイケこうせん', 51, 9);
+                $assass1 = new Assassinate('hyperkinesis', 'ハイパーキネシス', 88, 0);
+                $assass2 = new Assassinate('superkinesis', 'スーパーキネシス', 66, 0);
+                $assass3 = new Assassinate('psychokinesis', 'サイコキネシス', 39, 0);
+                $assass4 = new Assassinate('psycholaser', 'サイケこうせん', 51, 21);
+                break;
+            case 'barrierd':
+                $assass1 = new Assassinate('yogapose', 'ヨガのポーズ', 13, 33);
+                $assass2 = new Assassinate('psychokinesis', 'サイコキネシス', 39, 0);
+                $assass3 = new Assassinate('lightshield', 'ひかりのかべ', 0, 66);
+                $assass4 = new Assassinate('psycholaser', 'サイケこうせん', 51, 21);
+                break;
+            case 'colon':
+                $assass1 = new Assassinate('fire', 'ひのこ', 26, 0);
+                $assass2 = new Assassinate('wagging', 'しっぽをふる', 0, 8);
+                $assass3 = new Assassinate('lightning', 'でんこうせっか', 15, 3);
+                $assass4 = new Assassinate('paralysis', 'あやしいひかり', 9, 6);    
                 break;
             case 'firefox':
-                $assass1 = new Assassinate('tackle', 'たいあたり', 13, 0);
-                $assass2 = new Assassinate('noise', 'いやなおと', 8, 8);
-                $assass3 = new Assassinate('chorke', 'しめつける', 15, 3);
-                $assass4 = new Assassinate('rockattact', 'いわおとし', 36, 0);
+                $assass1 = new Assassinate('firebreath', 'かえんほうしゃ', 65, 0);
+                $assass2 = new Assassinate('paralysis', 'あやしいひかり', 9, 6);
+                $assass3 = new Assassinate('fire', 'ひのこ', 26, 0);
+                $assass4 = new Assassinate('firetornado', 'ほのおのうず', 51, 20);
                 break;
             case 'gallop':
-                $assass1 = new Assassinate('tackle', 'たいあたり', 13, 0);
-                $assass2 = new Assassinate('noise', 'いやなおと', 8, 8);
-                $assass3 = new Assassinate('chorke', 'しめつける', 15, 3);
-                $assass4 = new Assassinate('rockattact', 'いわおとし', 11, 0);
+                $assass1 = new Assassinate('firebreath', 'かえんほうしゃ', 65, 0);
+                $assass2 = new Assassinate('sttackle', 'とっしん', 42, 0);
+                $assass3 = new Assassinate('firetornado', 'ほのおのうず', 51, 20);
+                $assass4 = new Assassinate('trampling', 'ふみつけ', 39, 5);
                 break;
             case 'windy':
-                $assass1 = new Assassinate('tackle', 'たいあたり', 13, 0);
-                $assass2 = new Assassinate('noise', 'いやなおと', 8, 8);
-                $assass3 = new Assassinate('chorke', 'しめつける', 15, 3);
-                $assass4 = new Assassinate('rockattact', 'バブルこうせん', 32, 9);
+                $assass1 = new Assassinate('biting', 'かみつく', 39, 25);
+                $assass2 = new Assassinate('sttackle', 'とっしん', 42, 0);
+                $assass3 = new Assassinate('firetornado', 'ほのおのうず', 51, 20);
+                $assass4 = new Assassinate('daimonji', 'だいもんじ', 90, 0);
                 break;
             case 'nidoqueen':
-                $assass1 = new Assassinate('tackle', 'たいあたり', 13, 0);
-                $assass2 = new Assassinate('noise', 'いやなおと', 8, 8);
-                $assass3 = new Assassinate('chorke', 'しめつける', 15, 3);
-                $assass4 = new Assassinate('rockattact', 'いわおとし', 36, 0);
+                $assass1 = new Assassinate('biting', 'かみつく', 39, 25);
+                $assass2 = new Assassinate('sttackle', 'とっしん', 42, 0);
+                $assass3 = new Assassinate('quake', 'じしん', 70, 5);
+                $assass4 = new Assassinate('nidokick', 'にどげり', 45, 0);
                 break;
             case 'nidoking':
-                $assass1 = new Assassinate('tackle', 'たいあたり', 13, 0);
-                $assass2 = new Assassinate('noise', 'いやなおと', 8, 8);
-                $assass3 = new Assassinate('chorke', 'しめつける', 15, 3);
-                $assass4 = new Assassinate('rockattact', 'いわおとし', 11, 0);
+                $assass1 = new Assassinate('hornattack', 'つのドリル', 52, 0);
+                $assass2 = new Assassinate('spirit', 'きあいだめ', 5, 35);
+                $assass3 = new Assassinate('quake', 'じしん', 70, 5);
+                $assass4 = new Assassinate('nidokick', 'にどげり', 45, 0);
                 break;
             case 'saidon':
-                $assass1 = new Assassinate('tackle', 'たいあたり', 13, 0);
-                $assass2 = new Assassinate('noise', 'いやなおと', 8, 8);
-                $assass3 = new Assassinate('chorke', 'じしん', 70, 0);
-                $assass4 = new Assassinate('rockattact', 'じわれ', 88, 0);            
+                $assass1 = new Assassinate('sttackle', 'とっしん', 42, 0);
+                $assass2 = new Assassinate('gaze', 'にらみつける', 9, 9);
+                $assass3 = new Assassinate('quake', 'じしん', 70, 5);
+                $assass4 = new Assassinate('crack', 'じわれ', 88, 0);            
                 break;
         }
 

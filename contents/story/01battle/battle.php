@@ -57,7 +57,7 @@
 
 	if($oppower < $halfpower && $orders == 2){
 		list($oppokemon, $opattack, $opcure) = strengthen1($oppokemon, $opattack, $opcure);
-	} elseif ($oppower < $halfpower && $orders == 2) {
+	} elseif ($oppower < $halfpower && $orders == 3) {
 		list($oppokemon, $opattack, $opcure) = strengthen2($oppokemon, $opattack, $opcure);
 	}
 

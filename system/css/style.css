@@ -76,6 +76,11 @@ img {
     padding: 0 50px;
 }
 
+.profile {
+    display: inline-block;
+    padding: 0 150px;
+}
+
 .myposition {
     width: 20%;
     padding-right: 60px;

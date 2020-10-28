@@ -23,8 +23,6 @@
 
 	$level = $_SESSION['level'];
 	$status = $_SESSION['evolution_status'];
-	echo $_SESSION['evolution_status'];
-	echo $mypokemon->formlevel;
 ?>
 
 <html>
@@ -78,7 +76,7 @@
 			?>
 				<div class="form-box">
 					<div class="commandline">
-						<h3>おや、<?php echo $mypokemon->get_prename1(); ?>のようすが・・・？
+						<h3>おや、<?php echo $mypokemon->get_prename2(); ?>のようすが・・・？
 						<form action="../../../controller.php" method="post">
 							<input type="hidden" title="process" name="process" value="222" id="evolution" checked>
 							<input type="hidden" name="evocomp" value="2" ?>

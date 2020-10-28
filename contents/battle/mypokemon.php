@@ -83,7 +83,7 @@
 						</label>
 					</div>
 					<br><br>
-					<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="はじめにもどる!">はじめにもどる!</button>
+					<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="はじめにもどる">はじめにもどる</button>
 					<button type="submit" class="btn-square1">けってい！</button>
 				</form>
 			</div>
