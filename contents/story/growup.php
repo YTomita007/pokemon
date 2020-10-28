@@ -1,4 +1,6 @@
 <?php
+	session_start();
+
 	require '../../system/class/Pokemon.class.php';
     require '../../system/class/Assassinate.class.php';
 	require '../../system/class/Gymleader.class.php';
@@ -18,7 +20,7 @@
         $badge = $_GET['badge'];
         $badge = $_POST['badge'];
 	}
-	
+
 	$level = $_SESSION['level'];
 ?>
 
@@ -31,30 +33,37 @@
     <body>
 		<div align="center">
 			<br><br>
-			<div class="alternative">
-			</div>
-			<div class="myposition">
-				<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
-			</div>
-			<div class="alternative">
-				<img alt="<?php echo $badge; ?>を てにいれた" src="../images/items/<?php echo $badge; ?>.png">
-			</div>
+			<?php
+				if(30 < $level && $mypokemon->evolution == 0){
+			?>
+				<div class="myposition">
+					<img alt="いけー！<?php echo $mypokemon->get_prename1(); ?>！" src="../images/pokemons/<?php echo $mypokemon->get_preform1(); ?>.png">
+				</div>
+			<?php
+				} elseif(50 < $level && $mypokemon->evolution == 1) {
+			?>
+				<div class="myposition">
+					<img alt="いけー！<?php echo $mypokemon->get_prename2(); ?>！" src="../images/pokemons/<?php echo $mypokemon->get_preform2(); ?>.png">
+				</div>
+			<?php
+				} else {
+			?>
+				<div class="myposition">
+					<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
+				</div>
+			<?php
+				}
+			?>
 			<br><br>
 			<?php
-				if(30 < $level){
+				if(30 < $level && $mypokemon->evolution == 0){
 			?>
 				<div class="form-box">
 					<div class="commandline">
-						<h3>おや、<?php echo $mypokemon->name; ?>のようすが・・・？
+						<h3>おや、<?php echo $mypokemon->get_prename1(); ?>のようすが・・・？
 						<form action="../../controller.php" method="post">
-							<div class="evolution">
-								<h3>しんか する</h3>
-								<input type="radio" title="process" name="process" value="222" id="evolution" checked>
-								<label for="evolution">
-									<img alt="しんか する" src="../images/items/monsterball.png">
-								</label>
-							</div>
-							<button type="submit" class="btn-square1">けってい！</button>
+							<input type="hidden" title="process" name="process" value="222" id="evolution" checked>
+							<button type="submit" class="btn-square1">つぎへすすむ</button>
 						</div>
 					</div>
 				</div>
@@ -66,18 +75,18 @@
 						<div class="description">
 								<h3>
 									<?php echo $mypokemon->name; ?>のレベルが<?php echo $level; ?>になった！<br><br>
-									たいりょくが <?php echo $mypokemon->power; ?>に なった！<br>
-									こうげきが <?php echo $mypokemon->offensive; ?>に なった！<br>
-									ぼうぎょが <?php echo $mypokemon->defense; ?>に なった！<br>
-									すばやさが <?php echo $mypokemon->speed; ?>に なった！<br>
+									たいりょくが <?php echo $mypokemon->get_power(); ?>に なった！<br>
+									こうげきが <?php echo $mypokemon->get_offensive(); ?>に なった！<br>
+									ぼうぎょが <?php echo $mypokemon->get_defense(); ?>に なった！<br>
+									すばやさが <?php echo $mypokemon->get_speed(); ?>に なった！<br>
 								</h3>
 						</div>
 					</div>
 				</div>
+				<button type="button" class="btn-square1" onclick="location.href='selectleader.php' "value="リーダーのせんたくがめんにもどる">せんたくがめんにもどる</button>
 			<?php
 				}
 			?>
-			<button type="button" class="btn-square1" onclick="location.href='selectleader.php' "value="リーダーのせんたくがめんにもどる">せんたくがめんにもどる</button>
 		</div>
     </body>
 </html>

@@ -54,10 +54,10 @@
 								<?php echo $mypokemon->name; ?>にしんかした！
 								<br><br>
 								<?php echo $mypokemon->name; ?>のレベルが<?php echo $level; ?>になった！<br><br>
-								たいりょくが <?php echo $mypokemon->power; ?>に なった！<br>
-								こうげきが <?php echo $mypokemon->offensive; ?>に なった！<br>
-								ぼうぎょが <?php echo $mypokemon->defense; ?>に なった！<br>
-								すばやさが <?php echo $mypokemon->speed; ?>に なった！<br>
+								たいりょくが <?php echo $mypokemon->get_power(); ?>に なった！<br>
+								こうげきが <?php echo $mypokemon->get_offensive(); ?>に なった！<br>
+								ぼうぎょが <?php echo $mypokemon->get_defense(); ?>に なった！<br>
+								すばやさが <?php echo $mypokemon->get_speed(); ?>に なった！<br>
 							</h3>
 						<?php
 							} else {
@@ -66,10 +66,10 @@
 								<?php echo $mypokemon->name; ?>のようすがおさまった！
 								<br><br>
 								<?php echo $mypokemon->name; ?>のレベルが<?php echo $level; ?>になった！<br><br>
-								たいりょくが <?php echo $mypokemon->power; ?>に なった！<br>
-								こうげきが <?php echo $mypokemon->offensive; ?>に なった！<br>
-								ぼうぎょが <?php echo $mypokemon->defense; ?>に なった！<br>
-								すばやさが <?php echo $mypokemon->speed; ?>に なった！<br>
+								たいりょくが <?php echo $mypokemon->get_power(); ?>に なった！<br>
+								こうげきが <?php echo $mypokemon->get_offensive(); ?>に なった！<br>
+								ぼうぎょが <?php echo $mypokemon->get_defense(); ?>に なった！<br>
+								すばやさが <?php echo $mypokemon->get_speed(); ?>に なった！<br>
 							</h3>
 						<?php
 							}
