@@ -1,8 +1,10 @@
 <?php
-	require '../../system/class/Pokemon.class.php';
-    require '../../system/class/Assassinate.class.php';
-	require '../../system/class/Gymleader.class.php';
-	require '../../system/functions/common.php';
+	session_start();
+
+	require '../../../system/class/Pokemon.class.php';
+    require '../../../system/class/Assassinate.class.php';
+	require '../../../system/class/Gymleader.class.php';
+	require '../../../system/functions/common.php';
 
 	if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -25,13 +27,15 @@
         $process = $_GET['process'];
         $process = $_POST['process'];
 	}
+
+	$_SESSION['evolution_status'] = $mypokemon->evolution;
 ?>
 
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
 		<title>やったー！レベルアップだ！</title>
-		<link rel="stylesheet" href="../../system/css/style.css">
+		<link rel="stylesheet" href="../../../system/css/style.css">
 	</head>
     <body>
 		<div align="center">
@@ -39,7 +43,7 @@
 			<div class="alternative">
 			</div>
 			<div class="myposition">
-				<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
+				<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
 			</div>
 			<div class="alternative">
 			</div>
