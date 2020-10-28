@@ -25,7 +25,7 @@
 				<div class="commandline">
 					<P>	★じぶんの ポケモンを せんたくしてください</p>
 				</div>
-				<form action="selectleader.php" method="post">
+				<form action="checkin.php" method="post">
 					<div class="alternative">
 						<input type="radio" title="mypokemon" name="mypokemon" value="<?php echo $inipoke[0]->identify; ?>" id="<?php echo $inipoke[0]->identify; ?>" checked>
 						<label for="<?php echo $inipoke[0]->identify; ?>">

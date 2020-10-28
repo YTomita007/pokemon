@@ -1,8 +1,8 @@
 <?php
-    require '../../system/class/Pokemon.class.php';
-    require '../../system/class/Assassinate.class.php';
-	require '../../system/class/Gymleader.class.php';
-	require '../../system/functions/common.php';
+    require '../../../system/class/Pokemon.class.php';
+    require '../../../system/class/Assassinate.class.php';
+	require '../../../system/class/Gymleader.class.php';
+	require '../../../system/functions/common.php';
 
     if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -62,12 +62,12 @@
 	}
 
     if($mypower < 1){
-        header('Location: ../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=212"."&gymleader=".$gymleader->identify, true, 307);
+        header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=212"."&gymleader=".$gymleader->identify, true, 307);
     } elseif($oppower < 1){
     		if($orders > 1){
-    			header('Location: ../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
+    			header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
     		} else {
-    			header('Location: ../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=202"."&gymleader=".$gymleader->identify, true, 307);
+    			header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=202"."&gymleader=".$gymleader->identify, true, 307);
     		}
 	}
 
@@ -76,7 +76,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
 		<title>リーダー<?php echo $gymleader->name; ?>と しょうぶ！</title>
-		<link rel="stylesheet" href="../../system/css/style.css">
+		<link rel="stylesheet" href="../../../system/css/style.css">
 	</head>
     <body>
 		<div class="leftside">
@@ -89,12 +89,12 @@
                 <div class="leftside">
 					<h3><?php echo $mypokemon->name; ?></h3>
                     <h3>HP：<?php echo $mypower; ?>です</h3>
-					<img alt="いけー！<?php echo $mypokemon->name; ?>" src="../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
+					<img alt="いけー！<?php echo $mypokemon->name; ?>" src="../../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
 				</div>
 				<div class="rightside">
 					<h3><?php echo $oppokemon->name; ?></h3>
                     <h3>HP：<?php echo $oppower; ?>です</h3>
-					<img alt="いけー！<?php echo $oppokemon->name; ?>" src="../images/pokemons/<?php echo $oppokemon->picture; ?>.png">
+					<img alt="いけー！<?php echo $oppokemon->name; ?>" src="../../images/pokemons/<?php echo $oppokemon->picture; ?>.png">
 				</div>
 			</div>
 			<br><br>

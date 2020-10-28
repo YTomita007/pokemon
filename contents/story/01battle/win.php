@@ -1,10 +1,10 @@
 <?php
 	session_start();
 
-	require '../../system/class/Pokemon.class.php';
-    require '../../system/class/Assassinate.class.php';
-	require '../../system/class/Gymleader.class.php';
-	require '../../system/functions/common.php';
+	require '../../../system/class/Pokemon.class.php';
+    require '../../../system/class/Assassinate.class.php';
+	require '../../../system/class/Gymleader.class.php';
+	require '../../../system/functions/common.php';
 
     if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -24,7 +24,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
 		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
 		<title>リーダー<?php echo $gymleader->name; ?>に しょうり！</title>
-		<link rel="stylesheet" href="../../system/css/style.css">
+		<link rel="stylesheet" href="../../../system/css/style.css">
 	</head>
     <body>
 		<div align="center">
@@ -32,15 +32,15 @@
 			<div class="alternative">
 			</div>
 			<div class="alternative">
-				<img alt="ジムリーダー<?php echo $gymleader->name; ?>" src="../images/gymleaders/<?php echo $gymleader->picture; ?>.png">
+				<img alt="ジムリーダー<?php echo $gymleader->name; ?>" src="../../images/gymleaders/<?php echo $gymleader->picture; ?>.png">
 			</div>
 			<div class="alternative">
-				<img alt="ジムリーダー<?php echo $gymleader->name; ?>" src="../images/items/<?php echo $badge; ?>.png">
+				<img alt="ジムリーダー<?php echo $gymleader->name; ?>" src="../../images/items/<?php echo $badge; ?>.png">
 			</div>
 			<div class="form-box-non">
 				<div class="commandbox">
 					<div class="myposition">
-						<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
+						<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
 					</div>
 					<div class="dialoguebox">
 						<div class="description">
@@ -50,7 +50,7 @@
 						</div>
 					</div>
 				</div>
-				<form action="../../controller.php" method="post">
+				<form action="../../../controller.php" method="post">
 					<input type="hidden" name="process" value="221">
 					<input type="hidden" name="badge" value="<?php echo $badge; ?>">
 					<input type="hidden" name="mypokemon" value="<?php echo $mypokemon->identify; ?>">

@@ -356,7 +356,8 @@
             unset($_SESSION['crimsonbadge']);
             unset($_SESSION['greenbadge']);
             unset($_SESSION['level']);
-            $message = "バッジデータをクリアしました<br>";
+            unset($_SESSION['evolution_status']);
+            $message = "バッジやポケモンデータをクリアしました<br>";
         }
 
         if(isset($_degrees)){
