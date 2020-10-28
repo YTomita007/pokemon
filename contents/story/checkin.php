@@ -4,7 +4,7 @@
 	require '../../system/class/Pokemon.class.php';
 	require '../../system/class/Assassinate.class.php';
 	require '../../system/class/Gymleader.class.php';
-	require '../../system/functions/common.php';
+	require '../../system/functions/base.php';
 
     if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -54,7 +54,7 @@
 						</label>
 					</div>
 					<br><br><br><br>
-					<button type="button" class="btn-square2" onclick="location.href='mypokemon.php' "value="えらびなおし!">えらびなおし!</button>
+					<button type="button" class="btn-square2" onclick="location.href='mypokemon.php' "value="えらびなおし">えらびなおし</button>
 					<button type="submit" class="btn-square1">けってい！</button>
 				</form>
 			</div>

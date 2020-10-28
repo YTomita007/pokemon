@@ -1,9 +1,8 @@
 <?php
 	session_start();
 
-	unset($_SESSION['mypokemon']);
-	unset($_SESSION['oppokemon']);
 	unset($_SESSION['winner']);
+	unset($_SESSION['oppokemon']);
 ?>
 <html>
 	<head>

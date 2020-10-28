@@ -2,7 +2,7 @@
     require '../../../system/class/Pokemon.class.php';
     require '../../../system/class/Assassinate.class.php';
 	require '../../../system/class/Gymleader.class.php';
-	require '../../../system/functions/common.php';
+	require '../../../system/functions/base.php';
 
     if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -38,16 +38,14 @@
 	$oppokemon = leaders_pokemon_instance($_oppokemon, $_oplevel);
 	list($myassass1, $myassass2, $myassass3, $myassass4, $opassass1, $opassass2, $opassass3, $opassass4) = weapon_instance($_mypokemon, $_oppokemon);
 
-	if(isset($_SESSION['winner'])){
-		unset($_SESSION['winner']);
+	if($_GET['mypokemon']) {
 		$mypower = $mypokemon->get_power();
 		$oppower = $oppokemon->get_power();
-	} elseif($_GET['mypokemon']) {
-		$mypower = $mypokemon->get_power();
-		$oppower = $oppokemon->get_power();
+		$halfpower = $oppower / 2;
 	} else {
 		$mypower = $_POST['mypower'];
 		$oppower = $_POST['oppower'];
+		$halfpower = $_POST['halfpower'];
 
 		if(isset($_POST["command"])){
 			$mycommand = $_POST["command"];
@@ -57,18 +55,48 @@
 		list($mypower, $oppower, $myattack, $opattack) = battle_calculation($mypower, $oppower, $myattack, $mycure, $opattack, $opcure);
 	}
 
-	if($oppower < 61 && $orders == 2){
-		list($oppokemon, $opattack, $opcure) = strengthen($oppokemon, $opattack, $opcure);
+	if($oppower < $halfpower && $orders == 2){
+		list($oppokemon, $opattack, $opcure) = strengthen1($oppokemon, $opattack, $opcure);
+	} elseif ($oppower < $halfpower && $orders == 2) {
+		list($oppokemon, $opattack, $opcure) = strengthen2($oppokemon, $opattack, $opcure);
 	}
 
-    if($mypower < 1){
-        header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=212"."&gymleader=".$gymleader->identify, true, 307);
-    } elseif($oppower < 1){
-    		if($orders > 1){
-    			header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
-    		} else {
-    			header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=202"."&gymleader=".$gymleader->identify, true, 307);
-    		}
+	if($mypokemon->get_speed() < $oppokemon->get_speed()){
+		if($mypower < 1){
+			header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=212"."&gymleader=".$gymleader->identify, true, 307);
+		} elseif($oppower < 1){
+				if($orders > 1){
+					if($gymleader->identify == 'kyo' || $gymleader->identify == 'natsume' || $gymleader->identify == 'katsura' || $gymleader->identify == 'sakaki'){
+						if($orders > 2){
+							header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
+						} else {
+							header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=206"."&gymleader=".$gymleader->identify, true, 307);
+						}
+					} else {
+						header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
+					}
+				} else {
+					header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=202"."&gymleader=".$gymleader->identify, true, 307);
+				}
+		}
+	} else {
+		if($oppower < 1){
+			if($orders > 1){
+				if($gymleader->identify == 'kyo' || $gymleader->identify == 'natsume' || $gymleader->identify == 'katsura' || $gymleader->identify == 'sakaki'){
+					if($orders > 2){
+						header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
+					} else {
+						header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=206"."&gymleader=".$gymleader->identify, true, 307);
+					}
+				} else {
+					header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
+				}
+			} else {
+				header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=202"."&gymleader=".$gymleader->identify, true, 307);
+			}
+		} elseif($mypower < 1){
+			header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=212"."&gymleader=".$gymleader->identify, true, 307);
+		} 	
 	}
 
 ?>
@@ -104,17 +132,17 @@
 				?>
                 <div class="situation">
                     <div class="description">
-                        <h3><?php echo $mypokemon->name; ?>は「<?php echo $mycommand; ?>」を繰り出した！<br><?php echo $myattack; ?>のダメージを与えた！</h3>
+                        <h3><?php echo $mypokemon->name; ?>は「<?php echo $mycommand; ?>」をくりだした！<br><?php echo $myattack; ?>のダメージをあたえた！</h3>
                     </div>
                     <div class="description">
-                        <h3><?php echo $oppokemon->name; ?>は「<?php echo $opcommand; ?>」を繰り出してきた！<br><?php echo $opattack; ?>のダメージを与えた！</h3>
+                        <h3><?php echo $oppokemon->name; ?>は「<?php echo $opcommand; ?>」をくりだしてきた！<br><?php echo $opattack; ?>のダメージをあたえた！</h3>
                     </div>
                 </div>
 				<?php
 					}
 				?>
                 <div class="commandline">
-					<P>	★攻撃を選択してください</p>
+					<P>	★こうげきを せんたくしてください</p>
 				</div>
 				<form action="battle.php" method="post">
 					<input type="hidden" name="gymleader" value="<?php echo $gymleader->identify; ?>">
@@ -123,6 +151,7 @@
 					<input type="hidden" name="mypower" value="<?php echo $mypower; ?>">
 					<input type="hidden" name="oppower" value="<?php echo $oppower; ?>">
 					<input type="hidden" name="orders" value="<?php echo $orders; ?>">
+					<input type="hidden" name="halfpower" value="<?php echo $halfpower; ?>">
 					<div class="battlecommand">
                         <input type="radio" title="command" name="command" value="<?php echo $myassass1->name; ?>" id="electric" checked>
                         <label for="electric"><?php echo $myassass1->display; ?></label>

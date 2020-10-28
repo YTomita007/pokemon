@@ -3,7 +3,7 @@
 
 	require '../../system/class/Pokemon.class.php';
 	require '../../system/class/Assassinate.class.php';
-	require '../../system/functions/common.php';
+	require '../../system/functions/base.php';
 	    
 	if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -36,22 +36,22 @@
 			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
 		</div>
 		<div align="center">
-			<h1>ポケモン選択画面！</h1>
+			<h1>せんたくしたポケモン</h1>
 			<div class="form-box">
 				<form action="battle.php" method="post">
 					<input type="hidden" name="mypokemon" value="<?php echo $mypokemon->identify; ?>">
 					<input type="hidden" name="oppokemon" value="<?php echo $oppokemon->identify; ?>">
-					<input type="hidden" name="mypower" value="<?php echo $mypokemon->power; ?>">
-					<input type="hidden" name="oppower" value="<?php echo $oppokemon->power; ?>">
+					<input type="hidden" name="mypower" value="<?php echo $mypokemon->get_power(); ?>">
+					<input type="hidden" name="oppower" value="<?php echo $oppokemon->get_power(); ?>">
 					<div class="ready">
 						<div class="leftside">
 							<h3>じぶんの えらんだポケモンは<?php echo $mypokemon->name; ?>です</h3>
-							<h3>HP：<?php echo $mypokemon->power; ?>です</h3>
+							<h3>HP：<?php echo $mypokemon->get_power(); ?>です</h3>
 							<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
 						</div>
 						<div class="rightside">
 							<h3>あいての えらんだポケモンは<?php echo $oppokemon->name; ?>です</h3>
-							<h3>HP：<?php echo $oppokemon->power; ?>です</h3>
+							<h3>HP：<?php echo $oppokemon->get_power(); ?>です</h3>
 							<img alt="いけー！<?php echo $oppokemon->name; ?>！" src="../images/pokemons/<?php echo $oppokemon->picture; ?>.png">
 						</div>
 					</div>
