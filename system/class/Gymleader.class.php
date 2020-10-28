@@ -4,12 +4,12 @@
         public $identify;
         public $name;
         public $picture;
-		public $pokemon1;
-		public $pokemon2;
-		public $pokemon3;
-		public $pokemon4;
-		public $pokemon5;
-		public $pokemon6;
+		private $pokemon1;
+		private $pokemon2;
+		private $pokemon3;
+		private $pokemon4;
+		private $pokemon5;
+		private $pokemon6;
 
 		//コンストラクタ
 		function __construct($identify, $name, $picture) {

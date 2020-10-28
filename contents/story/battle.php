@@ -69,7 +69,8 @@
     		} else {
     			header('Location: ../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=202"."&gymleader=".$gymleader->identify, true, 307);
     		}
-    }
+	}
+
 ?>
 <html>
 	<head>

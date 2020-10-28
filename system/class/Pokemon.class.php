@@ -4,16 +4,21 @@
         public $identify;
         public $name;
         public $picture;
-		public $power;
-		public $offensive;
-		public $defense;
-		public $speed;
-		public $attribute1;
-		public $attribute2;
-		public $attack1;
-		public $attack2;
-		public $attack3;
-		public $attack4;
+		private $power;
+		private $offensive;
+		private $defense;
+		private $speed;
+		private $attribute1;
+		private $attribute2;
+		public $evolution;
+		private $preform1;
+		private $prename1;
+		private $preform2;
+		private $prename2;
+		private $attack1;
+		private $attack2;
+		private $attack3;
+		private $attack4;
 
 		//コンストラクタ
 		function __construct($identify, $name, $picture) {
@@ -31,6 +36,11 @@
 		public function get_speed(){ return $this->speed; }
 		public function get_attribute1(){ return $this->attribute1; }
 		public function get_attribute2(){ return $this->attribute2; }
+		public function get_evolution(){ return $this->evolution; }
+		public function get_preform1(){ return $this->preform1; }
+		public function get_prename1(){ return $this->prename1; }
+		public function get_preform2(){ return $this->preform2; }
+		public function get_prename2(){ return $this->prename2; }
 		public function get_attack1(){ return $this->attack1; }
 		public function get_attack2(){ return $this->attack2; }
 		public function get_attack3(){ return $this->attack3; }
@@ -42,6 +52,11 @@
 		public function set_speed($speed){ $this->speed = $speed; }
 		public function set_attribute1($attribute1){ $this->attribute1 = $attribute1; }
 		public function set_attribute2($attribute2){ $this->attribute2 = $attribute2; }
+		public function set_evolution($evolution){ $this->evolution = $evolution; }
+		public function set_preform1($preform1){ $this->preform1 = $preform1; }
+		public function set_prename1($prename1){ $this->prename1 = $prename1; }
+		public function set_preform2($preform2){ $this->preform2 = $preform2; }
+		public function set_prename2($prename2){ $this->prename2 = $prename2; }
 		public function set_attack1($attack1){ $this->attack1 = $attack1; }
 		public function set_attack2($attack2){ $this->attack2 = $attack2; }
 		public function set_attack3($attack3){ $this->attack3 = $attack3; }

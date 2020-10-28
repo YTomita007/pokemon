@@ -41,41 +41,41 @@
         $firstlevel = 17;
         $_SESSION['level'] = $firstlevel;
 
-        if (($_SESSION['greenbadge'] == true)) {
+        if (isset($_SESSION['greenbadge'])) {
             $greenbadgelevel = 63;
             $mypokemon = makepokemon($_mypokemon, $greenbadgelevel);
             $_SESSION['level'] = $greenbadgelevel;
-        } elseif ($_SESSION['crimsonbadge'] == true) {
+        } elseif (isset($_SESSION['crimsonbadge'])) {
             $crimsonbadgelevel = 57;
             $mypokemon = makepokemon($_mypokemon, $crimsonbadgelevel);
             $_SESSION['level'] = $crimsonbadgelevel;
-        } elseif (($_SESSION['goldbadge'] == true)) {
+        } elseif (isset($_SESSION['goldbadge'])) {
             $goldbadgelevel = 51;
             $mypokemon = makepokemon($_mypokemon, $goldbadgelevel);
             $_SESSION['level'] = $goldbadgelevel;
-        } elseif (($_SESSION['pinkbadge'] == true)) {
+        } elseif (isset($_SESSION['pinkbadge'])) {
             $pinkbadgelevel = 45;
             $mypokemon = makepokemon($_mypokemon, $pinkbadgelevel);
             $_SESSION['level'] = $pinkbadgelevel;
-        } elseif ($_SESSION['rainbowbadge'] == true) {
+        } elseif (isset($_SESSION['rainbowbadge'])) {
             $rainbowbadgelevel = 39;
             $mypokemon = makepokemon($_mypokemon, $rainbowbadgelevel);
             $_SESSION['level'] = $rainbowbadgelevel;
-        } elseif (($_SESSION['orangebadge'] == true)) {
+        } elseif (isset($_SESSION['orangebadge'])) {
             $orangebadgelevel = 33;
             $mypokemon = makepokemon($_mypokemon, $orangebadgelevel);
             $_SESSION['level'] = $orangebadgelevel;
-        } elseif ($_SESSION['bluebadge'] == true) {
+        } elseif (isset($_SESSION['bluebadge'])) {
             $bluebadgelevel = 27;
             $mypokemon = makepokemon($_mypokemon, $bluebadgelevel);
             $_SESSION['level'] = $bluebadgelevel;
-        } elseif ($_SESSION['graybadge'] == true) {
+        } elseif (isset($_SESSION['graybadge'])) {
             $graybadgelevel = 22;
             $mypokemon = makepokemon($_mypokemon, $graybadgelevel);
             $_SESSION['level'] = $graybadgelevel;
         } else {
         $mypokemon = makepokemon($_mypokemon, $firstlevel);
-        }        
+        }
 
         return $mypokemon;
     }
