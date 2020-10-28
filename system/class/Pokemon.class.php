@@ -11,6 +11,8 @@
 		private $attribute1;
 		private $attribute2;
 		public $evolution;
+		public $formlevel1;
+		public $formlevel2;
 		private $preform1;
 		private $prename1;
 		private $preform2;
@@ -37,6 +39,8 @@
 		public function get_attribute1(){ return $this->attribute1; }
 		public function get_attribute2(){ return $this->attribute2; }
 		public function get_evolution(){ return $this->evolution; }
+		public function get_formlevel1(){ return $this->formlevel1; }
+		public function get_formlevel2(){ return $this->formlevel2; }
 		public function get_preform1(){ return $this->preform1; }
 		public function get_prename1(){ return $this->prename1; }
 		public function get_preform2(){ return $this->preform2; }
@@ -53,6 +57,8 @@
 		public function set_attribute1($attribute1){ $this->attribute1 = $attribute1; }
 		public function set_attribute2($attribute2){ $this->attribute2 = $attribute2; }
 		public function set_evolution($evolution){ $this->evolution = $evolution; }
+		public function set_formlevel1($formlevel1){ $this->formlevel1 = $formlevel1; }
+		public function set_formlevel2($formlevel2){ $this->formlevel2 = $formlevel2; }
 		public function set_preform1($preform1){ $this->preform1 = $preform1; }
 		public function set_prename1($prename1){ $this->prename1 = $prename1; }
 		public function set_preform2($preform2){ $this->preform2 = $preform2; }

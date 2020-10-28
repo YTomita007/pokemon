@@ -2,7 +2,7 @@
 	require '../../../system/class/Pokemon.class.php';
     require '../../../system/class/Assassinate.class.php';
 	require '../../../system/class/Gymleader.class.php';
-	require '../../../system/functions/common.php';
+	require '../../../system/functions/base.php';
 
 	if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -35,6 +35,10 @@
 					<tr>
 						<th>こうもく</th>
 						<th>ステータス</th>
+					</tr>
+					<tr>
+						<td>レベル</td>
+						<td><?php echo $_SESSION['level']; ?></td>
 					</tr>
 					<tr>
 						<td>たいりょく</td>
@@ -70,7 +74,8 @@
 					</tr>
 				</table>
 			</div>
-			<button type="button" class="btn-square2" onclick="location.href='../checkin.php' "value="もとにもどる">もとにもどる</button>
+			<br><br><br>
+			<button type="button" class="btn-square2" onclick="location.href='../checkin.php' "value="メニューにもどる">メニューにもどる</button>
 		</div>
     </body>
 </html>

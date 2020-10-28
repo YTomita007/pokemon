@@ -1,5 +1,5 @@
 <?php
-	require '../../system/functions/common.php';
+	require '../../system/functions/base.php';
 	
 	if(isset($_GET['message'])){
 		$message = $_GET['message'];

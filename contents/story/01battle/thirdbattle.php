@@ -26,16 +26,18 @@
 		<link rel="stylesheet" href="../../../system/css/style.css">
 	</head>
     <body>
+		<div class="leftside">
+			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
+		</div>
 		<div align="center">
 			<h1>リーダー<?php echo $gymleader->name; ?>と しょうぶ！</h1>
 			<div class="alternative">
-				<img alt="いけー！<?php echo $pokemon1->name; ?>！" src="../../images/pokemons/<?php echo $pokemon1->picture; ?>.png">
 			</div>
 			<div class="alternative">
 				<img alt="ジムリーダー<?php echo $gymleader->name; ?>" src="../../images/gymleaders/<?php echo $gymleader->picture; ?>.png">
 			</div>
 			<div class="alternative">
-				<img alt="いけー！<?php echo $pokemon2->name; ?>！" src="../../images/pokemons/<?php echo $pokemon2->picture; ?>.png">
+				<img alt="いけー！<?php echo $pokemon3->name; ?>！" src="../../images/pokemons/<?php echo $pokemon3->picture; ?>.png">
 			</div>
 			<div class="form-box-non">
 				<div class="commandbox">
@@ -45,13 +47,20 @@
 					<div class="dialoguebox">
 						<div class="description">
 							<p class=scroll>
-								<?php echo $phrases[3]; ?>
+								<?php echo $phrases[4]; ?>
 							</p>
 						</div>
 					</div>
 				</div>
-				<button class="btn-square1" onclick="location.href='../../../controller.php?mypokemon=<?php echo $mypokemon->identify ?>&process=105&gymleader=<?php echo $gymleader->identify ?>'">>>もういちどたたかう<<</button>
-	            <button class="btn-square2" onclick="location.href='../checkin.php'">>>さいしょにもどる<<</button>
+				<form action="../../../controller.php" method="post">
+					<input type="hidden" name="process" value="207">
+					<input type="hidden" name="orders" value="3">
+					<input type="hidden" name="level" value="<?php echo $level2; ?>">
+					<input type="hidden" name="gymleader" value="<?php echo $gymleader->identify; ?>">
+					<input type="hidden" name="mypokemon" value="<?php echo $mypokemon->identify; ?>">
+					<input type="hidden" name="oppokemon" value="<?php echo $pokemon3->identify; ?>">
+					<button type="submit" class="btn-square1"><?php echo $pokemon3->name; ?>とたいけつ！</button>
+				</form>
 			</div>
 		</div>
     </body>

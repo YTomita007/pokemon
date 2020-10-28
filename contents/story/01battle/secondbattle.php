@@ -4,7 +4,7 @@
 	require '../../../system/class/Pokemon.class.php';
     require '../../../system/class/Assassinate.class.php';
 	require '../../../system/class/Gymleader.class.php';
-	require '../../../system/functions/common.php';
+	require '../../../system/functions/base.php';
 
     if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];

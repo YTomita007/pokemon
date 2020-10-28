@@ -136,15 +136,15 @@
             $pokemon2 = makepokemon('iwaku', $level2);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'kasumi'){
-            $level1 = 15;
+            $level1 = 16;
             $level2 = 19;
             $gymleader = appear_leaders('kasumi');
             $pokemon1 = makepokemon('starman', $level1);
             $pokemon2 = makepokemon('starme', $level2);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'matisse'){
-            $level1 = 18;
-            $level2 = 25;
+            $level1 = 21;
+            $level2 = 26;
             $gymleader = appear_leaders('matisse');
             $pokemon1 = makepokemon('biririball', $level1);
             $pokemon2 = makepokemon('raichu', $level2);
@@ -159,6 +159,7 @@
         }elseif($leaders_name == 'kyo'){
             $level1 = 35;
             $level2 = 37;
+            $level3 = 40;
             $gymleader = appear_leaders('kyo');
             $pokemon1 = makepokemon('betbeton', $level1);
             $pokemon2 = makepokemon('golbat', $level2);
@@ -276,7 +277,7 @@
         return array($mypower, $oppower, $myattack, $opattack);
     }
 
-    function strengthen($oppokemon, $opattack, $opcure) {
+    function strengthen1($oppokemon, $opattack, $opcure) {
         if($oppokemon->identify == 'iwaku'){
             $oppokemon->picture = 'iwaku_s';
             $opattack = $opattack + 5;
@@ -293,8 +294,8 @@
             $oppokemon->picture = 'rafflesia_s';
             $opattack = $opattack + 5;
             $opcure = $opcure - 8;
-        }elseif($oppokemon->identify == 'matadogas'){
-            $oppokemon->picture = 'matadogas_s';
+        }elseif($oppokemon->identify == 'batbeton'){
+            $oppokemon->picture = 'batbeton_s';
             $opattack = $opattack + 5;
             $opcure = $opcure - 8;
         }elseif($oppokemon->identify == 'fudin'){
@@ -309,6 +310,29 @@
             $oppokemon->picture = 'saidon_s';
             $opattack = $opattack + 5;
             $opcure = $opcure - 8;
+        }
+
+        return array($oppokemon, $opattack, $opcure);
+    }
+
+    function strengthen2($oppokemon, $opattack, $opcure) {
+        
+        if($oppokemon->identify == 'matadogas'){
+            $oppokemon->picture = 'matadogas_s';
+            $opattack = $opattack + 25;
+            $opcure = $opcure - 15;
+        }elseif($oppokemon->identify == 'fudin'){
+            $oppokemon->picture = 'fudin_s';
+            $opattack = $opattack + 25;
+            $opcure = $opcure - 15;
+        }elseif($oppokemon->identify == 'windy'){
+            $oppokemon->picture = 'windy_s';
+            $opattack = $opattack + 25;
+            $opcure = $opcure - 15;
+        }elseif($oppokemon->identify == 'saidon'){
+            $oppokemon->picture = 'saidon_s';
+            $opattack = $opattack + 25;
+            $opcure = $opcure - 15;
         }
 
         return array($oppokemon, $opattack, $opcure);
@@ -356,7 +380,7 @@
             unset($_SESSION['crimsonbadge']);
             unset($_SESSION['greenbadge']);
             unset($_SESSION['level']);
-            unset($_SESSION['evolution_status']);
+            $_SESSION['evolution_status'] = 0;
             $message = "バッジやポケモンデータをクリアしました<br>";
         }
 

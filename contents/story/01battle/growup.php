@@ -4,7 +4,7 @@
 	require '../../../system/class/Pokemon.class.php';
     require '../../../system/class/Assassinate.class.php';
 	require '../../../system/class/Gymleader.class.php';
-	require '../../../system/functions/common.php';
+	require '../../../system/functions/base.php';
 
 	if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -23,7 +23,8 @@
 
 	$level = $_SESSION['level'];
 	$status = $_SESSION['evolution_status'];
-	$_SESSION['evolution_status'] = $status + 1;
+	echo $_SESSION['evolution_status'];
+	echo $mypokemon->formlevel;
 ?>
 
 <html>
@@ -36,13 +37,15 @@
 		<div align="center">
 			<br><br>
 			<?php
-				if(30 < $level && $status == 0){
+				if($level > $mypokemon->formlevel1 && $status == 0){
+					$_SESSION['evolution_status'] = $status + 1;
 			?>
 				<div class="myposition">
 					<img alt="いけー！<?php echo $mypokemon->get_prename1(); ?>！" src="../../images/pokemons/<?php echo $mypokemon->get_preform1(); ?>.png">
 				</div>
 			<?php
-				} elseif(50 < $level && $status == 1) {
+				} elseif($level > $mypokemon->formlevel2 && $status == 1) {
+					$_SESSION['evolution_status'] = $status + 1;
 			?>
 				<div class="myposition">
 					<img alt="いけー！<?php echo $mypokemon->get_prename2(); ?>！" src="../../images/pokemons/<?php echo $mypokemon->get_preform2(); ?>.png">
@@ -58,7 +61,7 @@
 			?>
 			<br><br>
 			<?php
-				if (30 < $level && $status == 0){
+				if ($level > $mypokemon->formlevel1 && $status == 0){
 			?>
 				<div class="form-box">
 					<div class="commandline">
@@ -71,7 +74,7 @@
 					</div>
 				</div>
 			<?php
-				} elseif (50 < $level && $status == 1){
+				} elseif ($level > $mypokemon->formlevel2 && $status == 1){
 			?>
 				<div class="form-box">
 					<div class="commandline">

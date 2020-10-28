@@ -3,7 +3,7 @@
 
     require '../../system/class/Pokemon.class.php';
     require '../../system/class/Assassinate.class.php';
-	require '../../system/functions/common.php';
+	require '../../system/functions/base.php';
 
 	if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -41,13 +41,23 @@
 
 	}
 
-    if($mypower < 1){
-        $_SESSION['winner'] = $oppokemon->identify;
-        header('Location: result.php', true, 307);
-    } elseif($oppower < 1){
-        $_SESSION['winner'] = $mypokemon->identify;
-        header('Location: result.php', true, 307);
-    }
+	if($mypokemon->get_speed() < $oppokemon->get_speed()){
+		if($mypower < 1){
+			$_SESSION['winner'] = $oppokemon->identify;
+			header('Location: result.php', true, 307);
+		} elseif($oppower < 1){
+			$_SESSION['winner'] = $mypokemon->identify;
+			header('Location: result.php', true, 307);
+		}
+	} else {
+		if($oppower < 1){
+			$_SESSION['winner'] = $mypokemon->identify;
+			header('Location: result.php', true, 307);
+		} elseif($mypower < 1){
+			$_SESSION['winner'] = $oppokemon->identify;
+			header('Location: result.php', true, 307);
+		}
+	}
 ?>
 <html>
 	<head>
@@ -81,17 +91,17 @@
 				?>
                 <div class="situation">
                     <div class="description">
-                        <h3><?php echo $mypokemon->name; ?>は「<?php echo $mycommand; ?>」を繰り出した！<br><?php echo $myattack; ?>のダメージを与えた！</h3>
+                        <h3><?php echo $mypokemon->name; ?>は「<?php echo $mycommand; ?>」をくりだした！<br><?php echo $myattack; ?>のダメージをあたえた！</h3>
                     </div>
                     <div class="description">
-                        <h3><?php echo $oppokemon->name; ?>は「<?php echo $opcommand; ?>」を繰り出してきた！<br><?php echo $opattack; ?>のダメージを与えた！</h3>
+                        <h3><?php echo $oppokemon->name; ?>は「<?php echo $opcommand; ?>」をくりだしてきた！<br><?php echo $opattack; ?>のダメージをあたえた！</h3>
                     </div>
                 </div>
 				<?php
 					}
 				?>
                 <div class="commandline">
-					<P>	★攻撃を選択してください</p>
+					<P>	★こうげきを せんたくしてください</p>
 				</div>
 				<form action="battle.php" method="post">
 					<input type="hidden" name="mypokemon" value="<?php echo $mypokemon->identify; ?>">

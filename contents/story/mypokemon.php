@@ -4,7 +4,7 @@
 	unset($_SESSION['mypokemon']);
 	
 	require '../../system/class/Pokemon.class.php';
-	require '../../system/functions/common.php';
+	require '../../system/functions/base.php';
 
 	$inipoke = initial_pokemon();
 
