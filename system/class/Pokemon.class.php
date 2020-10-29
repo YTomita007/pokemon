@@ -4,6 +4,7 @@
         public $identify;
         public $name;
         public $picture;
+		public $statusflag;
 		private $power;
 		private $offensive;
 		private $defense;
@@ -23,15 +24,17 @@
 		private $attack4;
 
 		//コンストラクタ
-		function __construct($identify, $name, $picture) {
+		function __construct($identify, $name, $picture, $statusflag) {
 			$this -> identify = $identify;
 			$this -> name = $name;
 			$this -> picture = $picture;
+			$this -> statusflag = $statusflag;
 		}
 
 		public function get_identify(){ return $this->identify; }
 		public function get_name(){ return $this->name; }
 		public function get_picture(){ return $this->picture; }
+		public function get_statusflag(){ return $this->statusflag; }
 		public function get_power(){ return $this->power; }
 		public function get_offensive(){ return $this->offensive; }
 		public function get_defense(){ return $this->defense; }
@@ -50,6 +53,7 @@
 		public function get_attack3(){ return $this->attack3; }
 		public function get_attack4(){ return $this->attack4; }
 
+		public function set_statusflag($statusflag){ $this->statusflag = $statusflag; }
 		public function set_power($power){ $this->power = $power; }
 		public function set_offensive($offensive){ $this->offensive = $offensive; }
 		public function set_defense($defense){ $this->defense = $defense; }

@@ -13,23 +13,23 @@
 
     function initial_pokemon(){
 
-        $fushigidane = makepokemon('fushigidane', 1);
+        $fushigidane = makepokemon('fushigidane', 1, 9);
 
-        $hitokage = makepokemon('hitokage', 1);
+        $hitokage = makepokemon('hitokage', 1, 9);
 
-        $zenigame = makepokemon('zenigame', 1);
+        $zenigame = makepokemon('zenigame', 1, 9);
 
-        $pikachu = makepokemon('pikachu', 1);
+        $pikachu = makepokemon('pikachu', 1, 9);
 
-        $kacy = makepokemon('kacy', 1);
+        $kacy = makepokemon('kacy', 1, 9);
 
-        $colon = makepokemon('colon', 1);
+        $colon = makepokemon('colon', 1, 9);
 
-        $nyoromo = makepokemon('nyoromo', 1);
+        $nyoromo = makepokemon('nyoromo', 1, 9);
 
-        $tamatama = makepokemon('tamatama', 1);
+        $tamatama = makepokemon('tamatama', 1, 9);
 
-        $koratta = makepokemon('koratta', 1);
+        $koratta = makepokemon('koratta', 1, 9);
 
         $inipoke = [$fushigidane, $hitokage, $zenigame, $pikachu, $kacy, $colon, $nyoromo, $tamatama, $koratta];
 
@@ -43,38 +43,38 @@
 
         if (isset($_SESSION['greenbadge'])) {
             $greenbadgelevel = 63;
-            $mypokemon = makepokemon($_mypokemon, $greenbadgelevel);
+            $mypokemon = makepokemon($_mypokemon, $greenbadgelevel, 1);
             $_SESSION['level'] = $greenbadgelevel;
         } elseif (isset($_SESSION['crimsonbadge'])) {
             $crimsonbadgelevel = 57;
-            $mypokemon = makepokemon($_mypokemon, $crimsonbadgelevel);
+            $mypokemon = makepokemon($_mypokemon, $crimsonbadgelevel, 1);
             $_SESSION['level'] = $crimsonbadgelevel;
         } elseif (isset($_SESSION['goldbadge'])) {
             $goldbadgelevel = 51;
-            $mypokemon = makepokemon($_mypokemon, $goldbadgelevel);
+            $mypokemon = makepokemon($_mypokemon, $goldbadgelevel, 1);
             $_SESSION['level'] = $goldbadgelevel;
         } elseif (isset($_SESSION['pinkbadge'])) {
             $pinkbadgelevel = 45;
-            $mypokemon = makepokemon($_mypokemon, $pinkbadgelevel);
+            $mypokemon = makepokemon($_mypokemon, $pinkbadgelevel, 1);
             $_SESSION['level'] = $pinkbadgelevel;
         } elseif (isset($_SESSION['rainbowbadge'])) {
             $rainbowbadgelevel = 39;
-            $mypokemon = makepokemon($_mypokemon, $rainbowbadgelevel);
+            $mypokemon = makepokemon($_mypokemon, $rainbowbadgelevel, 1);
             $_SESSION['level'] = $rainbowbadgelevel;
         } elseif (isset($_SESSION['orangebadge'])) {
             $orangebadgelevel = 33;
-            $mypokemon = makepokemon($_mypokemon, $orangebadgelevel);
+            $mypokemon = makepokemon($_mypokemon, $orangebadgelevel, 1);
             $_SESSION['level'] = $orangebadgelevel;
         } elseif (isset($_SESSION['bluebadge'])) {
             $bluebadgelevel = 27;
-            $mypokemon = makepokemon($_mypokemon, $bluebadgelevel);
+            $mypokemon = makepokemon($_mypokemon, $bluebadgelevel, 1);
             $_SESSION['level'] = $bluebadgelevel;
         } elseif (isset($_SESSION['graybadge'])) {
             $graybadgelevel = 22;
-            $mypokemon = makepokemon($_mypokemon, $graybadgelevel);
+            $mypokemon = makepokemon($_mypokemon, $graybadgelevel, 1);
             $_SESSION['level'] = $graybadgelevel;
         } else {
-        $mypokemon = makepokemon($_mypokemon, $firstlevel);
+        $mypokemon = makepokemon($_mypokemon, $firstlevel, 1);
         }
 
         return $mypokemon;
@@ -112,7 +112,7 @@
 
     function leaders_pokemon_instance($_oppokemon, $level){
 
-        $oppokemon = makepokemon($_oppokemon, $level);
+        $oppokemon = makepokemon($_oppokemon, $level, 9);
 
         return $oppokemon;
     }
@@ -132,65 +132,65 @@
             $level1 = 12;
             $level2 = 15;
             $gymleader = appear_leaders('takeshi');
-            $pokemon1 = makepokemon('ishitsubute', $level1);
-            $pokemon2 = makepokemon('iwaku', $level2);
+            $pokemon1 = makepokemon('ishitsubute', $level1, 9);
+            $pokemon2 = makepokemon('iwaku', $level2, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'kasumi'){
             $level1 = 16;
             $level2 = 19;
             $gymleader = appear_leaders('kasumi');
-            $pokemon1 = makepokemon('starman', $level1);
-            $pokemon2 = makepokemon('starme', $level2);
+            $pokemon1 = makepokemon('starman', $level1, 9);
+            $pokemon2 = makepokemon('starme', $level2, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'matisse'){
             $level1 = 21;
             $level2 = 26;
             $gymleader = appear_leaders('matisse');
-            $pokemon1 = makepokemon('biririball', $level1);
-            $pokemon2 = makepokemon('raichu', $level2);
+            $pokemon1 = makepokemon('biririball', $level1, 9);
+            $pokemon2 = makepokemon('raichu', $level2, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'erika'){
             $level1 = 27;
             $level2 = 29;
             $gymleader = appear_leaders('erika');
-            $pokemon1 = makepokemon('utsubbot', $level1);
-            $pokemon2 = makepokemon('rafflesia', $level2);
+            $pokemon1 = makepokemon('utsubbot', $level1, 9);
+            $pokemon2 = makepokemon('rafflesia', $level2, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'kyo'){
             $level1 = 32;
             $level2 = 35;
             $level3 = 39;
             $gymleader = appear_leaders('kyo');
-            $pokemon1 = makepokemon('betbeton', $level1);
-            $pokemon2 = makepokemon('golbat', $level2);
-            $pokemon3 = makepokemon('matadogas', $level3);
+            $pokemon1 = makepokemon('betbeton', $level1, 9);
+            $pokemon2 = makepokemon('golbat', $level2, 9);
+            $pokemon3 = makepokemon('matadogas', $level3, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'natsume'){
             $level1 = 46;
             $level2 = 43;
             $level3 = 49;
             $gymleader = appear_leaders('natsume');
-            $pokemon1 = makepokemon('yungerer', $level1);
-            $pokemon2 = makepokemon('barrierd', $level2);
-            $pokemon3 = makepokemon('fudin', $level3);
+            $pokemon1 = makepokemon('yungerer', $level1, 9);
+            $pokemon2 = makepokemon('barrierd', $level2, 9);
+            $pokemon3 = makepokemon('fudin', $level3, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'katsura'){
             $level1 = 47;
             $level2 = 45;
             $level3 = 51;
             $gymleader = appear_leaders('katsura');
-            $pokemon1 = makepokemon('firefox', $level1);
-            $pokemon2 = makepokemon('gallop', $level2);
-            $pokemon3 = makepokemon('windy', $level3);
+            $pokemon1 = makepokemon('firefox', $level1, 9);
+            $pokemon2 = makepokemon('gallop', $level2, 9);
+            $pokemon3 = makepokemon('windy', $level3, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'sakaki'){
             $level1 = 50;
             $level2 = 50;
             $level3 = 57;
             $gymleader = appear_leaders('sakaki');
-            $pokemon1 = makepokemon('nidoking', $level1);
-            $pokemon2 = makepokemon('nidoqueen', $level2);
-            $pokemon3 = makepokemon('saidon', $level3);
+            $pokemon1 = makepokemon('nidoking', $level1, 9);
+            $pokemon2 = makepokemon('nidoqueen', $level2, 9);
+            $pokemon3 = makepokemon('saidon', $level3, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }
 
@@ -199,23 +199,23 @@
 
     function battle_instance($_mypokemon, $_oppokemon){
 
-        $mypokemon = makepokemon($_mypokemon, 15);
-        $oppokemon = makepokemon($_oppokemon, 15);
+        $mypokemon = makepokemon($_mypokemon, 15, 9);
+        $oppokemon = makepokemon($_oppokemon, 15, 9);
 
         return array($mypokemon, $oppokemon);
     }
 
     function weapon_instance($_mypokemon, $_oppokemon){
         
-        list($myassass1, $myassass2, $myassass3, $myassass4) = acquire_pokemon($_mypokemon, 15);
-        list($opassass1, $opassass2, $opassass3, $opassass4) = acquire_pokemon($_oppokemon, 15);
+        list($myassass1, $myassass2, $myassass3, $myassass4) = acquire_pokemon($_mypokemon, 15, 9);
+        list($opassass1, $opassass2, $opassass3, $opassass4) = acquire_pokemon($_oppokemon, 15, 9);
 
         return array($myassass1, $myassass2, $myassass3, $myassass4, $opassass1, $opassass2, $opassass3, $opassass4);
     }
 
     function winner_pokemon($_winner){
 
-        $winner = makepokemon($_winner, 1);
+        $winner = makepokemon($_winner, 1, 9);
 
         return $winner;
     }
@@ -372,7 +372,6 @@
 
         if($_dataclear == 'yes'){
             session_destroy();
-            $_SESSION['evolution_status'] = 0;
             $message = "バッジやポケモンデータをクリアしました<br>";
         }
 
