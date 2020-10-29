@@ -2,7 +2,9 @@
 	session_start();
 
 	unset($_SESSION['winner']);
-	unset($_SESSION['oppokemon']);
+	unset($_SESSION['battle_mypokemon']);
+	unset($_SESSION['battle_oppokemon']);
+	unset($_SESSION['battle_mode']);
 ?>
 <html>
 	<head>

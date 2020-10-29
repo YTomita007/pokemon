@@ -3,6 +3,9 @@
 	
 	if(isset($_GET['message'])){
 		$message = $_GET['message'];
+		if(isset($_GET['clearflag'])){
+			$_SESSION['level'] = 1;
+		}
 	}
 ?>
 <html>

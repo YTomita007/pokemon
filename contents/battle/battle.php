@@ -5,23 +5,29 @@
     require '../../system/class/Assassinate.class.php';
 	require '../../system/functions/base.php';
 
-	if(isset($_SESSION['mypokemon'])){
-		$_mypokemon = $_SESSION['mypokemon'];
+	if(isset($_SESSION['battle_mypokemon'])){
+		$_mypokemon = $_SESSION['battle_mypokemon'];
 	}elseif(isset($_POST['mypokemon'])){
 		$_mypokemon = $_POST['mypokemon'];
     }else{
         $_mypokemon = $_GET['mypokemon'];
     }
 
-	if(isset($_SESSION['mypokemon'])){
-		$_oppokemon = $_SESSION['oppokemon'];
+	if(isset($_SESSION['battle_oppokemon'])){
+		$_oppokemon = $_SESSION['battle_oppokemon'];
 	}elseif(isset($_POST['oppokemon'])){
 		$_oppokemon = $_POST['oppokemon'];
     }else{
         $_oppokemon = $_GET['oppokemon'];
 	}
 
-	list($mypokemon, $oppokemon) = battle_instance($_mypokemon, $_oppokemon);
+	$mypokelevel = $_POST['mypokelevel'];
+	$oppokelevel = $_POST['oppokelevel'];
+
+	$mypokemon = battle_single($_mypokemon, $mypokelevel);
+	$oppokemon = battle_single($_oppokemon, $oppokelevel);
+
+	// list($mypokemon, $oppokemon) = battle_instance($_mypokemon, $_oppokemon);
 	list($myassass1, $myassass2, $myassass3, $myassass4, $opassass1, $opassass2, $opassass3, $opassass4) = weapon_instance($_mypokemon, $_oppokemon);
 
 	if(isset($_POST["command"])){
@@ -41,23 +47,26 @@
 
 	}
 
-	if($mypokemon->get_speed() < $oppokemon->get_speed()){
-		if($mypower < 1){
-			$_SESSION['winner'] = $oppokemon->identify;
-			header('Location: result.php', true, 307);
-		} elseif($oppower < 1){
-			$_SESSION['winner'] = $mypokemon->identify;
-			header('Location: result.php', true, 307);
-		}
-	} else {
-		if($oppower < 1){
-			$_SESSION['winner'] = $mypokemon->identify;
-			header('Location: result.php', true, 307);
-		} elseif($mypower < 1){
-			$_SESSION['winner'] = $oppokemon->identify;
-			header('Location: result.php', true, 307);
-		}
+	if(($mypower < 1) || ($oppower < 1)){
+		battle_done($mypokemon, $oppokemon, $mypower, $oppower, $mypokelevel, $oppokelevel);
 	}
+	// if($mypokemon->get_speed() < $oppokemon->get_speed()){
+	// 	if($mypower < 1){
+	// 		$_SESSION['winner'] = $oppokemon->identify;
+	// 		header('Location: result.php', true, 307);
+	// 	} elseif($oppower < 1){
+	// 		$_SESSION['winner'] = $mypokemon->identify;
+	// 		header('Location: result.php', true, 307);
+	// 	}
+	// } else {
+	// 	if($oppower < 1){
+	// 		$_SESSION['winner'] = $mypokemon->identify;
+	// 		header('Location: result.php', true, 307);
+	// 	} elseif($mypower < 1){
+	// 		$_SESSION['winner'] = $oppokemon->identify;
+	// 		header('Location: result.php', true, 307);
+	// 	}
+	// }
 ?>
 <html>
 	<head>
@@ -106,6 +115,8 @@
 				<form action="battle.php" method="post">
 					<input type="hidden" name="mypokemon" value="<?php echo $mypokemon->identify; ?>">
 					<input type="hidden" name="oppokemon" value="<?php echo $oppokemon->identify; ?>">
+					<input type="hidden" name="mypokelevel" value="<?php echo $mypokelevel; ?>">
+					<input type="hidden" name="oppokelevel" value="<?php echo $oppokelevel; ?>">
 					<input type="hidden" name="mypower" value="<?php echo $mypower; ?>">
 					<input type="hidden" name="oppower" value="<?php echo $oppower; ?>">
 					<div class="battlecommand">

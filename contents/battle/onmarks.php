@@ -4,26 +4,44 @@
 	require '../../system/class/Pokemon.class.php';
 	require '../../system/class/Assassinate.class.php';
 	require '../../system/functions/base.php';
-	    
-	if(isset($_SESSION['mypokemon'])){
-		$_mypokemon = $_SESSION['mypokemon'];
-	}elseif(isset($_POST['mypokemon'])){
+
+	if(isset($_SESSION['winner'])){
 		$_mypokemon = $_POST['mypokemon'];
-    }else{
-        $_mypokemon = $_GET['mypokemon'];
-    }
-	
-	if(isset($_SESSION['oppokemon'])){
-		$_oppokemon = $_SESSION['oppokemon'];
-	}elseif(isset($_POST['oppokemon'])){
 		$_oppokemon = $_POST['oppokemon'];
-    }else{
-        $_oppokemon = $_GET['oppokemon'];
-	}
+		$mypokelevel = $_POST['mypokelevel'];
+		$oppokelevel = $_POST['oppokelevel'];
+	} else {
+		if(isset($_SESSION['battle_mypokemon'])){
+			$_mypokemon = $_SESSION['battle_mypokemon'];
+		}elseif(isset($_POST['mypokemon'])){
+			$_mypokemon = $_POST['mypokemon'];
+		}else{
+			$_mypokemon = $_GET['mypokemon'];
+		}
+		
+		if(isset($_SESSION['battle_oppokemon'])){
+			$_oppokemon = $_SESSION['battle_oppokemon'];
+		}elseif(isset($_POST['oppokemon'])){
+			$_oppokemon = $_POST['oppokemon'];
+		}else{
+			$_oppokemon = $_GET['oppokemon'];
+		}
+	
+		if(isset($_POST['mypokelevel'])){
+			$mypokelevel = $_POST['mypokelevel'];
+			$oppokelevel = $_POST['oppokelevel'];
+			$oppokelevel = $_GET['pokelevel'];
+		} else {
+			$mypokelevel = $_GET['mypokelevel'];
+			$oppokelevel = $_GET['pokelevel'];
+		}	
+	}	    
 
-	list($mypokemon, $oppokemon) = battle_instance($_mypokemon, $_oppokemon);
+	$mypokemon = battle_single($_mypokemon, $mypokelevel);
+	$oppokemon = battle_single($_oppokemon, $oppokelevel);
 
-	$_SESSION['oppokemon'] = $oppokemon->identify;
+	$_SESSION['battle_mypokemon'] = $mypokemon->identify;
+	$_SESSION['battle_oppokemon'] = $oppokemon->identify;
 ?>
 <html>
 	<head>
@@ -41,6 +59,8 @@
 				<form action="battle.php" method="post">
 					<input type="hidden" name="mypokemon" value="<?php echo $mypokemon->identify; ?>">
 					<input type="hidden" name="oppokemon" value="<?php echo $oppokemon->identify; ?>">
+					<input type="hidden" name="mypokelevel" value="<?php echo $mypokelevel; ?>">
+					<input type="hidden" name="oppokelevel" value="<?php echo $oppokelevel; ?>">
 					<input type="hidden" name="mypower" value="<?php echo $mypokemon->get_power(); ?>">
 					<input type="hidden" name="oppower" value="<?php echo $oppokemon->get_power(); ?>">
 					<div class="ready">
@@ -57,7 +77,7 @@
 					</div>
 					<br><br>
 					<div class="parallel">
-						<button type="button" class="btn-square2" onclick="location.href='oppokemon.php' "value="えらびなおし">えらびなおし</button>
+						<button type="button" class="btn-square2" onclick="location.href='mypokemon.php' "value="えらびなおし">えらびなおし</button>
 						<button type="submit" class="btn-square1">けってい！</button>
 					</div>
 				</form>

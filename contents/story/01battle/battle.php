@@ -41,11 +41,11 @@
 	if($_GET['mypokemon']) {
 		$mypower = $mypokemon->get_power();
 		$oppower = $oppokemon->get_power();
-		$halfpower = $oppower / 2;
+		$stpoint = $oppower * 3 / 5;
 	} else {
 		$mypower = $_POST['mypower'];
 		$oppower = $_POST['oppower'];
-		$halfpower = $_POST['halfpower'];
+		$stpoint = $_POST['stpoint'];
 
 		if(isset($_POST["command"])){
 			$mycommand = $_POST["command"];
@@ -55,9 +55,11 @@
 		list($mypower, $oppower, $myattack, $opattack) = battle_calculation($mypower, $oppower, $myattack, $mycure, $opattack, $opcure);
 	}
 
-	if($oppower < $halfpower && $orders == 2){
+	if($oppower < $stpoint && $orders == 2){
 		list($oppokemon, $opattack, $opcure) = strengthen1($oppokemon, $opattack, $opcure);
-	} elseif ($oppower < $halfpower && $orders == 3 || $orders == 4) {
+	} elseif ($oppower < $stpoint && $orders == 3) {
+		list($oppokemon, $opattack, $opcure) = strengthen2($oppokemon, $opattack, $opcure);
+	} elseif ($oppower < $stpoint && $orders == 4) {
 		list($oppokemon, $opattack, $opcure) = strengthen2($oppokemon, $opattack, $opcure);
 	}
 
@@ -116,7 +118,7 @@
 					<input type="hidden" name="mypower" value="<?php echo $mypower; ?>">
 					<input type="hidden" name="oppower" value="<?php echo $oppower; ?>">
 					<input type="hidden" name="orders" value="<?php echo $orders; ?>">
-					<input type="hidden" name="halfpower" value="<?php echo $halfpower; ?>">
+					<input type="hidden" name="stpoint" value="<?php echo $stpoint; ?>">
 					<div class="battlecommand">
                         <input type="radio" title="command" name="command" value="<?php echo $myassass1->name; ?>" id="electric" checked>
                         <label for="electric"><?php echo $myassass1->display; ?></label>

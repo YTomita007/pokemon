@@ -23,7 +23,10 @@
 			<h1>たたかえ！ジムリーダー！</h1>
 			<div class="form-box">
 				<div class="commandline">
-					<P>	★じぶんの ポケモンを せんたくしてください</p>
+					<P>	じぶんの ポケモンを せんたくしてください</p>
+				</div>
+				<div class="commandline">
+					<P>	いまのレベルは『<?php echo $_SESSION['level']; ?>』です</p>
 				</div>
 				<form action="checkin.php" method="post">
 					<div class="alternative">
