@@ -152,9 +152,11 @@
         }elseif($leaders_name == 'erika'){
             $level1 = 27;
             $level2 = 29;
+            $level3 = 29;
             $gymleader = appear_leaders('erika');
             $pokemon1 = makepokemon('utsubbot', $level1, 9);
-            $pokemon2 = makepokemon('rafflesia', $level2, 9);
+            $pokemon2 = makepokemon('monjara', $level2, 9);
+            $pokemon3 = makepokemon('rafflesia', $level3, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'kyo'){
             $level1 = 32;
@@ -186,11 +188,13 @@
         }elseif($leaders_name == 'sakaki'){
             $level1 = 50;
             $level2 = 50;
-            $level3 = 57;
+            $level3 = 55;
+            $level4 = 58;
             $gymleader = appear_leaders('sakaki');
             $pokemon1 = makepokemon('nidoking', $level1, 9);
             $pokemon2 = makepokemon('nidoqueen', $level2, 9);
-            $pokemon3 = makepokemon('saidon', $level3, 9);
+            $pokemon3 = makepokemon('dugtrio', $level3, 9);
+            $pokemon4 = makepokemon('saidon', $level4, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }
 
@@ -290,10 +294,6 @@
             $oppokemon->picture = 'raichu_s';
             $opattack = $opattack + 5;
             $opcure = $opcure - 8;
-        }elseif($oppokemon->identify == 'rafflesia'){
-            $oppokemon->picture = 'rafflesia_s';
-            $opattack = $opattack + 5;
-            $opcure = $opcure - 8;
         }elseif($oppokemon->identify == 'batbeton'){
             $oppokemon->picture = 'batbeton_s';
             $opattack = $opattack + 5;
@@ -317,7 +317,11 @@
 
     function strengthen2($oppokemon, $opattack, $opcure) {
         
-        if($oppokemon->identify == 'matadogas'){
+        if($oppokemon->identify == 'rafflesia'){
+            $oppokemon->picture = 'rafflesia_s';
+            $opattack = $opattack + 25;
+            $opcure = $opcure - 15;
+        }elseif($oppokemon->identify == 'matadogas'){
             $oppokemon->picture = 'matadogas_s';
             $opattack = $opattack + 25;
             $opcure = $opcure - 15;
@@ -336,6 +340,62 @@
         }
 
         return array($oppokemon, $opattack, $opcure);
+    }
+
+    function terminate_battle_go_next($mypokemon, $oppokemon, $gymleader, $orders, $mypower, $oppower){
+        if($mypokemon->get_speed() < $oppokemon->get_speed()){
+            if($mypower < 1){
+                header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=212"."&gymleader=".$gymleader->identify, true, 307);
+            } elseif($oppower < 1){
+                    if($orders > 1){
+                        if($gymleader->identify == 'erika' || $gymleader->identify == 'kyo' || $gymleader->identify == 'natsume' || $gymleader->identify == 'katsura' || $gymleader->identify == 'sakaki'){
+                            if($orders > 2){
+                                if($gymleader->identify == 'sakaki'){
+                                    if($orders > 3){
+                                        header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
+                                    } else {
+                                        header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=207"."&gymleader=".$gymleader->identify, true, 307);
+                                    }
+                                } else {
+                                    header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
+                                }
+                            } else {
+                                header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=206"."&gymleader=".$gymleader->identify, true, 307);
+                            }
+                        } else {
+                            header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
+                        }
+                    } else {
+                        header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=202"."&gymleader=".$gymleader->identify, true, 307);
+                    }
+            }
+        } else {
+            if($oppower < 1){
+                if($orders > 1){
+                    if($gymleader->identify == 'erika' || $gymleader->identify == 'kyo' || $gymleader->identify == 'natsume' || $gymleader->identify == 'katsura' || $gymleader->identify == 'sakaki'){
+                        if($orders > 2){
+                            if($gymleader->identify == 'sakaki'){
+                                if($orders > 3){
+                                    header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
+                                } else {
+                                    header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=207"."&gymleader=".$gymleader->identify, true, 307);
+                                }
+                            } else {
+                                header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
+                            }
+                        } else {
+                            header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=206"."&gymleader=".$gymleader->identify, true, 307);
+                        }
+                    } else {
+                        header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
+                    }
+                } else {
+                    header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=202"."&gymleader=".$gymleader->identify, true, 307);
+                }
+            } elseif($mypower < 1){
+                header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=212"."&gymleader=".$gymleader->identify, true, 307);
+            } 	
+        }    
     }
 
     function badge_awards($gymleader){

@@ -297,6 +297,14 @@
                 $pokemon->set_speed(45);
                 $pokemon->set_attribute1('electric');
                 break;
+            case 'monjara':
+                $pokemon = new pokemon('monjara', 'モンジャラ', 'monjara', $status_flag);
+                $pokemon->set_power(65 + $level * 4);
+                $pokemon->set_offensive(55 + $level * 2);
+                $pokemon->set_defense(115 + $level * 5);
+                $pokemon->set_speed(60 + $level * 2);
+                $pokemon->set_attribute1('weed');
+                break;
             case 'utsubbot':
                 $pokemon = new pokemon('utsubbot', 'ウツボット', 'utsubbot', $status_flag);
                 $pokemon->set_power(80 + $level * 5);
@@ -471,32 +479,40 @@
                 $pokemon->set_speed(95);
                 $pokemon->set_attribute1('fire');
                 break;
+            case 'dugtrio':
+                $pokemon = new pokemon('dugtrio', 'ダグトリオ', 'dugtrio', $status_flag);
+                $pokemon->set_power(35 + $level * 3);
+                $pokemon->set_offensive(80 + $level * 4);
+                $pokemon->set_defense(50 + $level * 2);
+                $pokemon->set_speed(120 + $level * 6);
+                $pokemon->set_attribute1('ground');
+                break;
             case 'nidoqueen':
                 $pokemon = new pokemon('nidoqueen', 'ニドクイーン', 'nidoqueen', $status_flag);
                 $pokemon->set_power(90 + $level * 6);
-                $pokemon->set_offensive(82);
-                $pokemon->set_defense(87);
-                $pokemon->set_speed(76);
+                $pokemon->set_offensive(82 + $level * 3);
+                $pokemon->set_defense(87 + $level * 3);
+                $pokemon->set_speed(76 + $level * 3);
                 $pokemon->set_attribute1('poison');
-                $pokemon->set_attribute1('ground');
+                $pokemon->set_attribute2('ground');
                 break;
             case 'nidoking':
                 $pokemon = new pokemon('nidoking', 'ニドキング', 'nidoking', $status_flag);
                 $pokemon->set_power(81 + $level * 6);
-                $pokemon->set_offensive(92);
-                $pokemon->set_defense(77);
-                $pokemon->set_speed(85);
+                $pokemon->set_offensive(92 + $level * 4);
+                $pokemon->set_defense(77 + $level * 2);
+                $pokemon->set_speed(85 + $level * 3);
                 $pokemon->set_attribute1('poison');
-                $pokemon->set_attribute1('ground');
+                $pokemon->set_attribute2('ground');
                 break;
             case 'saidon':
                 $pokemon = new pokemon('saidon', 'サイドン', 'saidon', $status_flag);
                 $pokemon->set_power(105 + $level * 7);
-                $pokemon->set_offensive(130);
-                $pokemon->set_defense(120);
-                $pokemon->set_speed(40);
-                $pokemon->set_attribute1('stone');
+                $pokemon->set_offensive(130 + $level * 7);
+                $pokemon->set_defense(120 + $level * 7);
+                $pokemon->set_speed(40 + $level * 1);
                 $pokemon->set_attribute1('ground');
+                $pokemon->set_attribute2('stone');
                 break;    
         }
 
@@ -580,7 +596,7 @@
                 break;
             case 'tamatama':
                 $assass1 = new Assassinate('hypnosis', 'さいみんじゅつ', 5, 9);
-                $assass2 = new Assassinate('absorb', 'すいとる', 22, 6);
+                $assass2 = new Assassinate('absorb', 'すいとる', 22, 22);
                 $assass3 = new Assassinate('reflector', 'はねかいえし', 5, 5);
                 $assass4 = new Assassinate('mistletoe', 'やどりぎ', 9, 6);    
                 break;
@@ -620,17 +636,23 @@
                 $assass3 = new Assassinate('waves', 'でんじは', 8, 6);
                 $assass4 = new Assassinate('rockattact', '１０まんボルト', 47, 0);
                 break;
+            case 'monjara':
+                $assass1 = new Assassinate('whipping', 'つるのむち', 29, 0);
+                $assass2 = new Assassinate('absorb', 'すいとる', 22, 22);
+                $assass3 = new Assassinate('chorke', 'しめつける', 15, 3);
+                $assass4 = new Assassinate('sleeppowder', 'ねむりごな', 3, 33);
+                break;
             case 'utsubbot':
-                $assass1= new Assassinate('leafcutter', 'はっぱカッター', 45, 0);
+                $assass1 = new Assassinate('leafcutter', 'はっぱカッター', 45, 0);
                 $assass2 = new Assassinate('whipping', 'つるのむち', 29, 0);
                 $assass3 = new Assassinate('poisonpowder', 'どくのこな', 8, 15);
                 $assass4 = new Assassinate('sleeppowder', 'ねむりごな', 3, 33);
                 break;
             case 'rafflesia':
-                $assass1 = new Assassinate('rockattact', 'はなびらのまい', 58, -10);
+                $assass1 = new Assassinate('rockattact', 'はなびらのまい', 62, -15);
                 $assass2 = new Assassinate('poisonpowder', 'どくのこな', 8, 15);
                 $assass3 = new Assassinate('sleeppowder', 'ねむりごな', 3, 33);
-                $assass4= new Assassinate('leafcutter', 'はっぱカッター', 45, 0);
+                $assass4 = new Assassinate('leafcutter', 'はっぱカッター', 45, 0);
                 break;
             case 'betbeton':
                 $assass1 = new Assassinate('poisonspear', 'どくづき', 49, 0);
@@ -710,6 +732,12 @@
                 $assass3 = new Assassinate('quake', 'じしん', 65, 0);
                 $assass4 = new Assassinate('nidokick', 'にどげり', 45, 0);
                 break;
+            case 'dugtrio':
+                $assass1 = new Assassinate('digging', 'あなをほる', 45, 20);
+                $assass2 = new Assassinate('gaze', 'きりさく', 49, 0);    
+                $assass3 = new Assassinate('quake', 'じしん', 65, 0);
+                $assass4 = new Assassinate('headbad', 'ずつき', 46, 0);
+                break;
             case 'saidon':
                 $assass1 = new Assassinate('sttackle', 'とっしん', 42, 0);
                 $assass2 = new Assassinate('gaze', 'にらみつける', 9, 9);
@@ -775,9 +803,10 @@
             $phrase4 = "ヘイ ユー！<br><br><br>ミーと もういちど<br>リターンマッチ しましょう！<br>アー ユー オーケイ？<br>";
         } elseif($leaders_name == 'erika') {
             $phrase1 = "はあーい……<br>よい おてんきね<br>きもち いい……<br>…… すー…… すー<br>…… あら いけない<br>ねて しまったわ…… ようこそ<br>わたくし タマムシ ジムの<br>エリカと もうします<br>おはなを いけるのが しゅみで<br>ポケモンは くさタイプ ばかり<br>…… あら やだ<br>しあいの もうしこみ ですの？<br>そんな……<br>わたくし まけませんわよ<br>";
-            $phrase2 = "まあ てきびしくて らっしゃる！<br><br><br>てかげん なんか なさらずに<br>さあ ぞんぶんに！<br>";
+            $phrase2 = "まあ てきびしくて らっしゃる！<br>";
             $phrase3 = "……！<br><br>まいり ましたわ<br>さすが<br>とのがたは おつよい ですわ<br>この レインボーバッジ<br>さしあげ なくては なりませんね<br>レインボー バッジで<br>レベル50 までの ポケモンが<br>おとなしく いうこと きき ます<br>そして…… かいりきの わざが<br>たたかって なくても つかえます<br><br><br>それから……<br>よろしかったら<br>これも おつかいに なって！<br>わざマシン21の なかみは<br>メガドレイン です<br>あたえた ダメージの はんぶんが<br>ポケモンの えいように なる<br>すばらしい わざ です<br><br><br>あら まあ……<br>ずかんを つくって ますのね<br>ほんとに えらいわ<br>わたし でしたら<br>きれいな ポケモンしか<br>ほしく なりません もの<br>";
             $phrase4 = "まける というのは<br>くやしいもの ですね<br><br><br>でも つよいかたが いるということは<br>はげみにも なりますのよ<br>";
+            $phrase5 = "まあ<br>どうしたもの でしょう<br><br><br><br>てかげん なんか なさらずに<br>さあ ぞんぶんに いきます！<br>";
         } elseif($leaders_name == 'kyo') {
             $phrase1 = "…… ファ ファ ファ！<br>こわっぱ ごときが<br>せっしゃに たたかいを いどむとは<br>かたはら いたいわ！<br>…… どくを くらったら じめつ！<br>ねむって しまったら むていこう<br>…… しのびの わざの ごくいを<br>うけて みるが よい！<br>";
             $phrase2 = "うむ！<br>おぬし やりおるな！<br>だが まだまだだ！<br>";
@@ -801,7 +830,8 @@
             $phrase2 = "すこしは やるようだな！<br>だが たたかいは これからだ！<br>";
             $phrase3 = "はー はーッ！<br>はげしい たたかい だった！<br>きみの かちだ！<br><br><br>いま……<br>その あかしに<br>グリーン バッジを わたそう！<br>グリーンバッジさえ あれば<br>どんなに レベルの たかい<br>ポケモンも いうことを きく！<br>きみが いちにんまえの<br>トレーナーに なった あかしだ！<br>これで ポケモンリーグに<br>いどむ ことが できるだろう<br>この わざマシンは……！<br>ポケモンリーグへ いどむ<br>きみへ せんべつだ！<br>わざマシン27は じわれ だ！<br>じわれに さそいこまれた てきは<br>いちげきで ダウン する！<br>さいきょうの わざだ！<br>おれが むかし…… ここで<br>ポケモン ジムを やってる とき<br>つくった ものだ……<br><br><br><br>このような まけかたを しては<br>ぶかたちに しめしが つかない！<br>ロケットだんは……<br>ほんじつを もって かいさんする！<br>わたしは<br>ポケモンの しゅぎょうを<br>いちから しなおす つもりだ！<br>いつの ひか……<br>また あおう！<br>…… さらばだ！<br>";
             $phrase4 = "でなおしてこい！<br>";
-            $phrase5 = "やるようだな！<br>ならば これならどうだ！<br>いけ！サイドン！<br>";
+            $phrase5 = "うむ ずいぶんと そだてているな<br>だが たたかいは これからだ！<br>";
+            $phrase6 = "やるようだな！<br>ならば これならどうだ！<br>いけ！サイドン！<br>";
         }
 
         $phrases = array($phrase1, $phrase2, $phrase3, $phrase4, $phrase5, $phrase6);
