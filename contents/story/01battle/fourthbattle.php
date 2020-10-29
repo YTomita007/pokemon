@@ -37,7 +37,7 @@
 				<img alt="ジムリーダー<?php echo $gymleader->name; ?>" src="../../images/gymleaders/<?php echo $gymleader->picture; ?>.png">
 			</div>
 			<div class="alternative">
-				<img alt="いけー！<?php echo $pokemon3->name; ?>！" src="../../images/pokemons/<?php echo $pokemon3->picture; ?>.png">
+				<img alt="いけー！<?php echo $pokemon4->name; ?>！" src="../../images/pokemons/<?php echo $pokemon4->picture; ?>.png">
 			</div>
 			<div class="form-box-non">
 				<div class="commandbox">
@@ -47,19 +47,19 @@
 					<div class="dialoguebox">
 						<div class="description">
 							<p class=scroll>
-								<?php echo $phrases[4]; ?>
+								<?php echo $phrases[5]; ?>
 							</p>
 						</div>
 					</div>
 				</div>
 				<form action="../../../controller.php" method="post">
 					<input type="hidden" name="process" value="203">
-					<input type="hidden" name="orders" value="3">
-					<input type="hidden" name="level" value="<?php echo $level3; ?>">
+					<input type="hidden" name="orders" value="4">
+					<input type="hidden" name="level" value="<?php echo $level4; ?>">
 					<input type="hidden" name="gymleader" value="<?php echo $gymleader->identify; ?>">
 					<input type="hidden" name="mypokemon" value="<?php echo $mypokemon->identify; ?>">
-					<input type="hidden" name="oppokemon" value="<?php echo $pokemon3->identify; ?>">
-					<button type="submit" class="btn-square1"><?php echo $pokemon3->name; ?>とたいけつ！</button>
+					<input type="hidden" name="oppokemon" value="<?php echo $pokemon4->identify; ?>">
+					<button type="submit" class="btn-square1"><?php echo $pokemon4->name; ?>とたいけつ！</button>
 				</form>
 			</div>
 		</div>

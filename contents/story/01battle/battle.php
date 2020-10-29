@@ -57,48 +57,13 @@
 
 	if($oppower < $halfpower && $orders == 2){
 		list($oppokemon, $opattack, $opcure) = strengthen1($oppokemon, $opattack, $opcure);
-	} elseif ($oppower < $halfpower && $orders == 3) {
+	} elseif ($oppower < $halfpower && $orders == 3 || $orders == 4) {
 		list($oppokemon, $opattack, $opcure) = strengthen2($oppokemon, $opattack, $opcure);
 	}
 
-	if($mypokemon->get_speed() < $oppokemon->get_speed()){
-		if($mypower < 1){
-			header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=212"."&gymleader=".$gymleader->identify, true, 307);
-		} elseif($oppower < 1){
-				if($orders > 1){
-					if($gymleader->identify == 'kyo' || $gymleader->identify == 'natsume' || $gymleader->identify == 'katsura' || $gymleader->identify == 'sakaki'){
-						if($orders > 2){
-							header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
-						} else {
-							header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=206"."&gymleader=".$gymleader->identify, true, 307);
-						}
-					} else {
-						header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
-					}
-				} else {
-					header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=202"."&gymleader=".$gymleader->identify, true, 307);
-				}
-		}
-	} else {
-		if($oppower < 1){
-			if($orders > 1){
-				if($gymleader->identify == 'kyo' || $gymleader->identify == 'natsume' || $gymleader->identify == 'katsura' || $gymleader->identify == 'sakaki'){
-					if($orders > 2){
-						header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
-					} else {
-						header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=206"."&gymleader=".$gymleader->identify, true, 307);
-					}
-				} else {
-					header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=211"."&gymleader=".$gymleader->identify, true, 307);
-				}
-			} else {
-				header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=202"."&gymleader=".$gymleader->identify, true, 307);
-			}
-		} elseif($mypower < 1){
-			header('Location: ../../../controller.php?mypokemon='.$mypokemon->identify."&oppokemon=".$oppokemon->identify."&process=212"."&gymleader=".$gymleader->identify, true, 307);
-		} 	
+	if($mypower < 1 || $oppower < 1){
+		terminate_battle_go_next($mypokemon, $oppokemon, $gymleader, $orders, $mypower, $oppower);
 	}
-
 ?>
 <html>
 	<head>

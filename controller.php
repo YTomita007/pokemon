@@ -105,16 +105,23 @@
             header('Location: ./contents/story/01battle/thirdbattle.php?'.http_build_query($params, '', '&'), true, 307);
             break;
         case 207:
-            $oppokemon = leaders_pokemon_instance($_oppokemon, $level);
             $params = [
                 'mypokemon' => $mypokemon->identify,
-                'oppokemon' => $oppokemon->identify,
-                'level' => $level,
-                'orders' => $orders,
                 'gymleader' => $selectleader,
             ];
-            header('Location: ./contents/story/01battle/battle.php?'.http_build_query($params, '', '&'), true, 307);
+            header('Location: ./contents/story/01battle/fourthbattle.php?'.http_build_query($params, '', '&'), true, 307);
             break;
+        // case 207:
+        //     $oppokemon = leaders_pokemon_instance($_oppokemon, $level);
+        //     $params = [
+        //         'mypokemon' => $mypokemon->identify,
+        //         'oppokemon' => $oppokemon->identify,
+        //         'level' => $level,
+        //         'orders' => $orders,
+        //         'gymleader' => $selectleader,
+        //     ];
+        //     header('Location: ./contents/story/01battle/battle.php?'.http_build_query($params, '', '&'), true, 307);
+        //     break;
         case 211:
             $params = [
                 'mypokemon' => $mypokemon->identify,
