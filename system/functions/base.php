@@ -201,6 +201,48 @@
         return array($gymleader, $pokemon1, $level1, $pokemon2, $level2, $pokemon3, $level3, $pokemon4, $level4, $pokemon5, $level5, $pokemon6, $level6, $phrases);
     }
 
+    function battle_single($_pokemon, $pokelevel){
+
+        if ($pokelevel == 'greenbadge') {
+            $greenbadgelevel = 63;
+            $battlepokemon = makepokemon($_pokemon, $greenbadgelevel, 1);
+        } elseif ($pokelevel == 'crimsonbadge') {
+            $crimsonbadgelevel = 57;
+            $battlepokemon = makepokemon($_pokemon, $crimsonbadgelevel, 1);
+        } elseif ($pokelevel == 'goldbadge') {
+            $goldbadgelevel = 51;
+            $battlepokemon = makepokemon($_pokemon, $goldbadgelevel, 1);
+            $_SESSION['level'] = $goldbadgelevel;
+        } elseif ($pokelevel == 'pinkbadge') {
+            $pinkbadgelevel = 45;
+            $battlepokemon = makepokemon($_pokemon, $pinkbadgelevel, 1);
+            $_SESSION['level'] = $pinkbadgelevel;
+        } elseif ($pokelevel == 'rainbowbadge') {
+            $rainbowbadgelevel = 39;
+            $battlepokemon = makepokemon($_pokemon, $rainbowbadgelevel, 1);
+            $_SESSION['level'] = $rainbowbadgelevel;
+        } elseif ($pokelevel == 'orangebadge') {
+            $orangebadgelevel = 33;
+            $battlepokemon = makepokemon($_pokemon, $orangebadgelevel, 1);
+            $_SESSION['level'] = $orangebadgelevel;
+        } elseif ($pokelevel == 'bluebadge') {
+            $bluebadgelevel = 27;
+            $battlepokemon = makepokemon($_pokemon, $bluebadgelevel, 1);
+            $_SESSION['level'] = $bluebadgelevel;
+        } elseif ($pokelevel == 'graybadge') {
+            $graybadgelevel = 22;
+            $battlepokemon = makepokemon($_pokemon, $graybadgelevel, 1);
+            $_SESSION['level'] = $graybadgelevel;
+        } elseif ($pokelevel == 'nonbadge') {
+            $nonbadgelevel = 17;
+            $battlepokemon = makepokemon($_pokemon, $nonbadgelevel, 1);
+        } else {
+            $battlepokemon = makepokemon($_pokemon, 1, 1);
+        }
+
+        return $battlepokemon;
+    }
+
     function battle_instance($_mypokemon, $_oppokemon){
 
         $mypokemon = makepokemon($_mypokemon, 15, 9);
@@ -433,6 +475,7 @@
         if($_dataclear == 'yes'){
             session_destroy();
             $message = "バッジやポケモンデータをクリアしました<br>";
+            $clearflag = true;
         }
 
         if(isset($_degrees)){
@@ -452,6 +495,32 @@
             }
         }
     
-        return $message;
+        return array($message, $clearflag);
+    }
+
+    function battle_done($mypokemon, $oppokemon, $mypower, $oppower, $mypokelevel, $oppokelevel){
+        if($mypokemon->get_speed() < $oppokemon->get_speed()){
+            $params = [
+                'mypokemon' => $mypokemon->identify,
+                'oppokemon' => $oppokemon->identify,
+                'mypokelevel' => $mypokelevel,
+                'oppokelevel' => $oppokelevel,
+            ];
+            if($mypower < 1){
+                $_SESSION['winner'] = $oppokemon->identify;
+                header('Location: result.php?'.http_build_query($params, '', '&'), true, 307);
+            } elseif($oppower < 1){
+                $_SESSION['winner'] = $mypokemon->identify;
+                header('Location: result.php?'.http_build_query($params, '', '&'), true, 307);
+            }
+        } else {
+            if($oppower < 1){
+                $_SESSION['winner'] = $mypokemon->identify;
+                header('Location: result.php?'.http_build_query($params, '', '&'), true, 307);
+            } elseif($mypower < 1){
+                $_SESSION['winner'] = $oppokemon->identify;
+                header('Location: result.php?'.http_build_query($params, '', '&'), true, 307);
+            }
+        }    
     }
 ?>

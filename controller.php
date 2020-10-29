@@ -29,14 +29,18 @@
     $command = $_POST['playmode'];
     $dataclear = $_POST['dataclear'];
     $degrees = $_POST['degrees'];
+    $pokelevel = $_POST['pokelevel'];
+    $mypokelevel = $_POST['mypokelevel'];
 
-    if(isset($_mypokemon)){
-        if($process == 223){
+    if(isset($_GET['oppokelevel'])){
+        $mypokelevel = $_GET['mypokelevel'];
+        $oppokelevel = $_GET['oppokelevel'];
+    }
 
-        } else {
-            $mypokemon = my_instance($_mypokemon);
-        }
-        $_SESSION['mypokemon'] = $mypokemon->identify;
+    if(isset($_SESSION['battle_mode'])){
+        $mypokemon = battle_single($_mypokemon, 17);
+    } else {
+        $mypokemon = my_instance($_mypokemon);
     }
 
     switch($process){
@@ -111,17 +115,6 @@
             ];
             header('Location: ./contents/story/01battle/fourthbattle.php?'.http_build_query($params, '', '&'), true, 307);
             break;
-        // case 207:
-        //     $oppokemon = leaders_pokemon_instance($_oppokemon, $level);
-        //     $params = [
-        //         'mypokemon' => $mypokemon->identify,
-        //         'oppokemon' => $oppokemon->identify,
-        //         'level' => $level,
-        //         'orders' => $orders,
-        //         'gymleader' => $selectleader,
-        //     ];
-        //     header('Location: ./contents/story/01battle/battle.php?'.http_build_query($params, '', '&'), true, 307);
-        //     break;
         case 211:
             $params = [
                 'mypokemon' => $mypokemon->identify,
@@ -157,14 +150,73 @@
             ];
             header('Location: ./contents/story/01battle/result.php?'.http_build_query($params, '', '&'), true, 307);
             break;
-    
+
+        case 301:
+            $params = [
+                'mypokemon' => $mypokemon->identify,
+                'process' => $process,
+                'pokelevel' => $pokelevel,
+            ];
+            header('Location: ./contents/battle/levelsetting.php?'.http_build_query($params, '', '&'), true, 307);
+            break;
+        case 302:
+            $params = [
+                'mypokemon' => $mypokemon->identify,
+                'process' => $process,
+                'pokelevel' => $pokelevel,
+            ];
+            header('Location: ./contents/battle/oppokemon.php?'.http_build_query($params, '', '&'), true, 307);
+            break;
+        case 303:
+            $oppokemon = battle_single($_oppokemon, 17);
+            $params = [
+                'mypokemon' => $mypokemon->identify,
+                'oppokemon' => $oppokemon->identify,
+                'process' => $process,
+                'pokelevel' => $pokelevel,
+            ];
+            header('Location: ./contents/battle/levelsetting.php?'.http_build_query($params, '', '&'), true, 307);
+            break;
+        case 304:
+            $params = [
+                'mypokemon' => $mypokemon->identify,
+                'oppokemon' => $oppokemon->identify,
+                'process' => $process,
+                'mypokelevel' => $mypokelevel,
+                'pokelevel' => $pokelevel,
+            ];
+            header('Location: ./contents/battle/onmarks.php?'.http_build_query($params, '', '&'), true, 307);
+            break;
+        case 311:
+            $params = [
+                'mypokemon' => $mypokemon->identify,
+                'oppokemon' => $oppokemon->identify,
+                'mypokelevel' => $mypokelevel,
+                'oppokelevel' => $oppokelevel,
+            ];
+            header('Location: ./contents/battle/onmarks.php?'.http_build_query($params, '', '&'), true, 307);
+            break;
+        case 312:
+            $params = [
+                'mypokemon' => $mypokemon->identify,
+                'oppokemon' => $oppokemon->identify,
+                'mypokelevel' => $mypokelevel,
+                'oppokelevel' => $oppokelevel,
+            ];
+            header('Location: ./contents/battle/onmarks.php?'.http_build_query($params, '', '&'), true, 307);
+            break;
+                                    
         case 901:
             if($dataclear == 'yes'){
-                $message = trancate_alldata($dataclear, $degrees);
+                list($message, $clearflag) = trancate_alldata($dataclear, $degrees);
             } else {
-                $message = trancate_alldata($dataclear, $degrees);
+                list($message, $clearflag) = trancate_alldata($dataclear, $degrees);
             }
-            header('Location: ./contents/setting/index.php?message='.$message, true, 307);
+            $params = [
+                'message' => $message,
+                'clearflag' => $clearflag,
+            ];
+            header('Location: ./contents/setting/index.php?'.http_build_query($params, '', '&'), true, 307);
             break;
     }
 ?>

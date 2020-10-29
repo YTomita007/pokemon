@@ -7,7 +7,9 @@
 
 	$inipoke = initial_pokemon();
 
-	unset($_SESSION['mypokemon']);
+	unset($_SESSION['battle_mypokemon']);
+	unset($_SESSION['battle_oppokemon']);
+	$_SESSION['battle_mode'] = true;
 ?>
 <html>
 	<head>
@@ -25,7 +27,8 @@
 				<div class="commandline">
 					<P>	★じぶんの ポケモンを せんたくしてください</p>
 				</div>
-				<form action="oppokemon.php" method="post">
+				<form action="../../controller.php" method="post">
+					<input type="hidden" name="process" value="301">
 					<div class="alternative">
 						<input type="radio" title="mypokemon" name="mypokemon" value="<?php echo $inipoke[0]->identify; ?>" id="<?php echo $inipoke[0]->identify; ?>" checked>
 						<label for="<?php echo $inipoke[0]->identify; ?>">

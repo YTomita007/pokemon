@@ -5,21 +5,19 @@
 	require '../../system/class/Assassinate.class.php';
 	require '../../system/functions/base.php';
 
-	if(isset($_SESSION['mypokemon'])){
-		$_mypokemon = $_SESSION['mypokemon'];
+	if(isset($_SESSION['battle_mypokemon'])){
+		$_mypokemon = $_SESSION['battle_mypokemon'];
 	}elseif(isset($_POST['mypokemon'])){
 		$_mypokemon = $_POST['mypokemon'];
     }else{
         $_mypokemon = $_GET['mypokemon'];
 	}
+
+	$mypokelevel = $_GET['pokelevel'];
 	
-	$mypokemon = my_instance($_mypokemon);
+	$mypokemon = battle_single($_mypokemon, 17);
 
 	$inipoke = initial_pokemon();
-
-	unset($_SESSION['oppokemon']);
-
-	$_SESSION['mypokemon'] = $mypokemon->identify;;
 ?>
 <html>
 	<head>
@@ -42,8 +40,10 @@
 				<div class="commandline">
 					<P>	★あいての ポケモンを せんたくしてください</p>
 				</div>
-				<form action="onmarks.php" method="post">
+				<form action="../../controller.php" method="post">
+					<input type="hidden" name="process" value="303">
 					<input type="hidden" name="mypokemon" value="<?php echo $mypokemon->identify; ?>">
+					<input type="hidden" name="pokelevel" value="<?php echo $mypokelevel; ?>">
 					<div class="alternative">
 						<input type="radio" title="oppokemon" name="oppokemon" value="<?php echo $inipoke[0]->identify; ?>" id="<?php echo $inipoke[0]->identify; ?>" checked>
 						<label for="<?php echo $inipoke[0]->identify; ?>">
