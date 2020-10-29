@@ -29,9 +29,15 @@
 
         $tamatama = makepokemon('tamatama', 1, 9);
 
+        $starman = makepokemon('starman', 1, 9);
+
         $koratta = makepokemon('koratta', 1, 9);
 
-        $inipoke = [$fushigidane, $hitokage, $zenigame, $pikachu, $kacy, $colon, $nyoromo, $tamatama, $koratta];
+        $biririball = makepokemon('biririball', 1, 9);
+
+        $paras = makepokemon('paras', 1, 9);
+
+        $inipoke = [$fushigidane, $hitokage, $zenigame, $pikachu, $kacy, $colon, $nyoromo, $tamatama, $starman, $koratta, $biririball, $paras];
 
         return $inipoke;
     }
