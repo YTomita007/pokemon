@@ -101,6 +101,25 @@
 						</label>
 					</div>
 					<br><br>
+					<div class="alternative">
+						<input type="radio" title="oppokemon" name="oppokemon" value="<?php echo $inipoke[9]->identify; ?>" id="<?php echo $inipoke[9]->identify; ?>">
+						<label for="<?php echo $inipoke[9]->identify; ?>">
+							<img alt="いけー！<?php echo $inipoke[9]->name; ?>！" src="../images/pokemons/<?php echo $inipoke[9]->picture; ?>.png">
+						</label>
+					</div>
+					<div class="alternative">
+						<input type="radio" title="oppokemon" name="oppokemon" value="<?php echo $inipoke[10]->identify; ?>" id="<?php echo $inipoke[10]->identify; ?>">
+						<label for="<?php echo $inipoke[10]->identify; ?>">
+							<img alt="いけー！<?php echo $inipoke[10]->name; ?>！" src="../images/pokemons/<?php echo $inipoke[10]->picture; ?>.png">
+						</label>
+					</div>
+					<div class="alternative">
+						<input type="radio" title="oppokemon" name="oppokemon" value="<?php echo $inipoke[11]->identify; ?>" id="<?php echo $inipoke[11]->identify; ?>">
+						<label for="<?php echo $inipoke[11]->identify; ?>">
+							<img alt="いけー！<?php echo $inipoke[11]->name; ?>！" src="../images/pokemons/<?php echo $inipoke[11]->picture; ?>.png">
+						</label>
+					</div>
+					<br><br>
 					<button type="button" class="btn-square2" onclick="location.href='mypokemon.php' "value="えらびなおし">えらびなおし</button>
 					<button type="submit" class="btn-square1">けってい！</button>
 				</form>
