@@ -1,9 +1,5 @@
 <?php
-    session_start();
-
-    require 'system/class/Pokemon.class.php';
-    require 'system/class/Assassinate.class.php';
-    require 'system/functions/base.php';
+	include ('allconfig.php');
 
     if(isset($_GET['process'])){
         $process = $_GET['process'];

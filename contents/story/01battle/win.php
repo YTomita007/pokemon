@@ -1,10 +1,5 @@
 <?php
-	session_start();
-
-	require '../../../system/class/Pokemon.class.php';
-    require '../../../system/class/Assassinate.class.php';
-	require '../../../system/class/Gymleader.class.php';
-	require '../../../system/functions/base.php';
+	include ('../../../allconfig.php');
 
     if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -18,17 +13,11 @@
 	list($gymleader, $pokemon1, $level1, $pokemon2, $level2, $pokemon3, $level3, $pokemon4, $level4, $pokemon5, $level5, $pokemon6, $level6, $phrases) = leaders_combination($_GET['gymleader']);
 
 	$badge = badge_awards($_GET['gymleader']);
+
+	$title = "リーダー{$gymleader->name}に しょうり！";
+
+	include ('../../../header.php');
 ?>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>リーダー<?php echo $gymleader->name; ?>に しょうり！</title>
-		<link rel="stylesheet" href="../../../system/css/style.css">
-	</head>
-    <body>
-		<div align="center">
-			<h1>リーダー<?php echo $gymleader->name; ?>に しょうり！</h1>
 			<div class="alternative">
 			</div>
 			<div class="alternative">
@@ -57,6 +46,9 @@
 					<button type="submit" class="btn-square1">せんたくがめんにもどる</button>
 				</form>
 			</div>
+			<?php
+				include ('../../../footer.php');
+			?>
 		</div>
     </body>
 </html>

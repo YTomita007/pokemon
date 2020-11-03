@@ -1,10 +1,5 @@
 <?php
-	session_start();
-
-	require '../../../system/class/Pokemon.class.php';
-    require '../../../system/class/Assassinate.class.php';
-	require '../../../system/class/Gymleader.class.php';
-	require '../../../system/functions/base.php';
+	include ('../../../allconfig.php');
 
 	if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -29,16 +24,11 @@
 	}
 
 	$_SESSION['evolution_status'] = $mypokemon->evolution;
-?>
 
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>やったー！レベルアップだ！</title>
-		<link rel="stylesheet" href="../../../system/css/style.css">
-	</head>
-    <body>
-		<div align="center">
+	$title = "やったー！レベルアップだ！";
+
+	include ('../../../header.php');
+?>
 			<br><br>
 			<div class="alternative">
 			</div>
@@ -82,6 +72,10 @@
 				</div>
 			</div>
 			<button type="button" class="btn-square1" onclick="location.href='../checkin.php' "value="せんたくがめんにもどる">せんたくがめんにもどる</button>
+			<br><br><br>
+			<?php
+				include ('../../../footer.php');
+			?>
 		</div>
     </body>
 </html>

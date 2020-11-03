@@ -1,8 +1,5 @@
 <?php
-	require '../../system/class/Pokemon.class.php';
-    require '../../system/class/Assassinate.class.php';
-	require '../../system/class/Gymleader.class.php';
-	require '../../system/functions/base.php';
+	include ('../../allconfig.php');
 
 	$nextaction = $_GET['process'];
 	$process = $_GET['process'];
@@ -19,19 +16,11 @@
         $oppokemon = battle_single($_oppokemon, 17);
 		$nextaction = 304;
 	}
-?>
 
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>ポケモンのレベルちょうせいしつ</title>
-		<link rel="stylesheet" href="../../system/css/style.css">
-	</head>
-    <body>
-		<div class="leftside">
-			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
-		</div>
-		<div align="center">
+	$title = "ポケモンのレベルちょうせいしつ";
+
+	include ('../../header.php');
+?>
 			<form action="../../controller.php" method="post">
 				<input type="hidden" name="process" value="<?php echo $nextaction; ?>">
 				<input type="hidden" name="mypokelevel" value="<?php echo $mypokelevel; ?>">
@@ -74,6 +63,10 @@
 			</form>
 			<br><br><br>
 			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="メニューにもどる">メニューにもどる</button>
+			<br><br><br>
+			<?php
+				include ('../../footer.php');
+			?>
 		</div>
     </body>
 </html>
