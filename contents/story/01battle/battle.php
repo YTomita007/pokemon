@@ -1,8 +1,5 @@
 <?php
-    require '../../../system/class/Pokemon.class.php';
-    require '../../../system/class/Assassinate.class.php';
-	require '../../../system/class/Gymleader.class.php';
-	require '../../../system/functions/base.php';
+	include ('../../../allconfig.php');
 
     if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -66,19 +63,11 @@
 	if($mypower < 1 || $oppower < 1){
 		terminate_battle_go_next($mypokemon, $oppokemon, $gymleader, $orders, $mypower, $oppower);
 	}
+
+	$title = "リーダー{$gymleader->name}と しょうぶ！";
+
+	include ('../../../header.php');
 ?>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>リーダー<?php echo $gymleader->name; ?>と しょうぶ！</title>
-		<link rel="stylesheet" href="../../../system/css/style.css">
-	</head>
-    <body>
-		<div class="leftside">
-			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
-		</div>
-		<div align="center">
-			<h1>リーダー<?php echo $gymleader->name; ?>と しょうぶ！</h1>
 			<br><br>
 			<div class="battle">
                 <div class="leftside">
@@ -139,6 +128,9 @@
 					<button type="submit" class="btn-square1">たたかう</button>
 				</form>
 			</div>
+			<?php
+				include ('../../../footer.php');
+			?>
 		</div>
     </body>
 </html>

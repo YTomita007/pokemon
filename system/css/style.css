@@ -11,6 +11,10 @@ h2 {
     color: darkslateblue;
 }
 
+h5 {
+    font-weight: bold;
+}
+
 img {
     max-width: 300px;
     max-height: 300px;
@@ -168,6 +172,10 @@ img {
     -webkit-transform: translateY(4px);
     transform: translateY(4px);/*下に動く*/
     border-bottom: none;/*線を消す*/
+}
+
+.compnay {
+    text-align: center;
 }
 
 .btn-square2 {

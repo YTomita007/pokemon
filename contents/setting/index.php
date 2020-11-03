@@ -1,5 +1,5 @@
 <?php
-	require '../../system/functions/base.php';
+	include ('../../allconfig.php');
 	
 	if(isset($_GET['message'])){
 		$message = $_GET['message'];
@@ -7,16 +7,11 @@
 			$_SESSION['level'] = 1;
 		}
 	}
+
+	$title = "セッティングがめん";
+
+	include ('../../header.php');
 ?>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>セッティング</title>
-		<link rel="stylesheet" href="../../system/css/style.css">
-	</head>
-    <body>
-		<div align="center">
-			<h1>セッティングがめん</h1>
 			<?php if(isset($_GET['message'])){ ?>
 				<div class="description">
 					<h2><?php echo $message; ?></h2>
@@ -68,6 +63,9 @@
 					<button type="submit" class="btn-square1">けってい！</button>
 				</form>
 			</div>
+			<?php
+				include ('../../footer.php');
+			?>
 		</div>
     </body>
 </html>

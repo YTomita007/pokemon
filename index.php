@@ -1,20 +1,14 @@
 <?php
-	session_start();
+	include ('allconfig.php');
 
 	unset($_SESSION['winner']);
 	unset($_SESSION['battle_mypokemon']);
 	unset($_SESSION['battle_oppokemon']);
 	unset($_SESSION['battle_mode']);
+
+	$title = "ポケモンであそぼう";
+	include ('header.php');
 ?>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>ポケモンであそぼう！</title>
-		<link rel="stylesheet" href="system/css/style.css">
-	</head>
-    <body>
-		<div align="center">
-			<h1>ポケモンであそぼう！</h1>
 			<div class="form-box">
 				<div class="commandline">
 					<P>	★あそびたいモードを せんたくしてください</p>
@@ -46,6 +40,10 @@
 					<button type="submit" class="btn-square1">けってい！</button>
 				</form>
 			</div>
-		</div>
+			<?php
+				include ('footer.php');
+			?>
+        </div>
     </body>
 </html>
+	

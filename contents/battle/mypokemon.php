@@ -1,28 +1,16 @@
 <?php
-	session_start();
-
-	require '../../system/class/Pokemon.class.php';
-	require '../../system/class/Assassinate.class.php';
-	require '../../system/functions/base.php';
-
+	include ('../../allconfig.php');
+	
 	$inipoke = initial_pokemon();
 
 	unset($_SESSION['battle_mypokemon']);
 	unset($_SESSION['battle_oppokemon']);
 	$_SESSION['battle_mode'] = true;
+
+	$title = "ポケモンせんたくがめん";
+
+	include ('../../header.php');
 ?>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>ポケモンバトル</title>
-		<link rel="stylesheet" href="../../system/css/style.css">
-	</head>
-    <body>
-		<div class="leftside">
-			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
-		</div>
-		<div align="center">
-			<h1>ポケモン選択画面！</h1>
 			<div class="form-box">
 				<div class="commandline">
 					<P>	★じぶんの ポケモンを せんたくしてください</p>
@@ -109,6 +97,9 @@
 					<button type="submit" class="btn-square1">けってい！</button>
 				</form>
 			</div>
+			<?php
+				include ('../../footer.php');
+			?>
 		</div>
     </body>
 </html>

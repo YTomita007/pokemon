@@ -1,8 +1,5 @@
 <?php
-	require '../../../system/class/Pokemon.class.php';
-    require '../../../system/class/Assassinate.class.php';
-	require '../../../system/class/Gymleader.class.php';
-	require '../../../system/functions/base.php';
+	include ('../../../allconfig.php');
 
 	if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -13,19 +10,11 @@
     }
 
 	$mypokemon = my_instance($_mypokemon);
-?>
 
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>やったー！レベルアップだ！</title>
-		<link rel="stylesheet" href="../../../system/css/style.css">
-	</head>
-    <body>
-		<div class="leftside">
-			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
-		</div>
-		<div align="center">
+	$title = "ポケモンセンターてきな";
+
+	include ('../../../header.php');
+?>
 			<div class="profile">
 				<h3><?php echo $mypokemon->name; ?></h3>
 				<div class="winner">
@@ -78,6 +67,10 @@
 			</div>
 			<br><br><br>
 			<button type="button" class="btn-square2" onclick="location.href='../checkin.php' "value="メニューにもどる">メニューにもどる</button>
+			<br><br><br>
+			<?php
+				include ('../../../footer.php');
+			?>
 		</div>
     </body>
 </html>

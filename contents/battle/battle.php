@@ -1,9 +1,5 @@
 <?php
-    session_start();
-
-    require '../../system/class/Pokemon.class.php';
-    require '../../system/class/Assassinate.class.php';
-	require '../../system/functions/base.php';
+	include ('../../allconfig.php');
 
 	if(isset($_SESSION['battle_mypokemon'])){
 		$_mypokemon = $_SESSION['battle_mypokemon'];
@@ -27,7 +23,6 @@
 	$mypokemon = battle_single($_mypokemon, $mypokelevel);
 	$oppokemon = battle_single($_oppokemon, $oppokelevel);
 
-	// list($mypokemon, $oppokemon) = battle_instance($_mypokemon, $_oppokemon);
 	list($myassass1, $myassass2, $myassass3, $myassass4, $opassass1, $opassass2, $opassass3, $opassass4) = weapon_instance($_mypokemon, $_oppokemon);
 
 	if(isset($_POST["command"])){
@@ -50,36 +45,11 @@
 	if(($mypower < 1) || ($oppower < 1)){
 		battle_done($mypokemon, $oppokemon, $mypower, $oppower, $mypokelevel, $oppokelevel);
 	}
-	// if($mypokemon->get_speed() < $oppokemon->get_speed()){
-	// 	if($mypower < 1){
-	// 		$_SESSION['winner'] = $oppokemon->identify;
-	// 		header('Location: result.php', true, 307);
-	// 	} elseif($oppower < 1){
-	// 		$_SESSION['winner'] = $mypokemon->identify;
-	// 		header('Location: result.php', true, 307);
-	// 	}
-	// } else {
-	// 	if($oppower < 1){
-	// 		$_SESSION['winner'] = $mypokemon->identify;
-	// 		header('Location: result.php', true, 307);
-	// 	} elseif($mypower < 1){
-	// 		$_SESSION['winner'] = $oppokemon->identify;
-	// 		header('Location: result.php', true, 307);
-	// 	}
-	// }
+
+	$title = "ポケモンバトル";
+
+	include ('../../header.php');
 ?>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>ポケモンバトル</title>
-		<link rel="stylesheet" href="../../system/css/style.css">
-	</head>
-    <body>
-		<div class="leftside">
-			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
-		</div>
-		<div align="center">
-			<h1>ポケモンバトル！</h1>
 			<br><br>
 			<div class="battle">
                 <div class="leftside">
@@ -139,6 +109,9 @@
 					<button type="submit" class="btn-square1">たたかう</button>
 				</form>
 			</div>
+			<?php
+				include ('../../footer.php');
+			?>
 		</div>
     </body>
 </html>

@@ -1,10 +1,5 @@
 <?php
-	session_start();
-
-	require '../../../system/class/Pokemon.class.php';
-	require '../../../system/class/Assassinate.class.php';
-	require '../../../system/class/Gymleader.class.php';
-	require '../../../system/functions/base.php';
+	include ('../../../allconfig.php');
 
     if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -19,19 +14,11 @@
 	$_SESSION['mypokemon'] = $mypokemon->get_identify();
 
 	$gymleaders = gymleaders_allinstance();
+
+	$title = "たたかえ！ジムリーダー！";
+
+	include ('../../../header.php');
 ?>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>たたかえ！ジムリーダー！</title>
-		<link rel="stylesheet" href="../../../system/css/style.css">
-	</head>
-    <body>
-		<div class="leftside">
-			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
-		</div>
-		<div align="center">
-			<h1>たたかえ！ジムリーダー！</h1>
 			<div class="leftside">
 				<P>	★じぶんの えらんだポケモンは<b><?php echo $mypokemon->name; ?></b>です</p>
 				<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
@@ -137,6 +124,9 @@
 					<button type="submit" class="btn-square1">けってい！</button>
 				</form>
 			</div>
+			<?php
+				include ('../../../footer.php');
+			?>
 		</div>
     </body>
 </html>

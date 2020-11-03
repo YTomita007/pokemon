@@ -588,7 +588,7 @@
             case 'kacy':
                 if($level > 21 && $status_flag != 9){
                     $pokemon = new pokemon('yungerer', 'ユンゲラー', 'yungerer', $status_flag);
-                    $pokemon->set_power(40 + $level * 3);
+                    $pokemon->set_power(40 + $level * 2.5);
                     $pokemon->set_offensive(35 + $level * 4);
                     $pokemon->set_defense(30 + $level * 1);
                     $pokemon->set_speed(105 + $level * 6);
@@ -613,7 +613,7 @@
             case 'yungerer':
                 if($level > 36 && $status_flag != 9){
                     $pokemon = new pokemon('fudin', 'フーディン', 'fudin', $status_flag);
-                    $pokemon->set_power(55 + $level * 4);
+                    $pokemon->set_power(55 + $level * 2.5);
                     $pokemon->set_offensive(50 + $level * 6);
                     $pokemon->set_defense(45 + $level * 1);
                     $pokemon->set_speed(120 + $level * 7);
@@ -627,7 +627,7 @@
                     $pokemon->set_prename2('ユンゲラー');
                 } else {
                     $pokemon = new pokemon('yungerer', 'ユンゲラー', 'yungerer', $status_flag);
-                    $pokemon->set_power(40 + $level * 3);
+                    $pokemon->set_power(40 + $level * 2.5);
                     $pokemon->set_offensive(35 + $level * 4);
                     $pokemon->set_defense(30 + $level * 1);
                     $pokemon->set_speed(105 + $level * 6);
@@ -641,7 +641,7 @@
                 break;
             case 'fudin':
                 $pokemon = new pokemon('fudin', 'フーディン', 'fudin', $status_flag);
-                $pokemon->set_power(55 + $level * 4);
+                $pokemon->set_power(55 + $level * 2.5);
                 $pokemon->set_offensive(50 + $level * 6);
                 $pokemon->set_defense(45 + $level * 1);
                 $pokemon->set_speed(120 + $level * 7);

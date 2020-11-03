@@ -1,10 +1,5 @@
 <?php
-	session_start();
-
-	require '../../../system/class/Pokemon.class.php';
-    require '../../../system/class/Assassinate.class.php';
-	require '../../../system/class/Gymleader.class.php';
-	require '../../../system/functions/base.php';
+	include ('../../../allconfig.php');
 
     if(isset($_SESSION['mypokemon'])){
 		$_mypokemon = $_SESSION['mypokemon'];
@@ -18,19 +13,11 @@
 	list($gymleader, $pokemon1, $level1, $pokemon2, $level2, $pokemon3, $level3, $pokemon4, $level4, $pokemon5, $level5, $pokemon6, $level6, $phrases) = leaders_combination($_GET['gymleader']);
 
 	$_SESSION['mypokemon'] = $mypokemon->identify;
+
+	$title = "リーダー{$gymleader->name}と しょうぶ！";
+
+	include ('../../../header.php');
 ?>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>リーダー<?php echo $gymleader->name; ?>と しょうぶ！</title>
-		<link rel="stylesheet" href="../../../system/css/style.css">
-	</head>
-    <body>
-		<div class="leftside">
-			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
-		</div>
-		<div align="center">
-			<h1>リーダー<?php echo $gymleader->name; ?>と しょうぶ！</h1>
 			<div class="alternative">
 				<img alt="いけー！<?php echo $pokemon1->name; ?>！" src="../../images/pokemons/<?php echo $pokemon1->picture; ?>.png">
 			</div>
@@ -64,6 +51,9 @@
 					<button type="submit" class="btn-square1"><?php echo $pokemon1->name; ?>とたいけつ！</button>
 				</form>
 			</div>
+			<?php
+				include ('../../../footer.php');
+			?>
 		</div>
     </body>
 </html>

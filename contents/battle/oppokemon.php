@@ -1,10 +1,6 @@
 <?php
-	session_start();
+	include ('../../allconfig.php');
 	
-	require '../../system/class/Pokemon.class.php';
-	require '../../system/class/Assassinate.class.php';
-	require '../../system/functions/base.php';
-
 	if(isset($_SESSION['battle_mypokemon'])){
 		$_mypokemon = $_SESSION['battle_mypokemon'];
 	}elseif(isset($_POST['mypokemon'])){
@@ -18,19 +14,11 @@
 	$mypokemon = battle_single($_mypokemon, 17);
 
 	$inipoke = initial_pokemon();
+
+	$title = "ポケモンせんたくがめん";
+
+	include ('../../header.php');
 ?>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>ポケモンバトル</title>
-		<link rel="stylesheet" href="../../system/css/style.css">
-	</head>
-    <body>
-		<div class="leftside">
-			<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="さいしょにもどる！">さいしょにもどる</button>
-		</div>
-		<div align="center">
-			<h1>ポケモン選択画面！</h1>
 			<div class="leftside">
 				<P>	★じぶんの えらんだポケモンは<b><?php echo $mypokemon->name; ?></b>です</p>
 				<img alt="いけー！<?php echo $mypokemon->name; ?>！" src="../images/pokemons/<?php echo $mypokemon->picture; ?>.png">
@@ -124,6 +112,9 @@
 					<button type="submit" class="btn-square1">けってい！</button>
 				</form>
 			</div>
+			<?php
+				include ('../../footer.php');
+			?>
 		</div>
     </body>
 </html>

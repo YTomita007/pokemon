@@ -1,8 +1,5 @@
 <?php
-	session_start();
-	
-	require '../../system/class/Pokemon.class.php';
-	require '../../system/functions/base.php';
+	include ('../../allconfig.php');
 
 	if(isset($_SESSION['battle_mypokemon'])){
 		$_mypokemon = $_SESSION['battle_mypokemon'];
@@ -34,17 +31,11 @@
 	$winner = winner_pokemon($_SESSION['winner']);
 	unset($_SESSION['battle_mypokemon']);
 	unset($_SESSION['battle_oppokemon']);
-?>
 
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=encoding">
-		<title>ポケモンバトルのけっか</title>
-		<link rel="stylesheet" href="../../system/css/style.css">
-	</head>
-    <body>
-		<div align="center">
-			<h1>ポケモンバトルのけっか</h1>
+	$title = "ポケモンバトルのけっか";
+
+	include ('../../header.php');
+?>
 			<br><br>
 			<h2><?php echo $winner->name; ?>のかち！</h2>
 			<div class="winner">
@@ -59,6 +50,10 @@
 	            <button type="submit" class="btn-square1">>>もう いっかい たたかう<<</button>
 			</form>
             <button class="btn-square2" onclick="location.href='<?php echo $root; ?>'">>>さいしょに もどる<<</button>
+			<br><br><br>
+			<?php
+				include ('../../footer.php');
+			?>
 		</div>
     </body>
 </html>
