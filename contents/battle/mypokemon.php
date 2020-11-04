@@ -93,6 +93,25 @@
 						</label>
 					</div>
 					<br><br>
+					<div class="alternative">
+						<input type="radio" title="mypokemon" name="mypokemon" value="<?php echo $inipoke[12]->identify; ?>" id="<?php echo $inipoke[12]->identify; ?>">
+						<label for="<?php echo $inipoke[12]->identify; ?>">
+							<img alt="いけー！<?php echo $inipoke[12]->name; ?>！" src="../images/pokemons/<?php echo $inipoke[12]->picture; ?>.png">
+						</label>
+					</div>
+					<div class="alternative">
+						<input type="radio" title="mypokemon" name="mypokemon" value="<?php echo $inipoke[13]->identify; ?>" id="<?php echo $inipoke[13]->identify; ?>">
+						<label for="<?php echo $inipoke[13]->identify; ?>">
+							<img alt="いけー！<?php echo $inipoke[13]->name; ?>！" src="../images/pokemons/<?php echo $inipoke[13]->picture; ?>.png">
+						</label>
+					</div>
+					<div class="alternative">
+						<input type="radio" title="mypokemon" name="mypokemon" value="<?php echo $inipoke[14]->identify; ?>" id="<?php echo $inipoke[14]->identify; ?>">
+						<label for="<?php echo $inipoke[14]->identify; ?>">
+							<img alt="いけー！<?php echo $inipoke[14]->name; ?>！" src="../images/pokemons/<?php echo $inipoke[14]->picture; ?>.png">
+						</label>
+					</div>
+					<br><br>
 					<button type="button" class="btn-square2" onclick="location.href='<?php echo $root; ?>' "value="はじめにもどる">はじめにもどる</button>
 					<button type="submit" class="btn-square1">けってい！</button>
 				</form>

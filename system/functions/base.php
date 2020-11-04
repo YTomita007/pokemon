@@ -25,7 +25,17 @@
 
         $paras = makepokemon('paras', 1, 9);
 
-        $inipoke = [$fushigidane, $hitokage, $zenigame, $pikachu, $kacy, $colon, $nyoromo, $tamatama, $starman, $koratta, $biririball, $paras];
+        $ishitsubute = makepokemon('ishitsubute', 1, 9);
+
+        $gardy = makepokemon('gardy', 1, 9);
+
+        $dugda = makepokemon('dugda', 1, 9);
+
+        $inipoke = [
+            $fushigidane, $hitokage, $zenigame, $pikachu, $kacy, $colon, 
+            $nyoromo, $tamatama, $starman, $koratta, $biririball, $paras,
+            $ishitsubute, $gardy, $dugda
+                    ];
 
         return $inipoke;
     }
@@ -123,38 +133,38 @@
         $level6 = "";
 
         if($leaders_name == 'takeshi'){
-            $level1 = 12;
-            $level2 = 15;
+            $level1 = 15;
+            $level2 = 17;
             $gymleader = appear_leaders('takeshi');
             $pokemon1 = makepokemon('ishitsubute', $level1, 9);
-            $pokemon2 = makepokemon('iwaku', $level2, 9);
+            $pokemon2 = makepokemon('iwaku_takeshi', $level2, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'kasumi'){
-            $level1 = 16;
-            $level2 = 19;
+            $level1 = 19;
+            $level2 = 21;
             $gymleader = appear_leaders('kasumi');
             $pokemon1 = makepokemon('starman', $level1, 9);
-            $pokemon2 = makepokemon('starme', $level2, 9);
+            $pokemon2 = makepokemon('starme_kasumi', $level2, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'matisse'){
-            $level1 = 21;
-            $level2 = 26;
+            $level1 = 24;
+            $level2 = 27;
             $gymleader = appear_leaders('matisse');
             $pokemon1 = makepokemon('biririball', $level1, 9);
-            $pokemon2 = makepokemon('raichu', $level2, 9);
+            $pokemon2 = makepokemon('raichu_matisse', $level2, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'erika'){
             $level1 = 27;
             $level2 = 29;
             $level3 = 29;
             $gymleader = appear_leaders('erika');
-            $pokemon1 = makepokemon('utsubbot', $level1, 9);
+            $pokemon1 = makepokemon('utsubbot_erika', $level1, 9);
             $pokemon2 = makepokemon('monjara', $level2, 9);
-            $pokemon3 = makepokemon('rafflesia', $level3, 9);
+            $pokemon3 = makepokemon('rafflesia_erika', $level3, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'kyo'){
             $level1 = 32;
-            $level2 = 35;
+            $level2 = 38;
             $level3 = 39;
             $gymleader = appear_leaders('kyo');
             $pokemon1 = makepokemon('betbeton', $level1, 9);
@@ -171,8 +181,8 @@
             $pokemon3 = makepokemon('fudin', $level3, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'katsura'){
-            $level1 = 47;
-            $level2 = 45;
+            $level1 = 49;
+            $level2 = 48;
             $level3 = 51;
             $gymleader = appear_leaders('katsura');
             $pokemon1 = makepokemon('firefox', $level1, 9);
@@ -180,9 +190,9 @@
             $pokemon3 = makepokemon('windy', $level3, 9);
             $phrases = leaders_phrase($gymleader->identify);
         }elseif($leaders_name == 'sakaki'){
-            $level1 = 50;
-            $level2 = 50;
-            $level3 = 55;
+            $level1 = 52;
+            $level2 = 52;
+            $level3 = 57;
             $level4 = 58;
             $gymleader = appear_leaders('sakaki');
             $pokemon1 = makepokemon('nidoking', $level1, 9);
@@ -235,14 +245,6 @@
         }
 
         return $battlepokemon;
-    }
-
-    function battle_instance($_mypokemon, $_oppokemon){
-
-        $mypokemon = makepokemon($_mypokemon, 15, 9);
-        $oppokemon = makepokemon($_oppokemon, 15, 9);
-
-        return array($mypokemon, $oppokemon);
     }
 
     function weapon_instance($_mypokemon, $_oppokemon){
@@ -318,33 +320,29 @@
     }
 
     function strengthen1($oppokemon, $opattack, $opcure) {
-        if($oppokemon->identify == 'iwaku'){
+        if($oppokemon->identify == 'iwaku_takeshi'){
             $oppokemon->picture = 'iwaku_s';
             $opattack = $opattack + 5;
             $opcure = $opcure - 8;
-        }elseif($oppokemon->identify == 'starme'){
+        }elseif($oppokemon->identify == 'starme_kasumi'){
             $oppokemon->picture = 'starme_s';
             $opattack = $opattack + 5;
             $opcure = $opcure - 8;
-        }elseif($oppokemon->identify == 'raichu'){
+        }elseif($oppokemon->identify == 'raichu_matisse'){
             $oppokemon->picture = 'raichu_s';
             $opattack = $opattack + 5;
             $opcure = $opcure - 8;
-        }elseif($oppokemon->identify == 'batbeton'){
-            $oppokemon->picture = 'batbeton_s';
-            $opattack = $opattack + 5;
-            $opcure = $opcure - 8;
-        }elseif($oppokemon->identify == 'fudin'){
-            $oppokemon->picture = 'fudin_s';
-            $opattack = $opattack + 5;
-            $opcure = $opcure - 8;
-        }elseif($oppokemon->identify == 'windy'){
-            $oppokemon->picture = 'windy_s';
-            $opattack = $opattack + 5;
-            $opcure = $opcure - 8;
-        }elseif($oppokemon->identify == 'saidon'){
-            $oppokemon->picture = 'saidon_s';
-            $opattack = $opattack + 5;
+        }elseif($oppokemon->identify == 'betbeton'){
+            $oppokemon->picture = 'betbeton_s';
+            $opattack = $opattack + 7;
+            $opcure = $opcure - 15;
+        }elseif($oppokemon->identify == 'barrierd'){
+            $oppokemon->picture = 'barrierd_s';
+            $opattack = $opattack + 10;
+            $opcure = $opcure - 15;
+        }elseif($oppokemon->identify == 'gallop'){
+            $oppokemon->picture = 'gallop_s';
+            $opattack = $opattack + 12;
             $opcure = $opcure - 8;
         }
 
@@ -353,7 +351,7 @@
 
     function strengthen2($oppokemon, $opattack, $opcure) {
         
-        if($oppokemon->identify == 'rafflesia'){
+        if($oppokemon->identify == 'rafflesia_erika'){
             $oppokemon->picture = 'rafflesia_s';
             $opattack = $opattack + 25;
             $opcure = $opcure - 15;
@@ -369,6 +367,10 @@
             $oppokemon->picture = 'windy_s';
             $opattack = $opattack + 25;
             $opcure = $opcure - 15;
+        }elseif($oppokemon->identify == 'dugtrio'){
+            $oppokemon->picture = 'dugtrio_s';
+            $opattack = $opattack + 15;
+            $oppower = $oppower + 30;
         }elseif($oppokemon->identify == 'saidon'){
             $oppokemon->picture = 'saidon_s';
             $opattack = $opattack + 25;
