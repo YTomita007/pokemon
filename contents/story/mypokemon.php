@@ -1,6 +1,8 @@
 <?php
 	include ('../../allconfig.php');
 
+	unset($_SESSION['mypokemon']);
+
 	$inipoke = initial_pokemon();
 
 	$title = "ポケモンせんたくがめん";

@@ -365,7 +365,78 @@
                 $pokemon->set_prename1('ナッシー');
                 break;
             case 'ishitsubute':
-                $pokemon = new pokemon('ishitsubute', 'イシツブテ', 'ishitsubute', $status_flag);
+                if($level > 29 && $status_flag != 9){
+                    $pokemon = new pokemon('gorron', 'ゴローン', 'gorron', $status_flag);
+                    $pokemon->set_power(55 + $level * 3);
+                    $pokemon->set_offensive(95 + $level * 4.5);
+                    $pokemon->set_defense(115 + $level * 5);
+                    $pokemon->set_speed(35 + $level * 1);
+                    $pokemon->set_attribute1('stone');
+                    $pokemon->set_attribute2('ground');
+                    $pokemon->set_evolution(1);
+                    $pokemon->set_formlevel1(29);
+                    $pokemon->set_formlevel2(46);
+                    $pokemon->set_preform1('ishitsubute');
+                    $pokemon->set_prename1('イシツブテ');
+                } else {
+                    $pokemon = new pokemon('ishitsubute', 'イシツブテ', 'ishitsubute', $status_flag);
+                    $pokemon->set_power(45 + $level * 2);
+                    $pokemon->set_offensive(49);
+                    $pokemon->set_defense(49);
+                    $pokemon->set_speed(45);
+                    $pokemon->set_attribute1('stone');
+                    $pokemon->set_attribute2('ground');
+                }
+                break;
+            case 'gorron':
+                if($level > 29 && $status_flag != 9){
+                    $pokemon = new pokemon('gorronya', 'ゴローニャ', 'gorronya', $status_flag);
+                    $pokemon->set_power(80 + $level * 3);
+                    $pokemon->set_offensive(110 + $level * 5);
+                    $pokemon->set_defense(130 + $level * 7);
+                    $pokemon->set_speed(45 + $level * 1);
+                    $pokemon->set_attribute1('stone');
+                    $pokemon->set_attribute2('ground');
+                    $pokemon->set_evolution(2);
+                    $pokemon->set_formlevel1(29);
+                    $pokemon->set_formlevel2(46);
+                    $pokemon->set_preform1('ishitsubute');
+                    $pokemon->set_prename1('イシツブテ');
+                    $pokemon->set_preform2('gorron');
+                    $pokemon->set_prename2('ゴローン');
+                } else {
+                    $pokemon = new pokemon('gorron', 'ゴローン', 'gorron', $status_flag);
+                    $pokemon->set_power(55 + $level * 3);
+                    $pokemon->set_offensive(95 + $level * 4.5);
+                    $pokemon->set_defense(115 + $level * 5);
+                    $pokemon->set_speed(35 + $level * 1);
+                    $pokemon->set_attribute1('stone');
+                    $pokemon->set_attribute2('ground');
+                    $pokemon->set_evolution(1);
+                    $pokemon->set_formlevel1(29);
+                    $pokemon->set_formlevel2(46);
+                    $pokemon->set_preform1('ishitsubute');
+                    $pokemon->set_prename1('イシツブテ');
+                }
+                break;
+            case 'gorronya':
+                $pokemon = new pokemon('gorronya', 'ゴローニャ', 'gorronya', $status_flag);
+                $pokemon->set_power(80 + $level * 3);
+                $pokemon->set_offensive(110 + $level * 5);
+                $pokemon->set_defense(130 + $level * 7);
+                $pokemon->set_speed(45 + $level * 1);
+                $pokemon->set_attribute1('stone');
+                $pokemon->set_attribute2('ground');
+                $pokemon->set_evolution(2);
+                $pokemon->set_formlevel1(29);
+                $pokemon->set_formlevel2(46);
+                $pokemon->set_preform1('ishitsubute');
+                $pokemon->set_prename1('イシツブテ');
+                $pokemon->set_preform2('gorron');
+                $pokemon->set_prename2('ゴローン');
+                break;
+            case 'iwaku_takeshi':
+                $pokemon = new pokemon('iwaku_takeshi', 'イワーク', 'iwaku', $status_flag);
                 $pokemon->set_power(45 + $level * 3);
                 $pokemon->set_offensive(49);
                 $pokemon->set_defense(49);
@@ -410,6 +481,20 @@
                 break;
             case 'starme':
                 $pokemon = new pokemon('starme', 'スターミー', 'starme', $status_flag);
+                $pokemon->set_power(60 + $level * 3);
+                $pokemon->set_offensive(75 + $level * 3);
+                $pokemon->set_defense(85 + $level * 4);
+                $pokemon->set_speed(115 + $level * 6);
+                $pokemon->set_attribute1('water');
+                $pokemon->set_attribute2('esper');
+                $pokemon->set_evolution(1);
+                $pokemon->set_formlevel1(38);
+                $pokemon->set_formlevel2(999);
+                $pokemon->set_preform1('starman');
+                $pokemon->set_prename1('ヒトデマン');
+                break;
+            case 'starme_kasumi':
+                $pokemon = new pokemon('starme_kasumi', 'スターミー', 'starme', $status_flag);
                 $pokemon->set_power(60 + $level * 3);
                 $pokemon->set_offensive(75 + $level * 3);
                 $pokemon->set_defense(85 + $level * 4);
@@ -495,6 +580,19 @@
                 $pokemon->set_preform1('pikachu');
                 $pokemon->set_prename1('ピカチュウ');
                 break;
+            case 'raichu_matisse':
+                $pokemon = new pokemon('raichu_matisse', 'ライチュウ', 'raichu_matisse', $status_flag);
+                $pokemon->set_power(60 + $level * 3);
+                $pokemon->set_offensive(90 + $level * 5);
+                $pokemon->set_defense(55 + $level * 1);
+                $pokemon->set_speed(100 + $level * 5);
+                $pokemon->set_attribute1('electric');
+                $pokemon->set_evolution(1);
+                $pokemon->set_formlevel1(38);
+                $pokemon->set_formlevel2(999);
+                $pokemon->set_preform1('pikachu');
+                $pokemon->set_prename1('ピカチュウ');
+                break;
             case 'paras':
                 if($level > 42){
                     $pokemon = new pokemon('parasect', 'パラセクト', 'parasect', $status_flag);
@@ -543,8 +641,8 @@
                 $pokemon->set_speed(60 + $level * 2);
                 $pokemon->set_attribute1('weed');
                 break;
-            case 'utsubbot':
-                $pokemon = new pokemon('utsubbot', 'ウツボット', 'utsubbot', $status_flag);
+            case 'utsubbot_erika':
+                $pokemon = new pokemon('utsubbot_erika', 'ウツボット', 'utsubbot', $status_flag);
                 $pokemon->set_power(80 + $level * 5);
                 $pokemon->set_offensive(105);
                 $pokemon->set_defense(65);
@@ -552,8 +650,8 @@
                 $pokemon->set_attribute1('weed');
                 $pokemon->set_attribute2('poison');
                 break;
-            case 'rafflesia':
-                $pokemon = new pokemon('rafflesia', 'ラフレシア', 'rafflesia', $status_flag);
+            case 'rafflesia_erika':
+                $pokemon = new pokemon('rafflesia_erika', 'ラフレシア', 'rafflesia', $status_flag);
                 $pokemon->set_power(75 + $level * 5);
                 $pokemon->set_offensive(80);
                 $pokemon->set_defense(85);
@@ -701,21 +799,106 @@
                 $pokemon->set_preform1('colon');
                 $pokemon->set_prename1('コロン');
                 break;
+            case 'ponnieta':
+                if($level > 33){
+                    $pokemon = new pokemon('gallop', 'ギャロップ', 'gallop', $status_flag);
+                    $pokemon->set_power(65 + $level * 4);
+                    $pokemon->set_offensive(100 + $level * 5);
+                    $pokemon->set_defense(70 + $level * 2);
+                    $pokemon->set_speed(105 + $level * 5);
+                    $pokemon->set_attribute1('fire');
+                    $pokemon->set_evolution(1);
+                    $pokemon->set_formlevel1(33);
+                    $pokemon->set_formlevel2(999);
+                    $pokemon->set_preform1('ponnieta');
+                    $pokemon->set_prename1('ポニータ');
+                } else {
+                    $pokemon = new pokemon('ponnieta', 'ポニータ', 'ponnieta', $status_flag);
+                    $pokemon->set_power(50 + $level * 2);
+                    $pokemon->set_offensive(85 + $level * 3);
+                    $pokemon->set_defense(55 + $level * 1);
+                    $pokemon->set_speed(90 + $level * 3);
+                    $pokemon->set_attribute1('fire');
+                    $pokemon->set_evolution(0);
+                    $pokemon->set_formlevel1(36);
+                    $pokemon->set_formlevel2(999);
+                }
+                break;
             case 'gallop':
                 $pokemon = new pokemon('gallop', 'ギャロップ', 'gallop', $status_flag);
-                $pokemon->set_power(65 + $level * 5);
-                $pokemon->set_offensive(100);
-                $pokemon->set_defense(70);
-                $pokemon->set_speed(105);
+                $pokemon->set_power(65 + $level * 4);
+                $pokemon->set_offensive(100 + $level * 5);
+                $pokemon->set_defense(70 + $level * 2);
+                $pokemon->set_speed(105 + $level * 5);
                 $pokemon->set_attribute1('fire');
+                $pokemon->set_evolution(1);
+                $pokemon->set_formlevel1(33);
+                $pokemon->set_formlevel2(999);
+                $pokemon->set_preform1('ponnieta');
+                $pokemon->set_prename1('ポニータ');
+                break;
+            case 'gardy':
+                if($level > 36){
+                    $pokemon = new pokemon('windy', 'ウィンディ', 'windy', $status_flag);
+                    $pokemon->set_power(90 + $level * 6);
+                    $pokemon->set_offensive(110 + $level * 5);
+                    $pokemon->set_defense(80 + $level * 3);
+                    $pokemon->set_speed(95 + $level * 4);
+                    $pokemon->set_attribute1('fire');
+                    $pokemon->set_evolution(1);
+                    $pokemon->set_formlevel1(36);
+                    $pokemon->set_formlevel2(999);
+                    $pokemon->set_preform1('gardy');
+                    $pokemon->set_prename1('ガーディ');
+                } else {
+                    $pokemon = new pokemon('gardy', 'ガーディ', 'gardy', $status_flag);
+                    $pokemon->set_power(55 + $level * 1.5);
+                    $pokemon->set_offensive(70 + $level * 2);
+                    $pokemon->set_defense(45 + $level * 1.5);
+                    $pokemon->set_speed(60 + $level * 2);
+                    $pokemon->set_attribute1('fire');
+                    $pokemon->set_evolution(0);
+                    $pokemon->set_formlevel1(36);
+                    $pokemon->set_formlevel2(999);
+                }
                 break;
             case 'windy':
                 $pokemon = new pokemon('windy', 'ウィンディ', 'windy', $status_flag);
                 $pokemon->set_power(90 + $level * 6);
-                $pokemon->set_offensive(110);
-                $pokemon->set_defense(80);
-                $pokemon->set_speed(95);
+                $pokemon->set_offensive(110 + $level * 5);
+                $pokemon->set_defense(80 + $level * 3);
+                $pokemon->set_speed(95 + $level * 4);
                 $pokemon->set_attribute1('fire');
+                $pokemon->set_evolution(1);
+                $pokemon->set_formlevel1(36);
+                $pokemon->set_formlevel2(999);
+                $pokemon->set_preform1('gardy');
+                $pokemon->set_prename1('ガーディ');
+                break;
+            case 'dugda':
+                if($level > 34){
+                    $pokemon = new pokemon('dugtrio', 'ダグトリオ', 'dugtrio', $status_flag);
+                    $pokemon->set_power(35 + $level * 3);
+                    $pokemon->set_offensive(80 + $level * 4);
+                    $pokemon->set_defense(50 + $level * 2);
+                    $pokemon->set_speed(120 + $level * 6);
+                    $pokemon->set_attribute1('ground');
+                    $pokemon->set_evolution(1);
+                    $pokemon->set_formlevel1(34);
+                    $pokemon->set_formlevel2(999);
+                    $pokemon->set_preform1('dugda');
+                    $pokemon->set_prename1('ディグダ');
+                } else {
+                    $pokemon = new pokemon('dugda', 'ディグダ', 'dugda', $status_flag);
+                    $pokemon->set_power(10 + $level * 1);
+                    $pokemon->set_offensive(55 + $level * 2);
+                    $pokemon->set_defense(25 + $level * 1);
+                    $pokemon->set_speed(95 + $level * 5);
+                    $pokemon->set_attribute1('ground');
+                    $pokemon->set_evolution(0);
+                    $pokemon->set_formlevel1(36);
+                    $pokemon->set_formlevel2(999);
+                }
                 break;
             case 'dugtrio':
                 $pokemon = new pokemon('dugtrio', 'ダグトリオ', 'dugtrio', $status_flag);
@@ -724,6 +907,11 @@
                 $pokemon->set_defense(50 + $level * 2);
                 $pokemon->set_speed(120 + $level * 6);
                 $pokemon->set_attribute1('ground');
+                $pokemon->set_evolution(1);
+                $pokemon->set_formlevel1(34);
+                $pokemon->set_formlevel2(999);
+                $pokemon->set_preform1('dugda');
+                $pokemon->set_prename1('ディグダ');
                 break;
             case 'nidoqueen':
                 $pokemon = new pokemon('nidoqueen', 'ニドクイーン', 'nidoqueen', $status_flag);
@@ -862,10 +1050,28 @@
                 $assass3 = new Assassinate('madattack', 'どろあそび', 12, 5);
                 $assass4 = new Assassinate('rockcut', 'ロックカット', 21, 3);
                 break;
-            case 'iwaku':
+            case 'nassy':
+                $assass1 = new Assassinate('megadrain', 'メガドレイン', 42, 42);
+                $assass2 = new Assassinate('absorb', 'すいとる', 22, 22);
+                $assass3 = new Assassinate('trampling', 'ふみつけ', 39, 5);
+                $assass4 = new Assassinate('mistletoe', 'やどりぎ', 9, 6);    
+                break;
+            case 'ishitsubute':
+                $assass1 = new Assassinate('tackle', 'たいあたり', 13, 0);
+                $assass2 = new Assassinate('protect', 'まるくなる', 0, 13);
+                $assass3 = new Assassinate('madattack', 'どろあそび', 12, 5);
+                $assass4 = new Assassinate('rockcut', 'ロックカット', 21, 3);
+                break;
+            case 'iwaku_takeshi':
                 $assass1 = new Assassinate('tackle', 'たいあたり', 13, 0);
                 $assass2 = new Assassinate('noise', 'いやなおと', 8, 8);
                 $assass3 = new Assassinate('chorke', 'しめつける', 15, 3);
+                $assass4 = new Assassinate('rockattact', 'いわおとし', 36, 0);
+                break;
+            case 'iwaku':
+                $assass1 = new Assassinate('rockavalanche', 'いわなだれ', 65, 0);
+                $assass2 = new Assassinate('digging', 'あなをほる', 45, 20);
+                $assass3 = new Assassinate('slam', 'たたきつける', 55, 5);
                 $assass4 = new Assassinate('rockattact', 'いわおとし', 36, 0);
                 break;
             case 'starman':
@@ -875,6 +1081,12 @@
                 $assass4 = new Assassinate('watergun', 'みずでっぽう', 26, 0);
                 break;
             case 'starme':
+                $assass1 = new Assassinate('surfing', 'なみのり', 55, 5);    
+                $assass2 = new Assassinate('psychokinesis', 'サイコキネシス', 39, 0);
+                $assass3 = new Assassinate('renewal', 'じこさいせい', 0, 66);
+                $assass4 = new Assassinate('babblebeem', 'バブルこうせん', 37, 9);
+                break;
+            case 'starme_kasumi':
                 $assass1 = new Assassinate('watergun', 'みずでっぽう', 26, 0);
                 $assass2 = new Assassinate('hard', 'かたくなる', 0, 13);
                 $assass3 = new Assassinate('paralysis', 'あやしいひかり', 9, 6);
@@ -911,28 +1123,46 @@
                 $assass4 = new Assassinate('lightning', 'でんこうせっか', 15, 3);    
                 break;
             case 'raichu':
+                $assass1 = new Assassinate('thunder', 'カミナリ', 66, 0);
+                $assass2 = new Assassinate('waves', 'でんじは', 8, 6);
+                $assass3 = new Assassinate('rockattact', '１０まんボルト', 47, 0);
+                $assass4 = new Assassinate('thunderpunch', 'かみなりパンチ', 48, 5);
+                break;
+            case 'raichu_matisse':
                 $assass1 = new Assassinate('tackle', 'でんきショック', 26, 0);
                 $assass2 = new Assassinate('whistle', 'なきごえ', 2, 8);
                 $assass3 = new Assassinate('waves', 'でんじは', 8, 6);
                 $assass4 = new Assassinate('rockattact', '１０まんボルト', 47, 0);
                 break;
             case 'monjara':
-                $assass1 = new Assassinate('whipping', 'つるのむち', 29, 0);
+                $assass1 = new Assassinate('megadrain', 'メガドレイン', 42, 42);
                 $assass2 = new Assassinate('absorb', 'すいとる', 22, 22);
                 $assass3 = new Assassinate('chorke', 'しめつける', 15, 3);
-                $assass4 = new Assassinate('sleeppowder', 'ねむりごな', 3, 33);
+                $assass4 = new Assassinate('whipping', 'つるのむち', 29, 0);
                 break;
             case 'utsubbot':
                 $assass1 = new Assassinate('leafcutter', 'はっぱカッター', 45, 0);
                 $assass2 = new Assassinate('whipping', 'つるのむち', 29, 0);
-                $assass3 = new Assassinate('poisonpowder', 'どくのこな', 8, 15);
+                $assass3 = new Assassinate('seedbom', 'たねばくだん', 58, 0); 
                 $assass4 = new Assassinate('sleeppowder', 'ねむりごな', 3, 33);
                 break;
             case 'rafflesia':
                 $assass1 = new Assassinate('rockattact', 'はなびらのまい', 62, -15);
                 $assass2 = new Assassinate('poisonpowder', 'どくのこな', 8, 15);
+                $assass3 = new Assassinate('solorbeem', 'ソーラービーム', 80, -20);
+                $assass4 = new Assassinate('megadrain', 'メガドレイン', 42, 42);
+                break;
+            case 'utsubbot_erika':
+                $assass1 = new Assassinate('leafcutter', 'はっぱカッター', 45, 0);
+                $assass2 = new Assassinate('whipping', 'つるのむち', 29, 0);
+                $assass3 = new Assassinate('poisonpowder', 'どくのこな', 8, 15);
+                $assass4 = new Assassinate('sleeppowder', 'ねむりごな', 3, 33);
+                break;
+            case 'rafflesia_erika':
+                $assass1 = new Assassinate('rockattact', 'はなびらのまい', 62, -15);
+                $assass2 = new Assassinate('poisonpowder', 'どくのこな', 8, 15);
                 $assass3 = new Assassinate('sleeppowder', 'ねむりごな', 3, 33);
-                $assass4 = new Assassinate('leafcutter', 'はっぱカッター', 45, 0);
+                $assass4 = new Assassinate('megadrain', 'メガドレイン', 42, 42);
                 break;
             case 'betbeton':
                 $assass1 = new Assassinate('poisonspear', 'どくづき', 49, 0);

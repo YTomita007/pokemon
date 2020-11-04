@@ -7,9 +7,10 @@
 		$_mypokemon = $_POST['mypokemon'];
     }else{
         $_mypokemon = $_GET['mypokemon'];
-    }
+	}
 
 	$mypokemon = my_instance($_mypokemon);
+	list($myassass1, $myassass2, $myassass3, $myassass4, $opassass1, $opassass2, $opassass3, $opassass4) = weapon_instance($mypokemon, $_oppokemon);
 
 	$title = "ポケモンセンターてきな";
 
@@ -49,7 +50,7 @@
 					</tr>
 					<tr>
 						<td>しゅうとくわざ１</td>
-						<td></td>
+						<td><?php echo $myassass1->display; ?></td>
 					</tr>
 					<tr>
 						<td>しゅうとくわざ２</td>

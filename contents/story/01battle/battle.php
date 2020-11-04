@@ -30,7 +30,7 @@
         $_oplevel = $_POST['level'];
     }
 
-	$mypokemon = my_instance($_mypokemon, 15);
+	$mypokemon = my_instance($_mypokemon);
 	$gymleader = gymleader_instance($_gymleader);
 	$oppokemon = leaders_pokemon_instance($_oppokemon, $_oplevel);
 	list($myassass1, $myassass2, $myassass3, $myassass4, $opassass1, $opassass2, $opassass3, $opassass4) = weapon_instance($_mypokemon, $_oppokemon);
@@ -52,12 +52,12 @@
 		list($mypower, $oppower, $myattack, $opattack) = battle_calculation($mypower, $oppower, $myattack, $mycure, $opattack, $opcure);
 	}
 
-	if($oppower < $stpoint && $orders == 2){
-		list($oppokemon, $opattack, $opcure) = strengthen1($oppokemon, $opattack, $opcure);
-	} elseif ($oppower < $stpoint && $orders == 3) {
-		list($oppokemon, $opattack, $opcure) = strengthen2($oppokemon, $opattack, $opcure);
-	} elseif ($oppower < $stpoint && $orders == 4) {
-		list($oppokemon, $opattack, $opcure) = strengthen2($oppokemon, $opattack, $opcure);
+	if ($oppower < $stpoint) {
+		if ($orders == 3 || $orders == 4) {
+			list($oppokemon, $opattack, $opcure) = strengthen2($oppokemon, $opattack, $opcure);
+		} else {
+			list($oppokemon, $opattack, $opcure) = strengthen1($oppokemon, $opattack, $opcure);
+		}
 	}
 
 	if($mypower < 1 || $oppower < 1){
